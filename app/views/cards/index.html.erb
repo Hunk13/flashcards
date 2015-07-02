@@ -1,0 +1,19 @@
+<h1>Список всех карточек</h1>
+ 
+<div class="table-responsive">
+<table class="table table-striped">
+  <tr>
+    <th>Оригинальный текст</th>
+    <th>Перевод</th>
+    <th></th>
+  </tr>
+ 
+  <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.original %></td>
+      <td><%= card.translated %></td>
+      <td><%= link_to 'Edit', edit_card_path(card) %></td>
+    </tr>
+  <% end %>
+</table>
+</div>

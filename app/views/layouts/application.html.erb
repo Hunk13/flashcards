@@ -15,17 +15,17 @@
     <h1>Флэшкарточкер</h1><br>
     <div class="col-md-12 navigation-links">
       <ul class="nav nav-tabs nav-justified">
-        <li><%= link_to "Все карточки",    '#' %>
-        <li><%= link_to "Добавить карточку",    '#' %>
+        <li><%= link_to "Все карточки",    cards_path %>
+        <li><%= link_to "Добавить карточку", new_card_path %>
       </ul>
     </div>
   </header>
 </div>
 
 <section id="container">
-  <div class="container">
+  
     <%= yield %>
-  </div>
+
 </section>
 
 </section>
