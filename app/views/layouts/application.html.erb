@@ -6,33 +6,26 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+
 <body>
 
 <div>
-  <h1>Флэшкарточкер</h1>
-  <div class="col-md-8">
-    <ul class="nav nav-tabs nav-justified">
-            <li class="active"><%= link_to "Все карточки",    '#' %>
-            <li><%= link_to "Добавить карточку",    '#' %>
-    </ul>
-  </div>
+  <header class="clearfix">
+    <h1>Флэшкарточкер</h1>
+    <div class="col-md-8 navigation-links">
+      <ul class="nav nav-tabs nav-justified">
+        <li class="active"><%= link_to "Все карточки",    '#' %>
+        <li><%= link_to "Добавить карточку",    '#' %>
+      </ul>
+    </div>
+  </header>
 </div>
 
 <section id="container">
-
-    <header class="">
-      
-      
-    </header>
-
-    <section>
-      <div class="container">
-        <%= yield %>
-      </div>
-    </section>
+  <div class="container">
+    <%= yield %>
+  </div>
 </section>
-
-
 
 </body>
 </html>
