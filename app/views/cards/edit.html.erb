@@ -1,16 +1,2 @@
 <h1>Редактирование карты</h1>
-<%= form_for :card, url: cards_path(@card), method: :path do |f| %>
-  <p>
-    <%= f.label :original %><br>
-    <%= f.text_field :original %>
-  </p>
- 
-  <p>
-    <%= f.label :translated %><br>
-    <%= f.text_field :translated %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
