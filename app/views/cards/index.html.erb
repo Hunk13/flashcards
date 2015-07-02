@@ -5,6 +5,8 @@
   <tr>
     <th>Оригинальный текст</th>
     <th>Перевод</th>
+    <th>Дата</th>
+    <th></th>
     <th></th>
   </tr>
  
@@ -12,6 +14,8 @@
     <tr>
       <td><%= card.original %></td>
       <td><%= card.translated %></td>
+      <td><%= card.review %></td>
+      <td><%= link_to 'Show', card_path(card) %></td>
       <td><%= link_to 'Edit', edit_card_path(card) %></td>
     </tr>
   <% end %>
