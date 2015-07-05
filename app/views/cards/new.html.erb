@@ -1,17 +1,17 @@
 <h1>Новая карта</h1>
 <%= form_for :card, url: cards_path do |f| %>
   <p>
-    <%= f.label :original %><br>
+    <%= f.label :Оригинальный_текст %><br>
     <%= f.text_field :original %>
   </p>
  
   <p>
-    <%= f.label :translated %><br>
+    <%= f.label :Перевод %><br>
     <%= f.text_field :translated %>
   </p>
 
   <p>
-    <%= f.label :review %><br>
+    <%= f.label :Дата_обновления %><br>
     <%= f.date_field :review %>
   </p> 
   <p>

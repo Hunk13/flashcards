@@ -1,10 +1,11 @@
 class CardsController < ApplicationController
+  before_action :find_card, only: [:show, :edit, :update]
+
   def index
-  	@cards = Card.all
+    @cards = Card.all
   end
 
   def show
-  	@card = Card.find(params[:id])
   end
 
   def new
@@ -28,7 +29,10 @@ class CardsController < ApplicationController
   end
   
   def edit
-    @card = Card.find(params[:id])    
+  end
+
+  def find_card
+    @card = Card.find(params[:id])
   end
 
 private
