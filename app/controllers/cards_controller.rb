@@ -40,4 +40,3 @@ class CardsController < ApplicationController
     params.require(:card).permit(:original, :translated, :review)
   end
 end
- 
