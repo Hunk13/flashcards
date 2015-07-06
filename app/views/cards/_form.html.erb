@@ -1,0 +1,20 @@
+<%= form_for(card) do |f| %>
+  <p>
+    <%= f.label :original %><br>
+    <%= f.text_field :original %>
+  </p>
+ 
+  <p>
+    <%= f.label :translated %><br>
+    <%= f.text_field :translated %>
+  </p>
+
+  <p>
+    <%= f.label :review %><br>
+    <%= f.date_field :review %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
