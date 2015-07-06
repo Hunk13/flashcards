@@ -13,10 +13,10 @@ class CardsController < ApplicationController
   end
 
   def create
-  	@card = Card.new(card_params)
+    @card = Card.new(card_params)
 
-  	@card.save
-  	redirect_to @card
+    @card.save
+    redirect_to @card
   end
 
   def update
