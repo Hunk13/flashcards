@@ -31,7 +31,6 @@ class CardsController < ApplicationController
   end
 
 private
-
   def find_card
     @card = Card.find(params[:id])
   end
