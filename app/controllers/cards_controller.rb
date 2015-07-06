@@ -30,7 +30,8 @@ class CardsController < ApplicationController
   def edit
   end
 
-private
+  private
+
   def find_card
     @card = Card.find(params[:id])
   end
