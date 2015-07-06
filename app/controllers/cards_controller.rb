@@ -13,13 +13,11 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.new(card_params)
-    @card.save
+    @card = Card.create(card_params)
     redirect_to @card
   end
 
   def update
-    @card = Card.find(params[:id])
     if @card.update(card_params)
       redirect_to @card
     else
