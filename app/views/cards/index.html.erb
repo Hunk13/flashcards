@@ -8,6 +8,7 @@
     <th>Дата</th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
  
   <% @cards.each do |card| %>
@@ -15,8 +16,9 @@
       <td><%= card.original %></td>
       <td><%= card.translated %></td>
       <td><%= card.review.strftime("%d/%m/%Y") %></td>
-      <td><%= link_to 'Show', card_path(card) %></td>
-      <td><%= link_to 'Edit', edit_card_path(card) %></td>
+      <td><%= link_to 'Показать', card_path(card) %></td>
+      <td><%= link_to 'Редактировать', edit_card_path(card) %></td>
+      <td><%= link_to 'Удалить', card_path(card), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
     </tr>
   <% end %>
 </table>
