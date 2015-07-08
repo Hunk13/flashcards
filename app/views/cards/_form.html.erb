@@ -1,26 +1,24 @@
-<%= simple_form_for(card) do |f| %>
-<form class="form-inline">
-  <div class="form-group col-md-4">
+<%= simple_form_for @card, html: { class: "form-inline" } do |f| %>
+  <div class="form-group">
     <p>
-      <%= f.input :original, as: :string, label: "Оригинальный текст:" %>
+      <%= f.input :original, html: { class: "form-control" }, as: :string, label: "Оригинальный текст:" %>
     </p>
   </div>
   
-  <div class="form-group col-md-4">
+  <div class="form-group">
     <p>
-      <%= f.input :translated, as: :string, label: "Перевод:" %>
+      <%= f.input :translated, html: { class: "form-control" }, as: :string, label: "Перевод:" %>
     </p>
   </div>
 
-  <div class="form-group col-md-4">
+  <div class="form-group">
     <p>
-      <%= f.input :review, as: :date, order: [:day, :month, :year], discard_year: true, label: "Дата пересмотра карточки", default: 3.days.from_now %>
+      <%= f.input :review, html: { class: "form-control" }, as: :date, order: [:day, :month, :year], discard_year: true, label: "Дата пересмотра карточки", default: 3.days.from_now %>
     </p>
   </div>
 
-  <p class="col-md-4">
+  <p class="form-group">
     <br>
     <%= f.button :submit, "Создать карточку" %>
   </p>
-</form>
 <% end %>
