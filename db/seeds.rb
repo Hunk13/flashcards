@@ -15,7 +15,7 @@ doc = Nokogiri::HTML(open(url))
 words = doc.css("//tr").map do |word|
   ger = word.css("td:nth-child(2)").text.capitalize
   eng = word.css("td:nth-child(3)").text.capitalize
-  {ger: ger, eng: eng}
+  { ger: ger, eng: eng }
 end
 
 words.slice!(0)
