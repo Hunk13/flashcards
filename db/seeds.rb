@@ -19,5 +19,5 @@ words.slice!(0)
 dat = Date.today + 3
 
 words.each do |word|
-  Card.create!(original_text: word[:ger], translated_text: word[:eng], review_date: dat.to_s)
+  Card.create!(original_text: word[:ger], translated_text: word[:eng], review_date: dat)
 end
