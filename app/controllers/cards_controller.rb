@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class CardsController < ApplicationController
   before_action :find_card, only: [:show, :edit, :update, :edit, :destroy]
 

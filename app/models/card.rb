@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class Card < ActiveRecord::Base
   validate :original_not_equal_translated
   validates :review_date, presence: true
