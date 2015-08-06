@@ -1,0 +1,16 @@
+<h1>Тренировка перевода</h1>
+<% @card = Card.for_review.first %>
+<% if @card %>
+<p>
+<strong>Оригинальный текст</strong><br/>
+<%= @card.translated_text %></b>
+  <%= form_for :review, :url => reviews_path, :html => {class: 'form'} do |f| %>
+    <%= f.hidden_field :card_id, value: @card.id %>
+    <%= f.label :user_translation, "Введите перевод слова:" %><br/>
+    <%= f.text_field :user_translation %>
+    <%= f.submit "Проверить" %>
+  <% end %>
+  <% else %>
+    <h2>Нет карточек</h2>
+</p>
+<% end %>

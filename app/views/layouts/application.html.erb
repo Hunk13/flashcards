@@ -10,24 +10,24 @@
 <body>
 
 <section id="container">
-<div>
-  <header class="clearfix">
-    <h1><%=link_to 'Флэшкарточкер', root_path %></h1><br>
-    <div class="col-md-12 navigation-links">
-      <ul class="nav nav-tabs nav-justified">
-        <li><%= link_to "Все карточки", cards_path %>
-        <li><%= link_to "Добавить карточку", new_card_path %>
-      </ul>
-    </div>
-  </header>
-</div>
+  <div>
+    <header class="clearfix">
+      <h1><%=link_to 'Флэшкарточкер', root_path %></h1><br>
+      <div class="col-md-12 navigation-links">
+        <ul class="nav nav-tabs nav-justified">
+          <li><%= link_to "Все карточки", cards_path %>
+          <li><%= link_to "Добавить карточку", new_card_path %>
+          <li><%= link_to "Тренировка слов", reviews_path %>
+        </ul>
+      </div>
+    </header>
+  </div>
 
-<section id="container">
-  
+  <section id="container">
     <%= yield %>
+  </section>
 
 </section>
 
-</section>
 </body>
 </html>
