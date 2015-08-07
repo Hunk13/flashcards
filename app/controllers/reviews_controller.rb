@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def index
+    @card = Card.for_review.first
   end
 
   def create
@@ -11,6 +12,8 @@ class ReviewsController < ApplicationController
     end
     redirect_to reviews_path
   end
+
+  private
 
   def review_params
     params.require(:review).permit(:card_id, :user_translation)

@@ -14,14 +14,14 @@ class Card < ActiveRecord::Base
 
   def update_translation(user_translation)
     if translated_text.downcase.to_s == user_translation.downcase.to_s
-      update_attribute(:review_date, review_date + 3)
+      update_attribute(review_date: Date.today + 3.days)
     end
   end
 
   private
     def original_not_equal_translated
       if original_text.to_s == translated_text.to_s
-        errors[:base] << "Оригинальный и переведённый тексты равны друг другу"
+        errors.add(original_text, "Оригинальный и переведённый тексты равны друг другу")
       end
     end
   end
