@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
 
   def create
     @card = Card.find(review_params[:card_id])
-    if @card.update_translation(review_params[:user_translation])
+    if @card.update_translation_date(review_params[:user_translation])
       flash[:notice] = "Good!!!"
     else
       flash[:alert] = "Wrong!!!"

@@ -12,16 +12,20 @@ class Card < ActiveRecord::Base
     review_date = DateTime.now + 3.days
   end
 
-  def update_translation(user_translation)
-    if translated_text.downcase.to_s == user_translation.downcase.to_s
+  def update_translation_date(user_translation)
+    if check_words(translated_text) == check_words(user_translation)
       update_attribute(review_date: Date.today + 3.days)
     end
   end
 
   private
     def original_not_equal_translated
-      if original_text.to_s == translated_text.to_s
-        errors.add(original_text, "Оригинальный и переведённый тексты равны друг другу")
+      if check_words(original_text) == check_words(translated_text)
+        errors.add(:original_text, "Оригинальный и переведённый тексты равны друг другу")
       end
+    end
+
+    def check_words(string)
+      string.mb_chars.downcase
     end
   end
