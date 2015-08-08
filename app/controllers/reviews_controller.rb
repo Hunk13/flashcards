@@ -6,15 +6,14 @@ class ReviewsController < ApplicationController
   def create
     @card = Card.find(review_params[:card_id])
     if @card.update_translation_date(review_params[:user_translation])
-      flash[:notice] = "Good!!!"
+      flash[:notice] = "Правильный перевод"
     else
-      flash[:alert] = "Wrong!!!"
+      flash[:alert] = "Неправильно, попробуй еще"
     end
-    redirect_to reviews_path
+    redirect_to :back
   end
 
-  private
-
+private
   def review_params
     params.require(:review).permit(:card_id, :user_translation)
   end

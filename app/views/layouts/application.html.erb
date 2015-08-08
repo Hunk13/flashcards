@@ -23,9 +23,10 @@
     </header>
   </div>
 
-  <section id="container">
-    <%= yield %>
-  </section>
+  <%= yield %>
+
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
 
 </section>
 
