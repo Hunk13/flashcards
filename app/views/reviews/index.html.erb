@@ -6,11 +6,21 @@
 <%= @card.translated_text %></b>
   <%= simple_form_for(:review, url: reviews_path, method: :post, class: "form-group") do |f| %>
     <%= f.hidden_field :card_id, value: @card.id %>
-    <%= f.label :user_translation, "Введите перевод слова:" %><br/>
-    <%= f.text_field :user_translation %>
-    <%= f.submit "Проверить" %>
+    <div class="form-group">
+      <p>
+        <%= f.label :user_translation, 'Введите перевод слова:' %><br/>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.text_field :user_translation, html: { class: "form-control" } %>
+      </p>
+    </div>
+    <p class="form-group">
+      <%= f.submit "Проверить" %>
+    </p>
   <% end %>
   <% else %>
-    <h2>Нет карточек</h2>
+    <h2>Нет карточек для тренировки</h2>
 <% end %>
 </p>

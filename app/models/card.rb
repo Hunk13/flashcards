@@ -4,7 +4,7 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, presence: true, 
                                               length: { minimum: 2 }, 
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/, message: "Слова только с большой буквы" }
-  before_save :set_date_after_review, on: :create
+  #before_save :set_date_after_review, on: :create
 
   scope :for_review, -> {where("review_date <= ?", DateTime.now).order("RANDOM()")}
 
