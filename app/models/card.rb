@@ -22,7 +22,7 @@ class Card < ActiveRecord::Base
 
   def original_not_equal_translated
     if check_words(original_text) == check_words(translated_text)
-      errors.add(:original_text, "Оригинальный и переведённый тексты равны друг другу")
+      errors.add(:original_text, "Оригинальный и переведённый тексты равны")
     end
   end
 
