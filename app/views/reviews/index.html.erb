@@ -2,9 +2,10 @@
 <% @card = Card.for_review.first %>
 <% if @card %>
 <p>
-<strong>Оригинальный текст:</strong><br/>
-<%= @card.translated_text %></b>
-  <%= simple_form_for(:review, url: reviews_path, method: :post, class: "form-group") do |f| %>
+
+  <%= simple_form_for(:review, url: reviews_path, method: :post, class: "form-horizontal") do |f| %>
+    <strong>Оригинальный текст:</strong><br/>
+    <%= @card.translated_text %>
     <%= f.hidden_field :card_id, value: @card.id %>
     <div class="form-group">
       <p>
@@ -17,7 +18,7 @@
       </p>
     </div>
     <p class="form-group">
-      <%= f.submit "Проверить" %>
+      <%= f.submit 'Проверить' %>
     </p>
   <% end %>
   <% else %>

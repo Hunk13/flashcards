@@ -3,10 +3,10 @@ class Card < ActiveRecord::Base
   validates :review_date, presence: true
   validates :original_text, :translated_text, presence: true, 
                                               length: { minimum: 2 }, 
-                                              format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/, message: "Слова только с большой буквы" }
-  #before_save :set_date_after_review, on: :create
+                                              format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/, message: 'Слова только с большой буквы' }
+  before_save :set_date_after_review, on: :create
 
-  scope :for_review, -> {where("review_date <= ?", DateTime.now).order("RANDOM()")}
+  scope :for_review, -> { where('review_date <= ?', DateTime.now).order('RANDOM()') }
 
   def set_date_after_review
     review_date = DateTime.now + 3.days
@@ -21,7 +21,7 @@ class Card < ActiveRecord::Base
   private
     def original_not_equal_translated
       if check_words(original_text) == check_words(translated_text)
-        errors.add(:original_text, "Оригинальный и переведённый тексты равны друг другу")
+        errors.add(:original_text, 'Оригинальный и переведённый тексты равны друг другу')
       end
     end
 
