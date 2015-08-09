@@ -20,14 +20,13 @@ class Card < ActiveRecord::Base
 
   private
 
-    def original_not_equal_translated
-      if check_words(original_text) == check_words(translated_text)
-        errors.add(:original_text, "Оригинальный и переведённый тексты равны друг другу")
-      end
+  def original_not_equal_translated
+    if check_words(original_text) == check_words(translated_text)
+      errors.add(:original_text, "Оригинальный и переведённый тексты равны друг другу")
     end
+  end
 
-    def check_words(string)
-      string.mb_chars.downcase
-    end
-
+  def check_words(string)
+    string.mb_chars.downcase
+  end
 end
