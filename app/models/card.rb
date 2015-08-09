@@ -8,10 +8,6 @@ class Card < ActiveRecord::Base
 
   scope :for_review, -> { where("review_date <= ?", DateTime.now).order("RANDOM()") }
 
-  def set_date_after_review
-    review_date = DateTime.now + 3.days
-  end
-
   def update_translation_date(user_translation)
     if check_words(original_text) == check_words(user_translation)
       update_attribute(:review_date, review_date + 3.days)
