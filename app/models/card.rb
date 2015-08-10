@@ -4,11 +4,30 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, presence: true, 
                                               length: { minimum: 2 }, 
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/, message: "Слова только с большой буквы" }
- 
-  private
-    def original_not_equal_translated
-      if original_text.to_s == translated_text.to_s
-        errors[:base] << "Оригинальный и переведённый тексты равны друг другу"
-      end
+  before_save :set_date_after_review, on: :create
+
+  scope :expired, -> { where("review_date <= ?", DateTime.now) }
+  scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
+
+  def update_translation_date(user_translation)
+    if prepare_text(original_text) == prepare_text(user_translation)
+      update_attributes(review_date: set_date_after_review)
     end
   end
+
+  private
+
+  def original_not_equal_translated
+    if prepare_text(original_text) == prepare_text(translated_text)
+      errors.add(:original_text, "Оригинальный и переведённый тексты равны")
+    end
+  end
+
+  def prepare_text(string)
+    string.mb_chars.downcase
+  end
+
+  def set_date_after_review
+    DateTime.now + 3.days
+  end
+end

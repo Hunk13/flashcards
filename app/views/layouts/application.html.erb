@@ -10,24 +10,33 @@
 <body>
 
 <section id="container">
-<div>
-  <header class="clearfix">
-    <h1><%=link_to 'Флэшкарточкер', root_path %></h1><br>
-    <div class="col-md-12 navigation-links">
-      <ul class="nav nav-tabs nav-justified">
-        <li><%= link_to "Все карточки", cards_path %>
-        <li><%= link_to "Добавить карточку", new_card_path %>
-      </ul>
-    </div>
-  </header>
-</div>
+  <div>
+    <header class="clearfix">
+      <h1><%=link_to 'Флэшкарточкер', root_path %></h1><br>
+      <div class="col-md-12 navigation-links">
+        <ul class="nav nav-tabs nav-justified">
+          <li><%= link_to 'Все карточки', cards_path %>
+          <li><%= link_to 'Добавить карточку', new_card_path %>
+          <li><%= link_to 'Тренировка слов', reviews_path %>
+        </ul>
+      </div>
+    </header>
+    <p>
+        <h3>
+          <span class="label label-default">NEW</span>
+            Первый в мире удобный менеджер флеш-карточек. Именно так.
+          <span class="label label-default">NEW</span>
+        </h3>
+      </p>
+      <br/>
+  </div>
 
-<section id="container">
-  
-    <%= yield %>
+  <%= yield %>
+
+  <p class="color-notice"><%= flash[:notice] %></p>
+  <p class="color-alert"><%= flash[:alert] %></p>
 
 </section>
 
-</section>
 </body>
 </html>
