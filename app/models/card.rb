@@ -4,14 +4,14 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, presence: true, 
                                               length: { minimum: 2 }, 
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/, message: "Слова только с большой буквы" }
-  before_save :set_date_after_review, on: :create
+  #before_save :set_date_after_review, on: :create
 
   scope :expired, -> { where("review_date <= ?", DateTime.now) }
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
   def update_translation_date(user_translation)
     if prepare_text(original_text) == prepare_text(user_translation)
-      update_attributes(:review_date => set_date_after_review)
+      update_attributes(review_date: set_date_after_review)
     end
   end
 
