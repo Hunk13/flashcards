@@ -10,20 +10,20 @@ class Card < ActiveRecord::Base
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
   def update_translation_date(user_translation)
-    if conversion_words(original_text) == conversion_words(user_translation)
-      update_attribute(:review_date, set_date_after_review)
+    if prepare_text(original_text) == prepare_text(user_translation)
+      update_attributes(:review_date => set_date_after_review)
     end
   end
 
   private
 
   def original_not_equal_translated
-    if conversion_words(original_text) == conversion_words(translated_text)
+    if prepare_text(original_text) == prepare_text(translated_text)
       errors.add(:original_text, "Оригинальный и переведённый тексты равны")
     end
   end
 
-  def conversion_words(string)
+  def prepare_text(string)
     string.mb_chars.downcase
   end
 
