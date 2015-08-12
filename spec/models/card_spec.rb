@@ -40,7 +40,7 @@ describe Card do
       original_text: "MiT",
       translated_text: "WiTh")
     invalid_card.valid?
-    expect(invalid_card.errors[:original_text] && invalid_card.errors[:translated_text]).to include("Слова только с большой буквы")
+    expect(invalid_card.errors[:original_text] &&
+           invalid_card.errors[:translated_text]).to include("Слова только с большой буквы")
   end
-
 end
