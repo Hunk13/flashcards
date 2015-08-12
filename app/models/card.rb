@@ -24,7 +24,7 @@ class Card < ActiveRecord::Base
   end
 
   def prepare_text(string)
-    string.mb_chars.downcase
+    string.to_s.mb_chars.downcase.strip
   end
 
   def set_date_after_review
