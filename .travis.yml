@@ -6,7 +6,7 @@ env:
   - DB=postgresql
 
 script:
-  - bundle exec rspec spec
+  - bundle exec rspec spec/models/card_spec.rb
 
 before_script:
   - psql -c 'create database test_pgsql;' -U postgres
