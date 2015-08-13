@@ -3,3 +3,11 @@ test:
   database: test_pgsql
   username: flcard
   password: flcard
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: development_pgsql
+  username: flcard
+  password: flcard
+  template: template0 # Required for UTF8 encoding
