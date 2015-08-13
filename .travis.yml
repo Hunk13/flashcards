@@ -1,3 +1,9 @@
 language: ruby
 rvm:
   - "2.0.0"
+
+before_script:
+  - psql -c 'create database test_pgsql;' -U postgres
+
+before_script:
+  - cp config/database.yml.travis config/database.yml
