@@ -17,7 +17,6 @@ describe "Cards to review" do
   context "new cards to review" do
     before(:each) do
       card = create(:card)
-      Timecop.freeze(Date.today + 5.days)
       visit root_path
       click_link "Тренировка слов"
       visit reviews_path
