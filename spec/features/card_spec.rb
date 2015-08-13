@@ -4,8 +4,6 @@ describe "Cards to review" do
   context "no cards to review" do
     before(:each) do
       visit root_path
-      click_link "Тренировка слов"
-      visit reviews_path
     end
 
     it "no new cards to review" do
@@ -18,8 +16,6 @@ describe "Cards to review" do
     before(:each) do
       card = create(:card)
       visit root_path
-      click_link "Тренировка слов"
-      visit reviews_path
     end
 
     it "input right translation" do
@@ -29,7 +25,7 @@ describe "Cards to review" do
     end
 
     it "input wrong translation" do
-      fill_in "Введите перевод:", with: "yes"
+      fill_in "Введите перевод слова:", with: "yes"
       click_button "Проверить"
       expect(page).to have_content "Неправильно, попробуй еще"
     end
