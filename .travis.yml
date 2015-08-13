@@ -2,8 +2,15 @@ language: ruby
 rvm:
   - "2.0.0"
 
+env:
+  - DB=postgresql
+
+script:
+  - bundle exec rspec spec
+
 before_script:
   - psql -c 'create database test_pgsql;' -U postgres
 
 before_script:
   - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database test_pgsql;' -U postgres
