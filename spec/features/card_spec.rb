@@ -24,13 +24,13 @@ describe "Cards to review" do
     end
 
     it "input right translation" do
-      fill_in "Введите перевод слова:", with: "Dog"
+      fill_in "Введите перевод слова:", with: "Yes"
       click_button "Проверить"
       expect(page).to have_content "Правильный перевод"
     end
 
     it "input wrong translation" do
-      fill_in "Введите перевод:", with: "doggg"
+      fill_in "Введите перевод:", with: "yes"
       click_button "Проверить"
       expect(page).to have_content "Неправильно, попробуй еще"
     end
