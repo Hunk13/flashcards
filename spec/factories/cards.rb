@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :card do
-    original_text "Ja"
-    translated_text "Yes"
-    review_date Date.today + 3.days
+    original_text "Yes"
+    translated_text "Ja"
+    review_date Date.today
   end
 end
