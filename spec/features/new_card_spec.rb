@@ -11,7 +11,7 @@ describe "New card" do
 
     it "card ok" do
       expect(page).to have_content "Back"
-     end
+    end
   end
 
   context "invalid card" do
@@ -24,6 +24,6 @@ describe "New card" do
 
     it "translated equal original" do
       expect(page).to have_content "Оригинальный и переведённый тексты равны"
-     end
+    end
   end
 end

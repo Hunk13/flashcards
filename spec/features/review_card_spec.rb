@@ -9,7 +9,7 @@ describe "Cards to review" do
 
     it "no new cards to review" do
       expect(page).to have_content "Нет карточек для тренировки"
-     end
+    end
   end
 
   context "new cards to review" do
