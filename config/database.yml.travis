@@ -1,0 +1,13 @@
+test:
+  adapter: postgresql
+  database: test_pgsql
+  username: postgres
+  password: 
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: development_pgsql
+  username: postgres
+  password: 
+  template: template0 # Required for UTF8 encoding
