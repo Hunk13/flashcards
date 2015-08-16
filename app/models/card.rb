@@ -1,6 +1,6 @@
 class Card < ActiveRecord::Base
   validate :original_not_equal_translated
-  validates :review_date, presence: true
+  validates :review_date, :user_id, presence: true
   validates :original_text, :translated_text, presence: true, 
                                               length: { minimum: 2 }, 
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/, message: "Слова только с большой буквы" }
@@ -8,6 +8,8 @@ class Card < ActiveRecord::Base
 
   scope :expired, -> { where("review_date <= ?", DateTime.now) }
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
+
+  belongs_to :user
 
   def update_translation_date(user_translation)
     if prepare_text(original_text) == prepare_text(user_translation)

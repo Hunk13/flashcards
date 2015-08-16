@@ -3,5 +3,6 @@ FactoryGirl.define do
     original_text "Yes"
     translated_text "Ja"
     review_date Date.today
+    user_id 10
   end
 end

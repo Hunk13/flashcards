@@ -3,6 +3,7 @@ require "rails_helper"
 describe Card do
   it "is valid card with original text, translated test and date review" do
     valid_card = Card.new(
+      user_id: 1,
       original_text: "Ja",
       translated_text: "Yes",
       review_date: 3.days.from_now)
