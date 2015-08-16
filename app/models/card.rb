@@ -9,7 +9,7 @@ class Card < ActiveRecord::Base
   scope :expired, -> { where("review_date <= ?", DateTime.now) }
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
-  belongs_to :user
+  belongs_to :user, foreign_key: "user_id"
 
   def update_translation_date(user_translation)
     if prepare_text(original_text) == prepare_text(user_translation)
