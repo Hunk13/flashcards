@@ -25,4 +25,4 @@ doc/
 .DS_Store
 .idea
 .secret
-*.sublime-project
+flashcards.sublime-project
