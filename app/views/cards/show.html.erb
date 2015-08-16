@@ -13,6 +13,11 @@
   <%= @card.review_date.strftime('%d/%m/%Y') %>
 </p>
 
+<p>
+  <strong>ID:</strong>
+  <%= @card.user_id %>
+</p>
+
 <br>
 <p>
   <%= link_to 'Back', cards_path %>
