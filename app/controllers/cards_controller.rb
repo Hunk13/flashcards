@@ -48,6 +48,7 @@ class CardsController < ApplicationController
     params.require(:card).permit(:original_text,
                                  :translated_text,
                                  :review_date,
-                                 :user_translation)
+                                 :user_translation,
+                                 :user_id)
   end
 end

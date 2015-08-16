@@ -15,6 +15,7 @@ describe "Cards to review" do
   context "new cards to review" do
     before(:each) do
       create(:card)
+      create(:user)
       visit root_path
     end
 
