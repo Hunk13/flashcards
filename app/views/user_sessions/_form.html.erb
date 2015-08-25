@@ -1,0 +1,14 @@
+<%= simple_form_for :user, url: user_sessions_path, method: "new" do |f| %>
+  <div class="filed">
+    <%= f.input :email, as: :string, label: "E-mail:" %><br />
+  </div>
+  <div class="filed">
+    <%= f.input :password, label: "Password:" %><br />
+  </div>
+  <div class="form-group">
+    <%= f.input :remember_me, label: "Remember me", as: :boolean %>
+  </div>
+  <div class="actions">
+    <%=  f.button :submit, "Login" %>
+  </div>
+<% end %>

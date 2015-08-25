@@ -1,0 +1,13 @@
+<%= simple_form_for :review, url: reviews_path, class: "form-horizontal" do |f| %>
+<strong>Оригинальный текст:</strong><br/>
+<%= card.translated_text %>
+  <%= f.hidden_field :card_id, value: card.id %>
+  <div class="form-group">
+  <p>
+    <%= f.input :user_translation, html: { class: "form-control" }, as: :string, label: "Введите перевод слова:" %>
+  </p>
+  </div>
+  <p class="form-group">
+    <%= f.submit 'Проверить' %>
+  </p>
+<% end %>

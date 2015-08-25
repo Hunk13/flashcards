@@ -2,7 +2,7 @@ class CardsController < ApplicationController
   before_action :find_card, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cards = Card.all
+    @cards = current_user.cards.order(:id)
   end
 
   def show
@@ -14,7 +14,6 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
-    
     if @card.save
       redirect_to @card
     else
@@ -37,7 +36,7 @@ class CardsController < ApplicationController
     @card.destroy
     redirect_to cards_path
   end
-  
+
   private
 
   def find_card

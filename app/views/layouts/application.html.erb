@@ -11,24 +11,50 @@
 
 <section id="container">
   <div>
-    <header class="clearfix">
-      <h1><%=link_to 'Флэшкарточкер', root_path %></h1><br>
-      <div class="col-md-12 navigation-links">
-        <ul class="nav nav-tabs nav-justified">
-          <li><%= link_to 'Все карточки', cards_path %>
-          <li><%= link_to 'Добавить карточку', new_card_path %>
-          <li><%= link_to 'Тренировка слов', reviews_path %>
-        </ul>
+    <header>
+      <div>
+        <h1><%=link_to "Флэшкарточкер", root_path %></h1>
+        <p>
+          <h3>Первый в мире удобный менеджер флеш-карточек. Именно так.</h3>
+        </p>
       </div>
+      <div class="form-inline">
+        <% if current_user %>
+          <table class="table table-bordered">
+          <tr >
+            <th colspan="2">
+              <span><h4>Профиль: <b><%= current_user.name %></b></h4></span><br />
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= link_to "Показать мой профиль", user_path(current_user) %>
+            </th>
+            <th>
+              <%= link_to "Редактировать мой профиль", edit_user_path(current_user) %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= link_to "Все пользователи", users_path %>
+            </th>
+            <th>
+              <%= link_to "Выход", logout_path, method: :post %>
+            </th>
+          </tr>
+          </table>
+        <% else %>
+          <%= link_to "Register", signup_path %>
+          <%= link_to "Login", login_path %>
+        <% end %>
     </header>
-    <p>
-        <h3>
-          <span class="label label-default">NEW</span>
-            Первый в мире удобный менеджер флеш-карточек. Именно так.
-          <span class="label label-default">NEW</span>
-        </h3>
-      </p>
-      <br/>
+    <div class="col-md-12 navigation-links">
+      <ul class="nav nav-tabs nav-justified">
+        <li><%= link_to 'Все карточки', cards_path %>
+        <li><%= link_to 'Добавить карточку', new_card_path %>
+        <li><%= link_to 'Тренировка слов', reviews_path %>
+      </ul>
+    </div><br/>
   </div>
 
   <%= yield %>
