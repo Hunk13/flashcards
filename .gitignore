@@ -27,3 +27,5 @@ doc/
 .secret
 flashcards.sublime-project
 /config/initializers/sorcery.rb
+# Ignore application configuration
+/config/application.yml

@@ -110,9 +110,9 @@ Rails.application.config.sorcery.configure do |config|
   # Twitter will not accept any requests nor redirect uri containing localhost,
   # make sure you use 0.0.0.0:3000 to access your app in development
   #
-  config.twitter.key = "xDNGY6kllSIZugSyNDeqSIouV"
-  config.twitter.secret = "P2YHWVtHNxjLJJbBwPH9BvGYCAmLzUvxDAzfvyCGSGIDWR1oCn"
-  config.twitter.callback_url = "http://127.0.0.1:3000/auth/twitter/callback"
+  config.twitter.key = ENV["OUATH_GITHUB_KEY"]
+  config.twitter.secret = ENV["OUATH_GITHUB_SECRET"]
+  config.twitter.callback_url = "#{ENV['APP_HOST']}/auth/twitter/callback"
   config.twitter.user_info_mapping = { email: "email"}
   #
   # config.facebook.key = ""
