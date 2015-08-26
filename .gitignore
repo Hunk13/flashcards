@@ -26,4 +26,4 @@ doc/
 .idea
 .secret
 flashcards.sublime-project
-config/initializers/
+config/initializers/*
