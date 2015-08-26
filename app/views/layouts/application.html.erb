@@ -44,8 +44,11 @@
           </tr>
           </table>
         <% else %>
-          <%= link_to "Register", signup_path %>
-          <%= link_to "Login", login_path %>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Register", signup_path %></li>
+            <li><%= link_to "Login", login_path %></li>
+            <li><%= link_to "Login with Twitter", auth_at_provider_path(provider: :twitter) %></li>
+          </ul>
         <% end %>
     </header>
     <div class="col-md-12 navigation-links">

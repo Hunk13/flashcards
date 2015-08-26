@@ -8,21 +8,21 @@ class UserSessionsController < ApplicationController
     if login(session_params[:email], session_params[:password], session_params[:remember_me])
       redirect_back_or_to(root_path, notice: "Welcome!!!")
     else
-      flash[:error] = "E-mail and/or password is incorrect."
+      flash[:error] = "Login failed!!!"
       render action: "new"
     end
   end
 
   def destroy
-    logout
-    redirect_to(:login, notice: "Logget out")
+    if current_user
+      logout
+      redirect_to(:login, notice: "Logget out")
+    else
+     redirect_to root_path
+    end
   end
 
   private
-    def set_user
-      @user = login(params[:email], params[:password])
-    end
-
     def session_params
       params.require(:user).permit(:email, :password, :remember_me)
     end

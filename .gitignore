@@ -26,3 +26,4 @@ doc/
 .idea
 .secret
 flashcards.sublime-project
+config/initializers/sorcery.rb

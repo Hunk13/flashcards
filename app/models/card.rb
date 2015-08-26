@@ -10,8 +10,6 @@ class Card < ActiveRecord::Base
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
   belongs_to :user
-  default_scope -> { order('created_at DESC') }
-  validates :user_id, presence: true
 
   def update_translation_date(user_translation)
     if prepare_text(original_text) == prepare_text(user_translation)
