@@ -2,10 +2,11 @@ class UserSessionsController < ApplicationController
   skip_before_filter :require_login, except: [:destroy]
 
   def new
+    @user = User.new
   end
 
   def create
-    if login(session_params[:email], session_params[:password], session_params[:remember_me])
+    if login(session_params[:email], session_params[:password], session_params[:remember])
       redirect_back_or_to(root_path, notice: "Welcome!!!")
     else
       flash[:error] = "Login failed!!!"
@@ -24,6 +25,6 @@ class UserSessionsController < ApplicationController
 
   private
     def session_params
-      params.require(:user).permit(:email, :password, :remember_me)
+      params.require(:user).permit(:email, :password, :remember)
     end
   end
