@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
                     email_format: { message: 'has invalid format' }
   validates :password, length: { minimum: 3 },
                        presence: true,
-                       confirmation: true,
-                       if: -> { new_record? || changes["password"] }
-  validates :password_confirmation, presence: true,
-                                    if: -> { new_record? || changes["password"] }
+                       confirmation: true
+  validates :password_confirmation, presence: true
 end

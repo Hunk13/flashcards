@@ -1,1 +1,614 @@
-
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fil",
+				"fill_in"
+			],
+			[
+				"r",
+				"rspec"
+			],
+			[
+				"t",
+				"today"
+			],
+			[
+				"aut",
+				"auth_params"
+			],
+			[
+				"li",
+				"li	Tag"
+			],
+			[
+				"tr",
+				"tr	Tag"
+			],
+			[
+				"revi",
+				"review_params"
+			],
+			[
+				"user",
+				"users"
+			],
+			[
+				"re",
+				"remember_me"
+			],
+			[
+				"on",
+				"only"
+			],
+			[
+				"log",
+				"login"
+			],
+			[
+				"par",
+				"params"
+			],
+			[
+				"password_",
+				"password_confirmation"
+			],
+			[
+				"vali",
+				"valid_card"
+			],
+			[
+				"in",
+				"invalid_card"
+			],
+			[
+				"con",
+				"conversion_words_to_compare"
+			],
+			[
+				"rev",
+				"reviews_path"
+			],
+			[
+				"dow",
+				"downcase"
+			],
+			[
+				"card",
+				"card_id"
+			],
+			[
+				"fl",
+				"flash"
+			],
+			[
+				"us",
+				"user_translation"
+			],
+			[
+				"rew",
+				"review_params"
+			],
+			[
+				"st",
+				"strong	Tag"
+			],
+			[
+				"do",
+				"downcase"
+			],
+			[
+				"to",
+				"to_s"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"wo",
+				"words"
+			],
+			[
+				"xpa",
+				"xpath"
+			],
+			[
+				"x",
+				"xpath"
+			],
+			[
+				"wor",
+				"words"
+			],
+			[
+				"w",
+				"words_eng"
+			],
+			[
+				"words_",
+				"words_ger"
+			],
+			[
+				"word",
+				"words_ger"
+			],
+			[
+				"tra",
+				"translated_text"
+			],
+			[
+				"or",
+				"original_text"
+			],
+			[
+				"ger",
+				"ger_words"
+			],
+			[
+				"eng",
+				"eng_words"
+			],
+			[
+				"all",
+				"all_words"
+			],
+			[
+				"car",
+				"card_params"
+			],
+			[
+				"pa",
+				"params"
+			],
+			[
+				"fi",
+				"find"
+			],
+			[
+				"ca",
+				"card"
+			],
+			[
+				"p",
+				"pgsql"
+			],
+			[
+				"pro",
+				"product"
+			],
+			[
+				"line",
+				"line_items"
+			],
+			[
+				"ass",
+				"assert_select"
+			],
+			[
+				"pr",
+				"product"
+			],
+			[
+				"up",
+				"update"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"gr",
+				"group"
+			],
+			[
+				"a",
+				"align	Attr"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "spec/features/user_spec.rb",
+			"settings":
+			{
+				"buffer_size": 744,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 347.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 476.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/stevejobs/rails_projects/flashcards",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/layouts",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate",
+		"/Users/stevejobs/rails_projects/flashcards/spec",
+		"/Users/stevejobs/rails_projects/flashcards/spec/factories",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features",
+		"/Users/stevejobs/rails_projects/flashcards/spec/models",
+		"/Users/stevejobs/rails_projects/flashcards/spec/support"
+	],
+	"file_history":
+	[
+		"/Users/stevejobs/rails_projects/flashcards/spec/spec_helper.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/support/authentication.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features/user_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/fixtures/users.yml",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/layouts/application.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features/card_spec.rb",
+		"/Users/stevejobs/hunk13.github.io/index.html",
+		"/Users/stevejobs/hunk13.github.io/README.md",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features/review_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/factories/cards.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/support/login_helper.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features/new_card_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/models/user.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/routes.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/oauths_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/sorcery.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/application.yml",
+		"/Users/stevejobs/rails_projects/flashcards/spec/support/users_helper.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/factories/users.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/factories/identities.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/user_sessions_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/Gemfile",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/user_sessions/_form.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150820122748_sorcery_remember_me.rb",
+		"/Users/stevejobs/rails_projects/flashcards/.gitignore",
+		"/Users/stevejobs/rails_projects/flashcards/spec/models/user_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/models/authentication.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/users/edit.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/users/_form.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150825193321_add_fields_to_user.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/database.yml.travis",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/users_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/cards_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/application_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/cards/_form.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/models/card.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/user_sessions/new.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/users/index.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/omniauth.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/schema.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/models/identity.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/cards/index.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/reviews_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/reviews/index.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/reviews/_form.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/users/show.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/cards/show.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/helpers/users_helper_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/cards/edit.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/users/new.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/user_sessions/index.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/user_sessions/destroy.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/users_sessions_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/user_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150817143200_sorcery_core.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150816115802_users_id_card.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150816112511_user_id_card.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/models/card_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features/review_card_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150815131453_create_users.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/factories/invalid_cards.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/database.yml",
+		"/Users/stevejobs/rails_projects/flashcards/.travis.yml",
+		"/Users/stevejobs/rails_projects/flashcards/spec/rails_helper.rb",
+		"/Users/stevejobs/rails_projects/flashcards/README.md",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/welcome/index.html1.erb1",
+		"/Users/stevejobs/rails_projects/flashcards/app/assets/stylesheets/application.css",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/welcome/index.html.erb",
+		"/Users/stevejobs/rails_projects/flashcards/db/seeds.rb",
+		"/Users/stevejobs/rails_projects/flashcards/log/development.log",
+		"/Users/stevejobs/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/welcome_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/application.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/boot.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/environment.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/environments/development.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/environments/production.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/environments/test.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/assets.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/backtrace_silencers.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/cookies_serializer.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/filter_parameter_logging.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/inflections.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/mime_types.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/session_store.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/simple_form.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/simple_form_bootstrap.rb",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/wrap_parameters.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150708212456_rename_column_cardsin_table_reviewto_review_date.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150708212325_rename_column_cardsin_table_translatedto_translated_text.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150708212123_rename_column_cardsin_table_originalto_original_text.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150702144259_create_cards.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/helpers/application_helper.rb",
+		"/Users/stevejobs/.Trash/20150708212123_rename_column_cardsin_table_originalto_original_text.rb",
+		"/Users/stevejobs/.Trash/20150708212456_rename_column_cardsin_table_reviewto_review_date.rb",
+		"/Users/stevejobs/.Trash/20150708212325_rename_column_cardsin_table_translatedto_translated_text.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/assets/javascripts/application.js",
+		"/Users/stevejobs/rails_projects/flashcards/app/models/not_equal.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/cards/new.html.erb",
+		"/Users/stevejobs/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/stevejobs/rails_projects/flashcards/config/initializers/time_formats.rb",
+		"/Volumes/Macintosh /flashcardr_static/index.html",
+		"/Users/stevejobs/rails_projects/flashcards/app/assets/stylesheets/custom.css",
+		"/Users/stevejobs/rails_projects/flashcards/app/assets/stylesheets/application.css.sass",
+		"/Users/stevejobs/rails_projects/flashcards/app/assets/stylesheets/welcome.scss",
+		"/Volumes/Macintosh /flashcardr_static/application.css",
+		"/Users/stevejobs/rails_projects/flashcards/app/assets/stylesheets/custom.css.scss",
+		"/Users/stevejobs/Desktop/BMiK.rdp",
+		"/Users/stevejobs/rails_projects/depot/app/views/carts/show.html.erb",
+		"/Users/stevejobs/rails_projects/depot/app/controllers/line_items_controller.rb",
+		"/Users/stevejobs/rails_projects/depot/test/controllers/line_items_controller_test.rb",
+		"/Users/stevejobs/rails_projects/depot/app/assets/stylesheets/store.scss",
+		"/Users/stevejobs/rails_projects/depot/app/views/store/index.html.erb",
+		"/Users/stevejobs/rails_projects/depot/app/models/product.rb",
+		"/Users/stevejobs/rails_projects/depot/app/models/cart.rb",
+		"/Users/stevejobs/rails_projects/depot/app/controllers/concerns/current_cart.rb",
+		"/Users/stevejobs/rails_projects/depot/config/environments/development.rb",
+		"/Users/stevejobs/rails_projects/depot/test/controllers/store_controller_test.rb",
+		"/Users/stevejobs/rails_projects/depot/test/models/product_test.rb",
+		"/Users/stevejobs/rails_projects/depot/app/views/layouts/application.html.erb",
+		"/Users/stevejobs/rails_projects/depot/app/assets/stylesheets/application.css.scss",
+		"/Users/stevejobs/rails_projects/depot/app/controllers/store_controller.rb",
+		"/Users/stevejobs/rails_projects/depot/config/routes.rb",
+		"/Users/stevejobs/rails_projects/depot/test/fixtures/products.yml",
+		"/Users/stevejobs/rails_projects/depot/test/controllers/products_controller_test.rb",
+		"/Users/stevejobs/rails_projects/depot/app/views/products/index.html.erb",
+		"/Users/stevejobs/rails_projects/depot/app/assets/stylesheets/products.scss",
+		"/Users/stevejobs/rails_projects/depot/db/seeds.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/stevejobs/rails_projects/flashcards"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"email",
+			"'",
+			"@agent",
+			"agent",
+			"params",
+			"GITHUB",
+			"twitter.",
+			"external_prov",
+			"@user = User.find(params[:id])",
+			"'",
+			"'/",
+			"tr",
+			"td",
+			"li",
+			"h1",
+			"session_params",
+			"params",
+			"review_date Date.today + 3.days",
+			"review_user_translation",
+			"'",
+			"spec_helper",
+			"do",
+			"User",
+			"conversion_words",
+			"conv_words_to_compare",
+			"conversion_words_to_compare",
+			"check_words",
+			"action",
+			"find_card",
+			"reviews_path",
+			"Нет карточек",
+			"encoding : utf-8",
+			"8",
+			"encoding : utf-8",
+			"value",
+			"puts",
+			"class",
+			"original_text",
+			"length",
+			"words",
+			"td",
+			"\", ",
+			"  }",
+			"128",
+			" style=\"border: none; padding: 0cm\"",
+			"/p>",
+			"<p",
+			"<div>",
+			"</p>",
+			"<p>",
+			"p",
+			"0",
+			"87",
+			" style=\"border: none; padding: 0cm\"",
+			"left"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "spec/features/user_spec.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 744,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								202,
+								202
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Flatland Dark (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "flashcards.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 252.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
