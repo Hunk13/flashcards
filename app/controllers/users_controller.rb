@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       login(params[:user][:email], params[:user][:password])
       flash[:success] = 'Welcome!'
-      redirect_to root_path, :notice => "Signed up!"
+      redirect_to root_path, notice: "Signed up!"
     else
       render "new"
     end
