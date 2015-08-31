@@ -19,7 +19,7 @@ class UserSessionsController < ApplicationController
       logout
       redirect_to(:login, notice: "Logget out")
     else
-     redirect_to root_path
+      redirect_to root_path
     end
   end
 

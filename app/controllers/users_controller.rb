@@ -13,8 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(params[:user][:email], params[:user][:password])
-      flash[:success] = 'Welcome!'
-      redirect_to root_path, notice: "Signed up!"
+      redirect_to root_path, notice: "Signed up! Welcome!"
     else
       render "new"
     end
@@ -40,7 +39,11 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name,
+                                 :email,
+                                 :password,
+                                 :password_confirmation)
   end
 end
