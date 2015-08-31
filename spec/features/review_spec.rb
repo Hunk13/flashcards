@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'capybara/rspec'
 
 describe "Cards to review" do
   context "no cards to review" do
@@ -48,6 +49,26 @@ describe "Cards to review" do
       fill_in "review_user_translation", with: "Ja"
       click_button "Проверить"
       expect(page).to have_content "Правильный перевод"
+    end
+  end
+
+  context "not logged review" do
+    it "not logged user review" do
+      visit root_path
+      click_on "Тренировка слов"
+      expect(page).to have_content "Вы должны зарегистрироваться или войти со своими данными"
+    end
+
+    it "not logged user add" do
+      visit root_path
+      click_on "Добавить карточку"
+      expect(page).to have_content "Вы должны зарегистрироваться или войти со своими данными"
+    end
+
+    it "not logged user all card" do
+      visit root_path
+      click_on "Все карточки"
+      expect(page).to have_content "Вы должны зарегистрироваться или войти со своими данными"
     end
   end
 end

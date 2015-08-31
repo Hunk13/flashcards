@@ -3,7 +3,8 @@ class Card < ActiveRecord::Base
   validates :review_date, :user_id, presence: true
   validates :original_text, :translated_text, presence: true,
                                               length: { minimum: 2 },
-                                              format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/, message: "Слова только с большой буквы" }
+                                              format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/,
+                                                        message: "Слова только с большой буквы" }
   before_save :set_date_after_review, on: :create
 
   scope :expired, -> { where("review_date <= ?", DateTime.now) }

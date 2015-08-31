@@ -12,7 +12,7 @@ class OauthsController < ApplicationController
     else
       begin
         @user = create_from(provider)
-        reset_session # protect from session fixation attack
+        reset_session
         auto_login(@user)
         redirect_back_or_to root_path, :notice => "Logged in from #{provider.titleize}!"
       rescue
