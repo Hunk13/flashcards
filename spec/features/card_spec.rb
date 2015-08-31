@@ -1,5 +1,5 @@
-require 'rails_helper'
-require 'capybara/rspec'
+require "rails_helper"
+require "capybara/rspec"
 
 describe "New card" do
   context "valid card" do

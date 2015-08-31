@@ -1,5 +1,5 @@
-require 'rails_helper'
-require 'capybara/rspec'
+require "rails_helper"
+require "capybara/rspec"
 
 describe "Cards to review" do
   context "no cards to review" do
@@ -24,14 +24,14 @@ describe "Cards to review" do
     it "input wrong translation" do
       visit root_path
       click_on "Добавить карточку"
-      fill_in("card_original_text", with: "Ja")
-      fill_in("card_translated_text", with: "Yes")
+      fill_in "card_original_text", with: "Ja"
+      fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
       select "August", from: "card_review_date_2i"
       click_on "Создать карточку"
       expect(page).to have_content("Back")
       click_on "Тренировка слов"
-      fill_in 'review_user_translation', with: "Hello"
+      fill_in "review_user_translation", with: "Hello"
       click_button "Проверить"
       expect(page).to have_content "Неправильно, попробуй еще"
     end
@@ -39,8 +39,8 @@ describe "Cards to review" do
     it "input right translation" do
       visit root_path
       click_on "Добавить карточку"
-      fill_in("card_original_text", with: "Ja")
-      fill_in("card_translated_text", with: "Yes")
+      fill_in "card_original_text", with: "Ja"
+      fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
       select "August", from: "card_review_date_2i"
       click_on "Создать карточку"
