@@ -5,6 +5,7 @@ class Card < ActiveRecord::Base
                                               length: { minimum: 2 },
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/,
                                                         message: "Слова только с большой буквы" }
+
   before_save :set_date_after_review, on: :create
 
   scope :expired, -> { where("review_date <= ?", DateTime.now) }

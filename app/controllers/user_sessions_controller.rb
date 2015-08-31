@@ -6,7 +6,9 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    if login(session_params[:email], session_params[:password], session_params[:remember])
+    if login(session_params[:email],
+             session_params[:password],
+             session_params[:remember])
       redirect_back_or_to(root_path, notice: "Welcome!!!")
     else
       flash[:error] = "Login failed!!!"
