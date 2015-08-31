@@ -6,7 +6,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.key = ENV["OUATH_TWITTER_KEY"]
   config.twitter.secret = ENV["OUATH_TWITTER_SECRET"]
   config.twitter.callback_url = "http://127.0.0.1/oauth/callback?provider=twitter"
-  config.twitter.user_info_mapping = { email: "email"}
+  config.twitter.user_info_mapping = { email: "email" }
 
   config.github.key = ENV["OUATH_GITHUB_KEY"]
   config.github.secret = ENV["OUATH_GITHUB_SECRET"]
