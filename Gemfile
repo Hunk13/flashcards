@@ -30,7 +30,7 @@ gem 'sorcery'
 # check e-mail
 gem 'validates_email_format_of'
 # using ENV and a single YAML file
-gem "figaro"
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"re",
+				"require"
+			],
+			[
+				"tra",
+				"card_translated_text"
+			],
+			[
+				"ori",
+				"card_original_text"
+			],
+			[
 				"fil",
 				"fill_in"
 			],
@@ -34,10 +46,6 @@
 			[
 				"user",
 				"users"
-			],
-			[
-				"re",
-				"remember_me"
 			],
 			[
 				"on",
@@ -136,10 +144,6 @@
 				"words_ger"
 			],
 			[
-				"tra",
-				"translated_text"
-			],
-			[
 				"or",
 				"original_text"
 			],
@@ -211,14 +215,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "spec/features/user_spec.rb",
-			"settings":
-			{
-				"buffer_size": 744,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -262,40 +258,45 @@
 	"expanded_folders":
 	[
 		"/Users/stevejobs/rails_projects/flashcards",
-		"/Users/stevejobs/rails_projects/flashcards/app/views/layouts",
+		"/Users/stevejobs/rails_projects/flashcards/app",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/concerns",
 		"/Users/stevejobs/rails_projects/flashcards/db/migrate",
-		"/Users/stevejobs/rails_projects/flashcards/spec",
-		"/Users/stevejobs/rails_projects/flashcards/spec/factories",
 		"/Users/stevejobs/rails_projects/flashcards/spec/features",
-		"/Users/stevejobs/rails_projects/flashcards/spec/models",
 		"/Users/stevejobs/rails_projects/flashcards/spec/support"
 	],
 	"file_history":
 	[
-		"/Users/stevejobs/rails_projects/flashcards/spec/spec_helper.rb",
-		"/Users/stevejobs/rails_projects/flashcards/spec/support/authentication.rb",
-		"/Users/stevejobs/rails_projects/flashcards/spec/features/user_spec.rb",
-		"/Users/stevejobs/rails_projects/flashcards/spec/fixtures/users.yml",
-		"/Users/stevejobs/rails_projects/flashcards/app/views/layouts/application.html.erb",
-		"/Users/stevejobs/rails_projects/flashcards/spec/features/card_spec.rb",
-		"/Users/stevejobs/hunk13.github.io/index.html",
-		"/Users/stevejobs/hunk13.github.io/README.md",
-		"/Users/stevejobs/rails_projects/flashcards/spec/features/review_spec.rb",
-		"/Users/stevejobs/rails_projects/flashcards/spec/factories/cards.rb",
-		"/Users/stevejobs/rails_projects/flashcards/spec/support/login_helper.rb",
-		"/Users/stevejobs/rails_projects/flashcards/spec/features/new_card_spec.rb",
-		"/Users/stevejobs/rails_projects/flashcards/app/models/user.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/user_sessions_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/models/card.rb",
 		"/Users/stevejobs/rails_projects/flashcards/config/routes.rb",
 		"/Users/stevejobs/rails_projects/flashcards/app/controllers/oauths_controller.rb",
 		"/Users/stevejobs/rails_projects/flashcards/config/initializers/sorcery.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/users_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/models/user.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150820122748_sorcery_remember_me.rb",
+		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150826164240_sorcery_external.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/factories/users.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features/card_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features/review_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features/user_spec.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/spec_helper.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/rails_helper.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/support/login_helper.rb",
+		"/Users/stevejobs/rails_projects/flashcards/app/controllers/application_controller.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/factories/user.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/support/authentication.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/fixtures/users.yml",
+		"/Users/stevejobs/rails_projects/flashcards/app/views/layouts/application.html.erb",
+		"/Users/stevejobs/hunk13.github.io/index.html",
+		"/Users/stevejobs/hunk13.github.io/README.md",
+		"/Users/stevejobs/rails_projects/flashcards/spec/factories/cards.rb",
+		"/Users/stevejobs/rails_projects/flashcards/spec/features/new_card_spec.rb",
 		"/Users/stevejobs/rails_projects/flashcards/config/application.yml",
 		"/Users/stevejobs/rails_projects/flashcards/spec/support/users_helper.rb",
-		"/Users/stevejobs/rails_projects/flashcards/spec/factories/users.rb",
 		"/Users/stevejobs/rails_projects/flashcards/spec/factories/identities.rb",
-		"/Users/stevejobs/rails_projects/flashcards/app/controllers/user_sessions_controller.rb",
 		"/Users/stevejobs/rails_projects/flashcards/Gemfile",
 		"/Users/stevejobs/rails_projects/flashcards/app/views/user_sessions/_form.html.erb",
-		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150820122748_sorcery_remember_me.rb",
 		"/Users/stevejobs/rails_projects/flashcards/.gitignore",
 		"/Users/stevejobs/rails_projects/flashcards/spec/models/user_spec.rb",
 		"/Users/stevejobs/rails_projects/flashcards/app/models/authentication.rb",
@@ -303,11 +304,8 @@
 		"/Users/stevejobs/rails_projects/flashcards/app/views/users/_form.html.erb",
 		"/Users/stevejobs/rails_projects/flashcards/db/migrate/20150825193321_add_fields_to_user.rb",
 		"/Users/stevejobs/rails_projects/flashcards/config/database.yml.travis",
-		"/Users/stevejobs/rails_projects/flashcards/app/controllers/users_controller.rb",
 		"/Users/stevejobs/rails_projects/flashcards/app/controllers/cards_controller.rb",
-		"/Users/stevejobs/rails_projects/flashcards/app/controllers/application_controller.rb",
 		"/Users/stevejobs/rails_projects/flashcards/app/views/cards/_form.html.erb",
-		"/Users/stevejobs/rails_projects/flashcards/app/models/card.rb",
 		"/Users/stevejobs/rails_projects/flashcards/app/views/user_sessions/new.html.erb",
 		"/Users/stevejobs/rails_projects/flashcards/app/views/users/index.html.erb",
 		"/Users/stevejobs/rails_projects/flashcards/config/initializers/omniauth.rb",
@@ -335,7 +333,6 @@
 		"/Users/stevejobs/rails_projects/flashcards/spec/factories/invalid_cards.rb",
 		"/Users/stevejobs/rails_projects/flashcards/config/database.yml",
 		"/Users/stevejobs/rails_projects/flashcards/.travis.yml",
-		"/Users/stevejobs/rails_projects/flashcards/spec/rails_helper.rb",
 		"/Users/stevejobs/rails_projects/flashcards/README.md",
 		"/Users/stevejobs/rails_projects/flashcards/app/views/welcome/index.html1.erb1",
 		"/Users/stevejobs/rails_projects/flashcards/app/assets/stylesheets/application.css",
@@ -397,9 +394,7 @@
 		"/Users/stevejobs/rails_projects/depot/config/routes.rb",
 		"/Users/stevejobs/rails_projects/depot/test/fixtures/products.yml",
 		"/Users/stevejobs/rails_projects/depot/test/controllers/products_controller_test.rb",
-		"/Users/stevejobs/rails_projects/depot/app/views/products/index.html.erb",
-		"/Users/stevejobs/rails_projects/depot/app/assets/stylesheets/products.scss",
-		"/Users/stevejobs/rails_projects/depot/db/seeds.rb"
+		"/Users/stevejobs/rails_projects/depot/app/views/products/index.html.erb"
 	],
 	"find":
 	{
@@ -418,6 +413,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'",
+			"current_user",
+			"nil",
+			"p@WindowsMustDie",
+			"FactoryGirl",
+			"WindowsMustDie",
+			"newpassword",
+			"'",
 			"email",
 			"'",
 			"@agent",
@@ -491,41 +494,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "spec/features/user_spec.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 744,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								202,
-								202
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Flatland Dark (Colorcoded).tmTheme",
-							"colorcode": true,
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
