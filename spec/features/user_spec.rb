@@ -1,5 +1,4 @@
 require "rails_helper"
-require "capybara/rspec"
 
 describe "User registration" do
   context "valid data" do

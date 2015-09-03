@@ -1,5 +1,4 @@
 require "rails_helper"
-require "capybara/rspec"
 
 describe "Cards to review" do
   context "no cards to review" do

@@ -19,7 +19,7 @@ class UserSessionsController < ApplicationController
   def destroy
     if current_user
       logout
-      redirect_to(:login, notice: "Logget out")
+      redirect_to(:login, notice: "Logged")
     else
       redirect_to root_path
     end

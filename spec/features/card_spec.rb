@@ -1,7 +1,6 @@
 require "rails_helper"
-require "capybara/rspec"
 
-describe "New card" do
+describe "Testing card create and edit," do
   context "valid card" do
     before :each do
       FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
@@ -36,7 +35,7 @@ describe "New card" do
     end
   end
 
-  context "invalid check" do
+  context "invalid card" do
     before :each do
       FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
       login("vasya@pupkin.ru", "12345")

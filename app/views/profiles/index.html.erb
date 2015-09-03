@@ -1,26 +1,26 @@
 <h1>All users</h1>
 
 <table class="table table-striped">
-    <tr>
-      <th>Имя пользователя</th>
-      <th>E-mail</th>
-      <th>User ID</th>
-      <th>Удалить пользователя</th>
-    </tr>
-    <% @users.each do |user| %>
-    <tr>
-      <th>
-        <%= link_to user.name, profile_path(user) %>
-      </th>
-      <th>
-        <%= user.email %>
-      </th>
-      <th>
-        <%= user.id %>
-      </th>
-      <th>
-        <%= link_to "Удалить", profile_path(user), method: :delete, data: { confirm: 'Вы уверены?' } %>
-      </th>
-    </tr>
-  <% end %>
+  <tr>
+    <th>Имя пользователя</th>
+    <th>E-mail</th>
+    <th>User ID</th>
+    <th>Удалить пользователя</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <th>
+      <%= link_to user.name, profile_path(user) %>
+    </th>
+    <th>
+      <%= user.email %>
+    </th>
+    <th>
+      <%= user.id %>
+    </th>
+    <th>
+      <%= link_to "Удалить", profile_path(user), method: :delete, data: { confirm: 'Вы уверены?' } %>
+    </th>
+  </tr>
+<% end %>
 </table>
