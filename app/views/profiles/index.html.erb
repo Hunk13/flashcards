@@ -4,18 +4,18 @@
     <tr>
       <th>Имя пользователя</th>
       <th>User ID</th>
-      <th>UУдалить пользователя</th>
+      <th>Удалить пользователя</th>
     </tr>
     <% @users.each do |user| %>
     <tr>
       <th>
-        <%= link_to user.name, user %>
+        <%= link_to user.name, profile_path(user) %>
       </th>
       <th>
         <%= user.id %>
       </th>
       <th>
-        <%= link_to "Удалить", user_path(user), method: :delete, data: { confirm: 'Вы уверены?' } %>
+        <%= link_to "Удалить", profile_path(user), method: :delete, data: { confirm: 'Вы уверены?' } %>
       </th>
     </tr>
   <% end %>
