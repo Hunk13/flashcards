@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   get "/login" => "user_sessions#new", :as => "login"
   post "/logout" => "user_sessions#destroy", :as => "logout"
-  get "/signup"  => "registrations#new", :as => "signup"
-  get "/users"  => "profiles#index", :as => "users"
+  get "/signup" => "registrations#new", :as => "signup"
+  get "/users" => "profiles#index", :as => "users"
 
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github
