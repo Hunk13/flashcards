@@ -25,7 +25,8 @@ doc/
 .DS_Store
 .idea
 .secret
-flashcards.sublime-workspace
+/flashcards.sublime-workspace
+/flashcards.sublime-project
 
 # Ignore application configuration
 /config/application.yml
