@@ -27,7 +27,7 @@ describe "User registration" do
       FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
       login("vasya@pupkin.ru", "12345")
       click_on "Выход"
-      expect(page).to have_content "Logget out"
+      expect(page).to have_content "Logged"
     end
   end
 
