@@ -1,10 +1,11 @@
 class ProfilesController < ApplicationController
+  before_action :find_profile, only: [:show, :edit, :update, :destroy]
+
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
@@ -18,7 +19,16 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    redirect_back_or_to root_url, notice: "User delete"
+  end
+
   private
+
+  def find_profile
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:profile).permit(:name,

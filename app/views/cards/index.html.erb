@@ -19,10 +19,10 @@
       <td><%= card.translated_text %></td>
       <td><%= card.review_date.strftime('%d/%m/%Y') %></td>
       <td><%= card.user_id %></td>
-      <td><%= link_to 'Показать', card_path(card) %></td>
-      <td><%= link_to 'Редактировать', edit_card_path(card) %></td>
-      <td><%= link_to 'На проверку', reviews_path(card) %></td>
-      <td><%= link_to 'Удалить', card_path(card), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+      <td><%= link_to "Показать", card_path(card) %></td>
+      <td><%= link_to "Редактировать", edit_card_path(card) %></td>
+      <td><%= link_to "На проверку", reviews_path(card) %></td>
+      <td><%= link_to "Удалить", card_path(card), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
     </tr>
   <% end %>
 </table>

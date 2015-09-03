@@ -3,6 +3,7 @@
 <table class="table table-striped">
     <tr>
       <th>Имя пользователя</th>
+      <th>E-mail</th>
       <th>User ID</th>
       <th>Удалить пользователя</th>
     </tr>
@@ -10,6 +11,9 @@
     <tr>
       <th>
         <%= link_to user.name, profile_path(user) %>
+      </th>
+      <th>
+        <%= user.email %>
       </th>
       <th>
         <%= user.id %>
