@@ -10,7 +10,6 @@ describe "Testing card create and edit," do
     it "add card" do
       visit root_path
       click_on "Показать мой профиль"
-      click_on "Все пользователи"
       click_on "Редактировать мой профиль"
       click_on "Добавить карточку"
       fill_in("card_original_text", with: "Ja")
@@ -64,16 +63,6 @@ describe "Testing card create and edit," do
       click_on "Добавить карточку"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: nil)
-      click_on "Создать карточку"
-      expect(page).to have_content("can't be blank")
-    end
-
-    it "user id nil" do
-      visit root_path
-      click_on "Добавить карточку"
-      fill_in("card_original_text", with: "Ja")
-      fill_in("card_translated_text", with: "Yes")
-      fill_in("card_user_id", with: nil)
       click_on "Создать карточку"
       expect(page).to have_content("can't be blank")
     end
