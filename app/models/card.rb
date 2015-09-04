@@ -1,9 +1,11 @@
 class Card < ActiveRecord::Base
   validate :original_not_equal_translated
   validates :review_date, :user_id, presence: true
-  validates :original_text, :translated_text, presence: true, 
-                                              length: { minimum: 2 }, 
-                                              format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/, message: "Слова только с большой буквы" }
+  validates :original_text, :translated_text, presence: true,
+                                              length: { minimum: 2 },
+                                              format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/,
+                                                        message: "Слова только с большой буквы" }
+
   before_save :set_date_after_review, on: :create
 
   scope :expired, -> { where("review_date <= ?", DateTime.now) }
@@ -11,7 +13,7 @@ class Card < ActiveRecord::Base
 
   belongs_to :user
 
-  def update_translation_date(user_translation)
+  def check_translation(user_translation)
     if prepare_text(original_text) == prepare_text(user_translation)
       update_attributes(review_date: set_date_after_review)
     end
