@@ -1,6 +1,13 @@
 class Card < ActiveRecord::Base
   has_attached_file :picture, styles: { medium: "360x360>", thumb: "100x100>" },
+                              s3_credentials: { :access_key_id     => ENV['S3_ACCESS_KEY_ID'],
+                                                :secret_access_key => ENV['S3_SECRET_ACCESS_KEY'] },
+                              storage: :s3,
+                              url: ":s3_domain_url",
+                              path: "/:class/:attachment/:id_partition/:style/:filename",
+                              bucket: ENV["S3_BUCKET"],
                               default_url: "/images/:style/missing.png"
+
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
   validate :original_not_equal_translated
