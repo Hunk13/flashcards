@@ -16,8 +16,7 @@ class Card < ActiveRecord::Base
                                               length: { minimum: 2 },
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/,
                                                         message: "Слова только с большой буквы" }
-  validates_attachment :picture, presence: true,
-                                 content_type: { content_type: "image/jpeg" },
+  validates_attachment :picture, content_type: { content_type: "image/jpeg" },
                                  size: { in: 0..1.megabytes }
 
   before_save :set_date_after_review, on: :create
