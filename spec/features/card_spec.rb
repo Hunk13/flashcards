@@ -14,7 +14,7 @@ describe "Testing card create and edit," do
       click_on "Добавить карточку"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")
-      attach_file "Pictures for word", Rails.root + "spec/fixtures/files/cat.jpg"
+      attach_file "Pictures for word", "spec/fixtures/files/cat.jpg"
       click_on "Создать карточку"
       expect(page).to have_content("Back")
     end
@@ -24,7 +24,7 @@ describe "Testing card create and edit," do
       click_on "Добавить карточку"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")
-      attach_file "Pictures for word", Rails.root + "spec/fixtures/files/cat.jpg"
+      attach_file "Pictures for word", "spec/fixtures/files/cat.jpg"
       click_on "Создать карточку"
       expect(page).to have_content("Back")
       click_on "Все карточки"

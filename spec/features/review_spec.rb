@@ -27,7 +27,7 @@ describe "Cards to review" do
       fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
       select "August", from: "card_review_date_2i"
-      attach_file "Pictures for word", Rails.root + "spec/fixtures/files/cat.jpg"
+      attach_file "Pictures for word", "spec/fixtures/files/cat.jpg"
       click_on "Создать карточку"
       expect(page).to have_content("Back")
       click_on "Тренировка слов"
@@ -43,7 +43,7 @@ describe "Cards to review" do
       fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
       select "August", from: "card_review_date_2i"
-      attach_file "Pictures for word", Rails.root + "spec/fixtures/files/cat.jpg"
+      attach_file "Pictures for word", "spec/fixtures/files/cat.jpg"
       click_on "Создать карточку"
       expect(page).to have_content("Back")
       click_on "Тренировка слов"
