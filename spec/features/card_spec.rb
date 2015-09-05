@@ -1,4 +1,5 @@
 require "rails_helper"
+require_relative "helpers/card_helper"
 
 describe "Testing card create and edit," do
   context "valid card" do
