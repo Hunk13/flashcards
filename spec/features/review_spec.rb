@@ -1,5 +1,4 @@
 require "rails_helper"
-require_relative "helpers/card_helper"
 
 describe "Cards to review" do
   context "no cards to review" do
