@@ -31,6 +31,8 @@ gem 'sorcery'
 gem 'validates_email_format_of'
 # using ENV and a single YAML file
 gem 'figaro'
+# attechment library for ActiveRecord
+gem 'paperclip', '~> 4.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

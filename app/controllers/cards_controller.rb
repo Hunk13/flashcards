@@ -34,6 +34,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
+    @card.picture = nil
     redirect_to :back
   end
 
@@ -48,6 +49,7 @@ class CardsController < ApplicationController
                                  :translated_text,
                                  :review_date,
                                  :user_translation,
-                                 :user_id)
+                                 :user_id,
+                                 :picture)
   end
 end
