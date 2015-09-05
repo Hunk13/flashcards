@@ -4,5 +4,9 @@ FactoryGirl.define do
     translated_text "Ja"
     review_date Date.today
     user_id 18
+    picture { fixture_file_upload(Rails.root.join('spec',
+                                                  'fixtures',
+                                                  'files',
+                                                  'Cat.jpg'), 'image/jpg') }
   end
 end
