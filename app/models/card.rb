@@ -20,6 +20,7 @@ class Card < ActiveRecord::Base
                                  size: { in: 0..1.megabytes }
 
   before_save :set_date_after_review, on: :create
+  before_destroy :destroy_picture?
 
   scope :expired, -> { where("review_date <= ?", DateTime.now) }
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
@@ -46,5 +47,9 @@ class Card < ActiveRecord::Base
 
   def set_date_after_review
     DateTime.now + 3.days
+  end
+
+  def destroy_picture?
+    self.picture.clear
   end
 end

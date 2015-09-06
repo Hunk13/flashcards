@@ -30,4 +30,3 @@ doc/
 
 # Ignore application configuration
 /config/application.yml
-/config/s3.yml

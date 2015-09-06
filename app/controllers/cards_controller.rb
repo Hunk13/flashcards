@@ -33,9 +33,9 @@ class CardsController < ApplicationController
   end
 
   def destroy
+    @card = Card.find(params[:id])
     @card.destroy
-    @card.picture = nil
-    redirect_to :back
+    redirect_to root_path, notice: "Card deleted"
   end
 
   private
@@ -49,7 +49,7 @@ class CardsController < ApplicationController
                                  :translated_text,
                                  :review_date,
                                  :user_translation,
-                                 :user_id,
-                                 :picture)
+                                 :picture,
+                                 :user_id)
   end
 end
