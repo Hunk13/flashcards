@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 20150904155210) do
     t.date     "review_date"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "user_id",              null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "user_id",              null: false
   end
 
   create_table "users", force: :cascade do |t|

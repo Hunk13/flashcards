@@ -1,4 +1,8 @@
 Rails.application.configure do
+  PAPERCLIP_STORAGE_OPTIONS = {storage: :s3,
+                               s3_credentials: "#{Rails.root}/config/s3.yml",
+                               path: "/:class/:attachment/:id_partition/:style/:filename",
+                               url: ":s3_domain_url"}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
