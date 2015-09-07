@@ -9,11 +9,11 @@ class CardsController < ApplicationController
   end
 
   def new
-    @card = Card.new
+    @card = current_user.cards.new
   end
 
   def create
-    @card = Card.new(card_params)
+    @card = current_user.cards.new(card_params)
     if @card.save
       redirect_to @card
     else
@@ -34,7 +34,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to :back
+    redirect_to root_path, notice: "Card deleted"
   end
 
   private
@@ -48,6 +48,6 @@ class CardsController < ApplicationController
                                  :translated_text,
                                  :review_date,
                                  :user_translation,
-                                 :user_id)
+                                 :picture)
   end
 end

@@ -1,10 +1,17 @@
 class Card < ActiveRecord::Base
+  has_attached_file :picture, { styles: { medium: "360x360>", thumb: "100x100>" },
+                                default_url: "/images/:style/missing.png" }.merge(PAPERCLIP_STORAGE_OPTIONS)
+
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
+
   validate :original_not_equal_translated
-  validates :review_date, :user_id, presence: true
+  validates :review_date, presence: true
   validates :original_text, :translated_text, presence: true,
                                               length: { minimum: 2 },
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/,
                                                         message: "Слова только с большой буквы" }
+  validates_attachment :picture, content_type: { content_type: "image/jpeg" },
+                                 size: { in: 0..1.megabytes }
 
   before_save :set_date_after_review, on: :create
 

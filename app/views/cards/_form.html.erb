@@ -4,21 +4,24 @@
       <%= f.input :original_text, html: { class: "form-control" }, as: :string, label: "Оригинальный текст:" %>
     </p>
   </div>
-
   <div class="form-group">
     <p>
       <%= f.input :translated_text, html: { class: "form-control" }, as: :string, label: "Перевод:" %>
     </p>
   </div>
-
   <div class="form-group">
     <p>
       <%= f.input :review_date, html: { class: "form-control" }, as: :date, order: [:day, :month, :year], discard_year: true, label: "Дата пересмотра карточки", default: 3.days.from_now %>
     </p>
   </div>
-  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="form-group">
+    <p>
+      <%= f.input :picture, html: { class: "btn btn-default" },
+                            as: :file,
+                            label: "Pictures for word" %>
+    </p>
+  </div>
   <p class="form-group">
-    <br>
     <%= f.button :submit, "Создать карточку" %>
   </p>
 <% end %>

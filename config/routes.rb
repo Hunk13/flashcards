@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root "reviews#index"
-  resources :cards, :reviews
+  resources :reviews, :cards
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :registrations, only: [:new, :create]
   resources :profiles, only: [:edit, :update, :show, :destroy]

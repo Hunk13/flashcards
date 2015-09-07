@@ -6,7 +6,8 @@ describe Card do
       user_id: 1,
       original_text: "Ja",
       translated_text: "Yes",
-      review_date: 3.days.from_now)
+      review_date: 3.days.from_now,
+      picture: File.new(Rails.root + "spec/fixtures/files/Cat.jpg"))
     expect(valid_card).to be_valid
   end
 
