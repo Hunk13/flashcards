@@ -1,6 +1,6 @@
 <h2 align="center">Тренировка перевода</h2>
 <% @card = Card.for_review.first %>
-<% if @card %>
+<% if @card.present? %>
   <%= simple_form_for :review, url: reviews_path, class: "form-horizontal" do |f| %>
   <strong>Оригинальный текст:</strong><br/>
   <%= @card.translated_text %>

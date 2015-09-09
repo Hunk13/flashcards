@@ -1,0 +1,19 @@
+<h1>Список всех колод</h1>
+
+<div class="table-responsive">
+<table class="table table-striped">
+  <tr>
+    <th colspan="4">Название колоды</th>
+  </tr>
+
+  <% @decks.each do |deck| %>
+    <tr>
+      <td><%= deck.title %></td>
+      <td><%= link_to "Показать колоду", deck_path(deck) %></td>
+      <td><%= link_to "Редактировать колоду", edit_deck_path(deck) %></td>
+      <td><%= link_to "Удалить", deck_path(deck), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div>

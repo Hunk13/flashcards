@@ -1,0 +1,10 @@
+<%= simple_form_for (deck), html: { class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <p>
+      <%= f.input :title, html: { class: "form-control" }, as: :string, label: "Название колоды:" %>
+    </p>
+  </div>
+  <p class="form-group">
+    <%= f.button :submit, "Создать колоду" %>
+  </p>
+<% end %>

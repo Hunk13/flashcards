@@ -1,21 +1,19 @@
-  <h1>Список всех карточек</h1>
-
+<h1>Список всех карточек</h1>
 <div class="table-responsive">
-<table class="table table-striped">
+  <table class="table table-striped">
   <tr>
     <th>Оригинальный текст</th>
     <th>Перевод</th>
+    <th>Колода</th>
     <th>Дата</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan="4"></th>
   </tr>
 
   <% @cards.each do |card| %>
     <tr>
       <td><%= card.original_text %></td>
       <td><%= card.translated_text %></td>
+      <td><%= card.deck.title %></td>
       <td><%= card.review_date.strftime('%d/%m/%Y') %></td>
       <td><%= link_to "Показать", card_path(card) %></td>
       <td><%= link_to "Редактировать", edit_card_path(card) %></td>
@@ -23,5 +21,5 @@
       <td><%= link_to "Удалить", card_path(card), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
     </tr>
   <% end %>
-</table>
+  </table>
 </div>
