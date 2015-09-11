@@ -1,10 +1,10 @@
 <h1>Список всех колод</h1>
 
 <div class="table-responsive">
-<table class="table table-striped">
-  <tr>
-    <th colspan="4">Название колоды</th>
-  </tr>
+  <table class="table table-striped">
+    <tr>
+      <th colspan="5">Название колоды</th>
+    </tr>
 
   <% @decks.each do |deck| %>
     <tr>
@@ -12,8 +12,8 @@
       <td><%= link_to "Показать колоду", deck_path(deck) %></td>
       <td><%= link_to "Редактировать колоду", edit_deck_path(deck) %></td>
       <td><%= link_to "Удалить", deck_path(deck), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+      <td><%= link_to "Установить как текущую", set_current_deck_path(deck), method: :put %></td>
     </tr>
   <% end %>
-</table>
-</div>
+  </table>
 </div>

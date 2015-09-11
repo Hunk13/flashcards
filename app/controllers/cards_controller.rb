@@ -1,8 +1,9 @@
 class CardsController < ApplicationController
   before_action :find_card, only: [:show, :edit, :update, :destroy]
+  before_action :new_deck, only: [:create, :update]
 
   def index
-    @cards = current_user.cards
+    @cards = current_user.cards.all
   end
 
   def show
@@ -19,7 +20,7 @@ class CardsController < ApplicationController
   def create
     @card = current_user.cards.new(card_params)
     if @card.save
-      redirect_to decks_path
+      redirect_to decks_path, notice: "Карта создана"
     else
       render "new"
     end
@@ -27,7 +28,7 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to @card
+      redirect_to @card, notice: "Данные карты обновлены"
     else
       render "edit"
     end
@@ -35,7 +36,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to root_path, notice: "Card deleted"
+    redirect_to root_path, notice: "Карта удалена"
   end
 
   private
@@ -50,7 +51,7 @@ class CardsController < ApplicationController
   end
 
   def deck_params
-    params.require(:deck).permit(:title)
+    params.permit(:new_deck_name)
   end
 
   def find_card

@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Deck, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Deck do
+  let(:deck) { FactoryGirl.create(:deck, title: "MyDeck") }
+
+  it "valid deck" do
+    expect(deck.title).to eq("MyDeck")
+  end
 end

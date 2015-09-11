@@ -5,5 +5,6 @@ FactoryGirl.define do
     review_date Date.today
     user_id 18
     picture { fixture_file_upload("spec/fixtures/files/Cat.jpg", "image/jpg") }
+    deck
   end
 end

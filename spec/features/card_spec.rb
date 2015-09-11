@@ -1,9 +1,11 @@
 require "rails_helper"
 
 describe "Testing card create and edit," do
+  let!(:deck) { FactoryGirl.create(:deck) }
   context "valid card" do
     before :each do
       FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
+      FactoryGirl.create(:deck, title: "Animals")
       login("vasya@pupkin.ru", "12345")
     end
 
@@ -14,6 +16,7 @@ describe "Testing card create and edit," do
       click_on "Добавить карточку"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")
+      fill_in("card_deck_id", with: "Animals")
       click_on "Создать карточку"
       expect(page).to have_content("Back")
     end

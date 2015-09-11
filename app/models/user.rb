@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :decks, dependent: :destroy
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
-  belongs_to :default_deck, class_name: "Deck", foreign_key: "default_deck_id"
+  belongs_to :default_deck, class_name: "Deck"
 
   validates :name, presence: true
   validates :email, uniqueness: true,
@@ -19,4 +19,11 @@ class User < ActiveRecord::Base
                        on: :create
   validates :password_confirmation, presence: true,
                                     on: :create
+  def cards_for_review
+    if default_deck_id.present?
+      default_deck.cards.expired.for_review.first
+    else
+      cards.expired.for_review.first
+    end
+  end
 end

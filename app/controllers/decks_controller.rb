@@ -6,11 +6,11 @@ class DecksController < ApplicationController
   end
 
   def show
-    @cards = @deck.cards
+    @cards = @deck.cards.all
   end
 
   def new
-    @deck = Deck.new
+    @deck = current_user.decks.new
   end
 
   def create
@@ -38,19 +38,16 @@ class DecksController < ApplicationController
     redirect_to decks_path
   end
 
-  def set_current_deck
-    if current_user.update_attributes(default_deck_id: params[:id])
+  def set_current
+    current_user.update_attributes(default_deck_id: params[:id])
       flash[:notice] = "Колода установлена"
-    else
-      flash[:error] = "Колода не установлена"
-    end
-    redirect_to decks_path
+    redirect_to deck_path
   end
 
   private
 
   def find_deck
-    @deck = Deck.find(params[:id])
+    @deck = current_user.decks.find(params[:id])
   end
 
   def deck_params
