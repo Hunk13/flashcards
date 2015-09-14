@@ -1,34 +1,42 @@
 require "rails_helper"
+require "support/login_helper"
 
 describe "Cards to review" do
   context "no cards to review" do
-    before(:each) do
-      FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
-      login("vasya@pupkin.ru", "12345")
-      click_link "Тренировка слов"
+    before :each do
+      FactoryGirl.create(:user, email: "aa@aa.aa", password: "12345")
+      default_login
     end
 
     it "no new cards to review" do
+      default_login
+      click_on "Тренировка слов"
       expect(page).to have_content "Нет карточек для тренировки"
     end
   end
 
   context "have cards to review" do
-    before(:each) do
-      FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
-      login("vasya@pupkin.ru", "12345")
-      click_link "Тренировка слов"
+    let!(:deck) do
+        FactoryGirl.create(:deck, title: "Animals")
+    end
+    before :each do
+      FactoryGirl.create(:user, email: "aa@aa.aa", password: "12345")
+      default_login
     end
 
     it "input wrong translation" do
       visit root_path
+      click_on "Добавить колоду"
+      fill_in("deck_title", with: "Animals")
+      click_on "Создать колоду"
       click_on "Добавить карточку"
       fill_in "card_original_text", with: "Ja"
       fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
       select "August", from: "card_review_date_2i"
+      select "Animals", from: "card_deck_id"
       click_on "Создать карточку"
-      expect(page).to have_content("Back")
+      expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Hello"
       click_button "Проверить"
@@ -36,14 +44,19 @@ describe "Cards to review" do
     end
 
     it "input right translation" do
+      default_login
       visit root_path
+      click_on "Добавить колоду"
+      fill_in("deck_title", with: "Animals")
+      click_on "Создать колоду"
       click_on "Добавить карточку"
       fill_in "card_original_text", with: "Ja"
       fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
       select "August", from: "card_review_date_2i"
+      select "Animals", from: "card_deck_id"
       click_on "Создать карточку"
-      expect(page).to have_content("Back")
+      expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Ja"
       click_button "Проверить"

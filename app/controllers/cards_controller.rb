@@ -1,6 +1,5 @@
 class CardsController < ApplicationController
   before_action :find_card, only: [:show, :edit, :update, :destroy]
-  before_action :new_deck, only: [:create, :update]
 
   def index
     @cards = current_user.cards.all
@@ -11,7 +10,6 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
-    @deck = @card.build_deck
   end
 
   def edit
@@ -40,19 +38,6 @@ class CardsController < ApplicationController
   end
 
   private
-
-  def new_deck
-    @decks = current_user.decks
-    if deck_params[:title].present?
-      @decks.create(title: deck_params[:title])
-    elsif card_params[:deck_id].present?
-      @decks.find(card_params[:deck_id])
-    end
-  end
-
-  def deck_params
-    params.permit(:new_deck_name)
-  end
 
   def find_card
     @card = Card.find(params[:id])
