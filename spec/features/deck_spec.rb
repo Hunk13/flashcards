@@ -1,12 +1,10 @@
 require "rails_helper"
+require "support/login_helper"
+require "context/login_user"
 
 describe "Deck features" do
   context "valid deck" do
-    before :each do
-      FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
-      login("vasya@pupkin.ru", "12345")
-      click_link "Добавить колоду"
-    end
+    include_context "logged user"
 
     it "add deck" do
       visit new_deck_path
@@ -17,11 +15,7 @@ describe "Deck features" do
   end
 
   context "invalid deck" do
-    before :each do
-      FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
-      login("vasya@pupkin.ru", "12345")
-      click_link "Добавить колоду"
-    end
+    include_context "logged user"
 
     it "add deck" do
       visit new_deck_path

@@ -1,21 +1,13 @@
 require "rails_helper"
 require "support/login_helper"
+require "context/login_user"
 
 describe "Testing card create and edit," do
-
-
   context "valid card" do
-    before :each do
-      user = FactoryGirl.create(:user, email: "aa@aa.aa")
-      deck = FactoryGirl.create(:deck, title: "Animals")
-      default_login
-    end
+    include_context "logged user"
 
     it "add card" do
       visit root_path
-      click_on "Добавить колоду"
-      fill_in("deck_title", with: "Animals")
-      click_on "Создать колоду"
       click_on "Добавить карточку"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")
@@ -26,9 +18,6 @@ describe "Testing card create and edit," do
 
     it "edit card" do
       visit root_path
-      click_on "Добавить колоду"
-      fill_in("deck_title", with: "Animals")
-      click_on "Создать колоду"
       click_on "Добавить карточку"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")
@@ -45,10 +34,7 @@ describe "Testing card create and edit," do
   end
 
   context "invalid card" do
-    before :each do
-      FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
-      login("vasya@pupkin.ru", "12345")
-    end
+    include_context "logged user"
 
     it "invalid word" do
       visit root_path

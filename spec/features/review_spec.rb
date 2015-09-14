@@ -1,34 +1,22 @@
 require "rails_helper"
 require "support/login_helper"
+require "context/login_user"
 
 describe "Cards to review" do
   context "no cards to review" do
-    before :each do
-      FactoryGirl.create(:user, email: "aa@aa.aa", password: "12345")
-      default_login
-    end
+    include_context "logged user"
 
     it "no new cards to review" do
-      default_login
       click_on "Тренировка слов"
       expect(page).to have_content "Нет карточек для тренировки"
     end
   end
 
   context "have cards to review" do
-    let!(:deck) do
-        FactoryGirl.create(:deck, title: "Animals")
-    end
-    before :each do
-      FactoryGirl.create(:user, email: "aa@aa.aa", password: "12345")
-      default_login
-    end
+    include_context "logged user"
 
     it "input wrong translation" do
       visit root_path
-      click_on "Добавить колоду"
-      fill_in("deck_title", with: "Animals")
-      click_on "Создать колоду"
       click_on "Добавить карточку"
       fill_in "card_original_text", with: "Ja"
       fill_in "card_translated_text", with: "Yes"
@@ -44,11 +32,7 @@ describe "Cards to review" do
     end
 
     it "input right translation" do
-      default_login
       visit root_path
-      click_on "Добавить колоду"
-      fill_in("deck_title", with: "Animals")
-      click_on "Создать колоду"
       click_on "Добавить карточку"
       fill_in "card_original_text", with: "Ja"
       fill_in "card_translated_text", with: "Yes"

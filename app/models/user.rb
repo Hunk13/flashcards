@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, uniqueness: true,
                     presence: true,
-                    email_format: { message: "has invalid format" }
+                    email_format: { message: "Неверный формат электронной почты" }
   validates :password, length: { minimum: 3 },
                        presence: true,
                        confirmation: true,
