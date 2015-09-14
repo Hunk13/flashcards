@@ -40,8 +40,7 @@ class DecksController < ApplicationController
 
   def set_current
     current_user.update_attributes(default_deck_id: params[:id])
-      flash[:notice] = "Колода установлена"
-    redirect_to deck_path
+    redirect_to deck_path, notice: "Колода установлена"
   end
 
   private

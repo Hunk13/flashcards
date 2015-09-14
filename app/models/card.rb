@@ -1,9 +1,8 @@
 class Card < ActiveRecord::Base
   belongs_to :deck
 
-  validates_presence_of :deck
   validate :original_not_equal_translated
-  validates :review_date, presence: true
+  validates :review_date, :deck, presence: true
   validates :original_text, :translated_text, presence: true,
                                               length: { minimum: 2 },
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/,
