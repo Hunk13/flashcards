@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true,
                                     on: :create
   def cards_for_review
-    if default_deck_id.present?
+    if default_deck.present?
       default_deck.cards.expired.for_review.first
     else
       cards.expired.for_review.first

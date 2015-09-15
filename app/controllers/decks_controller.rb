@@ -27,7 +27,7 @@ class DecksController < ApplicationController
 
   def update
     if @deck.update(deck_params)
-      redirect_to deck_path, notice: "Колода изменена"
+      redirect_to @deck, notice: "Колода изменена"
     else
       render edit_deck_path
     end
