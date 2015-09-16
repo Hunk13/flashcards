@@ -6,7 +6,7 @@ class DecksController < ApplicationController
   end
 
   def show
-    @cards = @deck.cards.all
+    @cards = @deck.cards
   end
 
   def new

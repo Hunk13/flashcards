@@ -6,12 +6,22 @@ describe "Testing card create and edit," do
   context "valid card" do
     include_context "logged user"
 
-    it "add card" do
+    it "add card select deck" do
       visit root_path
       click_on "Добавить карточку"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")
       select "Animals", from: "card_deck_id"
+      click_on "Создать карточку"
+      expect(page).to have_content("Карта создана")
+    end
+
+    it "add card select deck" do
+      visit root_path
+      click_on "Добавить карточку"
+      fill_in("card_original_text", with: "Ja")
+      fill_in("card_translated_text", with: "Yes")
+      fill_in("deck_title", with: "Animals")
       click_on "Создать карточку"
       expect(page).to have_content("Карта создана")
     end
