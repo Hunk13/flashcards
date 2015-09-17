@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 
 # Use postgree as the database for Active Record
-gem 'pg', '>= 0.17.1'
+gem 'pg'
+gem 'pg_search'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -48,6 +49,7 @@ gem 's3_direct_upload'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'pg'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -66,7 +68,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg', '>= 0.17.1'
-  gem 'rails_12factor', '0.0.2'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
