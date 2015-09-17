@@ -1,6 +1,5 @@
 <%= simple_form_for card, html: { class: "form-horizontal" } do |f| %>
-
-<% if card.errors.any? %>
+  <% if card.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(card.errors.count, "error") %>
