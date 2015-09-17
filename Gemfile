@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 
 # Use postgree as the database for Active Record
-gem 'pg'
+gem 'pg', '>= 0.17.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -66,7 +66,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  gem 'pg', '>= 0.17.1'
+  gem 'rails_12factor', '0.0.2'
 end
 
