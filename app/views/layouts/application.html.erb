@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Flashcards</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Флэшкарточкер</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+<body>
+<section id="container">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+    <% if current_user %>
+      <ul class="nav nav-tabs">
+        <li><span><h4>Профиль: <b><%= current_user.name %></b></h4></span></li>
+        <li><%= link_to "Показать мой профиль", profile_path(current_user) %></li>
+        <li><%= link_to "Редактировать мой профиль", edit_profile_path(current_user) %></li>
+        <li><%= link_to "Выход", logout_path, method: :delete %></li>
+      </ul>
+    <% else %>
+      <ul class="nav nav-tabs">
+        <li><%= link_to "Регистрация", signup_path %></li>
+        <li><%= link_to "Вход", login_path %></li>
+        <li><%= link_to "Вход с помощью Twitter", auth_at_provider_path(provider: :twitter) %></li>
+        <li><%= link_to 'Вход с помощью Github', auth_at_provider_path(provider: :github) %></li>
+       </ul>
+     <% end %>
+    </div>
+  </nav>
+<footer>
+  <div class="hero-unit">
+    <h1><%= link_to "Флэшкарточкер", root_path %></h1>
+    <p>
+      <h3>Первый в мире удобный менеджер флеш-карточек. Именно так.</h3>
+    </p>
+  </div>
+
+  <div class="col-md-12 navigation-links">
+    <ul class="nav nav-tabs nav-justified">
+      <li><%= link_to 'Добавить карточку', new_card_path %>
+      <li><%= link_to 'Все карточки', cards_path %>
+      <li><%= link_to 'Добавить колоду', new_deck_path %>
+      <li><%= link_to 'Все колоды', decks_path %>
+      <li><%= link_to 'Тренировка слов', reviews_path %>
+    </ul>
+  </div><br/>
+</footer>
+
+  <%= yield %>
+  <%= debug(params) if Rails.env.development? %>
+
+  <p class="color-notice"><%= flash[:notice] %></p>
+  <p class="color-alert"><%= flash[:alert] %></p>
+
+</section>
 
 </body>
 </html>

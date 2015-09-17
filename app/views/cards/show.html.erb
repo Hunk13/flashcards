@@ -1,0 +1,29 @@
+<p>
+  <strong>Оригинальный текст:</strong>
+  <%= @card.original_text %>
+</p>
+
+<p>
+  <strong>Перевод:</strong>
+  <%= @card.translated_text %>
+</p>
+
+<p>
+  <strong>Колода:</strong>
+  <%= @card.deck.title %>
+</p>
+
+<p>
+  <strong>Дата пересмотра:</strong>
+  <%= @card.review_date.strftime('%d/%m/%Y') %>
+</p>
+
+<p>
+  <strong>Картинка:</strong>
+  <%= image_tag @card.picture.url(:thumb) %>
+</p>
+
+<br>
+<p>
+  <%= link_to 'Назад', cards_path %>
+ </p>

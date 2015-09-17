@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'rails', '4.2.3'
+
+# Use postgree as the database for Active Record
+gem 'pg'
+gem 'pg_search'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -22,6 +23,20 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# Use SimpleForm as FormBuilder
+gem 'simple_form'
+# User Authentication
+gem 'sorcery'
+# check e-mail
+gem 'validates_email_format_of'
+# using ENV and a single YAML file
+gem 'figaro'
+# attechment library for ActiveRecord
+gem 'paperclip', '~> 4.3'
+# for AWS storage
+gem 'aws-sdk', '~> 1.6'
+# direct upload form helper and assets
+gem 's3_direct_upload'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -33,6 +48,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'pg'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -41,5 +57,17 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # rspec-rails is a testing framework for Rails 3.x and 4.x.
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  # output formatting table
+  gem "table_print"
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
