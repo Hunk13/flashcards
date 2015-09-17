@@ -8,53 +8,44 @@
   </head>
 
 <body>
-
 <section id="container">
-  <div>
-    <header>
-      <div>
-        <h1><%= link_to "Флэшкарточкер", root_path %></h1>
-        <p>
-          <h3>Первый в мире удобный менеджер флеш-карточек. Именно так.</h3>
-        </p>
-      </div>
-      <div class="form-inline">
-        <% if current_user %>
-          <table class="table table-bordered">
-          <tr >
-            <th colspan="3">
-              <span><h4>Профиль: <b><%= current_user.name %></b></h4></span><br />
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <%= link_to "Показать мой профиль", profile_path(current_user) %>
-            </th>
-            <th>
-              <%= link_to "Редактировать мой профиль", edit_profile_path(current_user) %>
-            </th>
-            <th>
-              <%= link_to "Выход", logout_path, method: :delete %>
-            </th>
-          </tr>
-          </table>
-        <% else %>
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Register", signup_path %></li>
-            <li><%= link_to "Login", login_path %></li>
-            <li><%= link_to "Login with Twitter", auth_at_provider_path(provider: :twitter) %></li>
-            <li><%= link_to 'Login with Github', auth_at_provider_path(provider: :github) %></li>
-          </ul>
-        <% end %>
-    </header>
-    <div class="col-md-12 navigation-links">
-      <ul class="nav nav-tabs nav-justified">
-        <li><%= link_to 'Все карточки', cards_path %>
-        <li><%= link_to 'Добавить карточку', new_card_path %>
-        <li><%= link_to 'Тренировка слов', reviews_path %>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+    <% if current_user %>
+      <ul class="nav nav-tabs">
+        <li><span><h4>Профиль: <b><%= current_user.name %></b></h4></span></li>
+        <li><%= link_to "Показать мой профиль", profile_path(current_user) %></li>
+        <li><%= link_to "Редактировать мой профиль", edit_profile_path(current_user) %></li>
+        <li><%= link_to "Выход", logout_path, method: :delete %></li>
       </ul>
-    </div><br/>
+    <% else %>
+      <ul class="nav nav-tabs">
+        <li><%= link_to "Регистрация", signup_path %></li>
+        <li><%= link_to "Вход", login_path %></li>
+        <li><%= link_to "Вход с помощью Twitter", auth_at_provider_path(provider: :twitter) %></li>
+        <li><%= link_to 'Вход с помощью Github', auth_at_provider_path(provider: :github) %></li>
+       </ul>
+     <% end %>
+    </div>
+  </nav>
+<footer>
+  <div class="hero-unit">
+    <h1><%= link_to "Флэшкарточкер", root_path %></h1>
+    <p>
+      <h3>Первый в мире удобный менеджер флеш-карточек. Именно так.</h3>
+    </p>
   </div>
+
+  <div class="col-md-12 navigation-links">
+    <ul class="nav nav-tabs nav-justified">
+      <li><%= link_to 'Добавить карточку', new_card_path %>
+      <li><%= link_to 'Все карточки', cards_path %>
+      <li><%= link_to 'Добавить колоду', new_deck_path %>
+      <li><%= link_to 'Все колоды', decks_path %>
+      <li><%= link_to 'Тренировка слов', reviews_path %>
+    </ul>
+  </div><br/>
+</footer>
 
   <%= yield %>
   <%= debug(params) if Rails.env.development? %>

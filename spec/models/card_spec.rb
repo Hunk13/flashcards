@@ -3,11 +3,11 @@ require "rails_helper"
 describe Card do
   it "is valid card with original text, translated test and date review" do
     valid_card = Card.new(
-      user_id: 1,
       original_text: "Ja",
       translated_text: "Yes",
       review_date: 3.days.from_now,
-      picture: File.new(Rails.root + "spec/fixtures/files/Cat.jpg"))
+      picture: File.new(Rails.root + "spec/fixtures/files/Cat.jpg"),
+      deck: Deck.new(title: "Animals"))
     expect(valid_card).to be_valid
   end
 

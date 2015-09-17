@@ -6,5 +6,5 @@ def login(email, password)
 end
 
 def default_login
-  login("vasya@pupkin.ru", "12345")
+  login("aa@aa.aa", "12345")
 end

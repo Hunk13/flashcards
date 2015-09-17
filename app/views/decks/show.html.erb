@@ -1,0 +1,8 @@
+<p>
+  <strong>Название колоды:</strong>
+  <%= @deck.title %><br />
+  <%= link_to "Установить как текущую", set_current_deck_path, method: :put %>
+</p><br>
+<p>
+  <%= link_to 'Back', decks_path %>
+</p>

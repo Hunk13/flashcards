@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root "reviews#index"
   resources :reviews, :cards
+  resources :decks do
+    put "set_current", on: :member
+  end
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :registrations, only: [:new, :create]
   resources :profiles, only: [:edit, :update, :show, :destroy]

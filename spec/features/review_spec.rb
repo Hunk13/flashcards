@@ -1,24 +1,19 @@
 require "rails_helper"
+require "support/login_helper"
+require "context/login_user"
 
 describe "Cards to review" do
   context "no cards to review" do
-    before(:each) do
-      FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
-      login("vasya@pupkin.ru", "12345")
-      click_link "Тренировка слов"
-    end
+    include_context "logged user"
 
     it "no new cards to review" do
+      click_on "Тренировка слов"
       expect(page).to have_content "Нет карточек для тренировки"
     end
   end
 
   context "have cards to review" do
-    before(:each) do
-      FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
-      login("vasya@pupkin.ru", "12345")
-      click_link "Тренировка слов"
-    end
+    include_context "logged user"
 
     it "input wrong translation" do
       visit root_path
@@ -27,8 +22,9 @@ describe "Cards to review" do
       fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
       select "August", from: "card_review_date_2i"
+      select "Animals", from: "card_deck_id"
       click_on "Создать карточку"
-      expect(page).to have_content("Back")
+      expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Hello"
       click_button "Проверить"
@@ -42,8 +38,9 @@ describe "Cards to review" do
       fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
       select "August", from: "card_review_date_2i"
+      select "Animals", from: "card_deck_id"
       click_on "Создать карточку"
-      expect(page).to have_content("Back")
+      expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Ja"
       click_button "Проверить"
