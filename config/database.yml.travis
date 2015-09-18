@@ -15,5 +15,4 @@ development:
 deploy:
   provider: heroku
   app: sleepy-reaches-7041
-  api_key: "62a358fb-857c-4177-94f4-c57aad549873"
   run: "rake db:migrate"
