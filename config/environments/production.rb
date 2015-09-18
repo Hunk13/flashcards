@@ -1,4 +1,10 @@
 Rails.application.configure do
+  config.paperclip_defaults = { storage: :s3,
+                                access_key_id: ENV["S3_ACCESS_KEY_ID"],
+                                secret_access_key: ENV["S3_SECRET_ACCESS_KEY"],
+                                bucket: ENV["S3_BUCKET"],
+                                path: "/:class/:attachment/:id_partition/:style/:filename",
+                                url: ":s3_domain_url" }
   PAPERCLIP_STORAGE_OPTIONS = { storage: :s3,
                                 access_key_id: ENV["S3_ACCESS_KEY_ID"],
                                 secret_access_key: ENV["S3_SECRET_ACCESS_KEY"],
