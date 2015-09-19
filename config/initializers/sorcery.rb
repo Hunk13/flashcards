@@ -1,12 +1,12 @@
 Rails.application.config.sorcery.submodules = [:remember_me, :external]
 
 Rails.application.config.sorcery.configure do |config|
-  config.external_providers = [:twitter, :github]
+  config.external_providers = [:twitter, :github, :facebook]
 
   config.twitter.key = ENV["OUATH_TWITTER_KEY"]
   config.twitter.secret = ENV["OUATH_TWITTER_SECRET"]
   config.twitter.callback_url = ENV["OAUTH_TWITTER_CALLBACK_URL"]
-  config.twitter.user_info_mapping = { username: "screen_name" }
+  config.twitter.user_info_mapping = { name: "screen_name", email: "screen_name" }
 
   config.github.key = ENV["OUATH_GITHUB_KEY"]
   config.github.secret = ENV["OUATH_GITHUB_SECRET"]
@@ -16,6 +16,7 @@ Rails.application.config.sorcery.configure do |config|
 
   config.user_config do |user|
     user.authentications_class = Authentication
+    user.username_attribute_names = [:email]
     user.remember_me_for = 1209600 # Two weeks in seconds
   end
 
