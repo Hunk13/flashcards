@@ -3,6 +3,7 @@ class UserSessionsController < ApplicationController
 
   def new
     @user = User.new
+    @twitter_url = sorcery_login_url("twitter")
   end
 
   def create
