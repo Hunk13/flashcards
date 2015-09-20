@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916084151) do
+ActiveRecord::Schema.define(version: 20150918161857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "authentications", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.string   "provider",   null: false
-    t.string   "uid",        null: false
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20150916084151) do
     t.integer  "user_id"
   end
 
+  add_index "decks", ["user_id"], name: "index_decks_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.text     "email",                        null: false
     t.datetime "created_at",                   null: false
@@ -55,16 +57,15 @@ ActiveRecord::Schema.define(version: 20150916084151) do
     t.string   "crypted_password"
     t.string   "salt"
     t.string   "name"
-    t.string   "remember_me_token"
-    t.datetime "remember_me_token_expires_at"
     t.string   "provider"
     t.string   "uid"
     t.integer  "default_deck_id"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
   add_foreign_key "cards", "decks"
-  add_foreign_key "decks", "users"
 end

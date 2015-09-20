@@ -1,4 +1,6 @@
 require "rails_helper"
+require "support/login_helper"
+require "context/login_user"
 
 describe "User registration" do
   context "valid data" do
@@ -13,7 +15,7 @@ describe "User registration" do
     end
 
     it "edit user" do
-      FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
+      create(:user, email: "vasya@pupkin.ru", password: "12345")
       login("vasya@pupkin.ru", "12345")
       click_link "Редактировать мой профиль"
       fill_in "profile_name", with: "Bill Gates"
@@ -24,7 +26,7 @@ describe "User registration" do
     end
 
     it "user log out" do
-      FactoryGirl.create(:user, email: "vasya@pupkin.ru", password: "12345")
+      create(:user, email: "vasya@pupkin.ru", password: "12345")
       login("vasya@pupkin.ru", "12345")
       click_on "Выход"
       expect(page).to have_content "Logged"

@@ -1,6 +1,5 @@
 class Card < ActiveRecord::Base
   belongs_to :deck
-  belongs_to :user
 
   validate :original_not_equal_translated
   validates :review_date, :deck, presence: true
