@@ -15,4 +15,4 @@ deploy:
   app: sleepy-reaches-7041
   on:
     repo: Hunk13/flashcards
-    branch: twelfth-lesson
+    branch: thirteenth-lesson
