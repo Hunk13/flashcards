@@ -57,7 +57,7 @@ class Card < ActiveRecord::Base
     else
       offset = 1.month
     end
-  update_attributes(review_date: review_date + offset)
+    update_attributes(review_date: review_date + offset)
   end
 
   private
