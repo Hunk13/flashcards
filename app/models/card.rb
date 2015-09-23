@@ -22,7 +22,7 @@ class Card < ActiveRecord::Base
 
   def check_translation(user_translation)
     if prepare_text(original_text) == prepare_text(user_translation)
-      count_correct_answer
+      process_correct_answer
       true
     else
       count_incorrect_answer
@@ -30,34 +30,45 @@ class Card < ActiveRecord::Base
     end
   end
 
-  def count_correct_answer
+  def process_correct_answer
     increment(:correct_answers) if correct_answers < 5
-    update_attributes(incorrect_answers: 0)
-    update_review_date
+    update_review_date_if_correct
   end
 
   def count_incorrect_answer
     decrement(:correct_answers) if correct_answers > 0
     increment(:incorrect_answers) if incorrect_answers < 3
-    save
+    update_review_date_if_incorrect
   end
 
-  def update_review_date
-    case correct_answers
+  def update_review_date_if_correct
+    offset = case correct_answers
     when 0
-      offset = 0
+      0
     when 1
-      offset = 12.hour
+      12.hour
     when 2
-      offset = 3.day
+      3.day
     when 3
-      offset = 1.week
+      1.week
     when 4
-      offset = 2.week
+      2.week
     else
-      offset = 1.month
+      1.month
     end
-    update_attributes(review_date: review_date + offset)
+    update_attributes(review_date: review_date + offset, incorrect_answers: 0)
+  end
+
+  def update_review_date_if_incorrect
+    offset = case incorrect_answers
+    when 1
+      12.hour
+    when 2
+      3.day
+    else
+      DateTime.now
+    end
+    update_attributes(review_date: review_date - offset)
   end
 
   private
