@@ -61,13 +61,13 @@ class Card < ActiveRecord::Base
 
   def update_review_date_if_incorrect
     offset = case incorrect_answers
-    when 1
-      12.hour
-    when 2
-      3.day
-    else
-      DateTime.now
-    end
+             when 1
+               12.hour
+             when 2
+               3.day
+             else
+               DateTime.now
+             end
     update_attributes(review_date: review_date - offset)
   end
 
