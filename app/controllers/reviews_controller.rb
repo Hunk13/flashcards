@@ -11,10 +11,10 @@ class ReviewsController < ApplicationController
                        "перевод: #{@card.translated_text}. " \
                        "Твой ответ: #{review_params[:user_translation]}. " \
                        "Опечатка: #{review[:typos]} буква. " \
-                       "Дата следующей проверки: #{@card.review_date.strftime("%d/%m/%Y %H:%M")}"
+                       "Дата следующей проверки: #{@card.review_date.strftime('%d/%m/%Y %H:%M')}"
     else
       flash[:alert] = "Неправильно, попробуй еще. " \
-                      "Дата следующей проверки: #{@card.review_date.strftime("%d/%m/%Y %H:%M")}"
+                      "Дата следующей проверки: #{@card.review_date.strftime('%d/%m/%Y %H:%M')}"
     end
     redirect_to reviews_path
   end
