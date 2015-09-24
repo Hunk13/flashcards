@@ -15,4 +15,8 @@ deploy:
   app: sleepy-reaches-7041
   on:
     repo: Hunk13/flashcards
-    branch: thirteenth-lesson
+    branch: fourteenth-lesson
+addons:
+  code_climate:
+    repo_token:
+      secure: "XEGS/GbUOZtKrSBdfZ37kVNN12p4Sjka+7bnkiWRWh+pNWqC83EV6g+pDLZD5hPIZcXRT4WfseRXzQFsi0dJScO3zCEkeanp/jCGRYdVieGI4kCwLVeR5AUg6rYvL/mFUm56lkOa8HJO3zVkSE9eN2ihi4IWWaA+qOlSmDk0TCbDtwL3Gh8ChC/cTX5IePyc85zOB+YDCCWn05ypWPtw8WenP09kHz2TmELHj7kr/T3MU8Lx+8V6Z77jq3r+lNybcO30GVdEyQ9EdUJpZ36PSo6Ob9aec+3jiYZAfbhebSuzZ9Obmc4JGXDYuuFvPQ9lrdWsljssxu3vxf6Qf44o81ux5w6jpKZLGOnV7X8yvEhyj9wZ1iWTkB3o6PRosRFVX0Nf8F33uxOkUUFKP9+keyrFM++hm3bLqxtHCw7ozK1O5v9C2DFXhPJq18aOQPTaJlfHlzLyJgk7pPGo+MGMxUpV75nMGI7D2Sts2kppxEfnlMvRB9Vo3sUFexfEZht4BH9dU5ZJNJreiUY736ZEVSkPunpqmY0oP/+jHB60Svpqmjg9ycHaP3/3VWIIBPK1bDoVO5Vx+0x4x0Kl8E4NabSJyEmBomsQtlpXULaYkMCOH1vqcWX/+eUa2EYhO9iV5qAcNXW4CL75e0ZthqjcGo014+kjDYsdCtDy5Y/iIEQ="
