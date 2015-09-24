@@ -21,13 +21,15 @@ class Card < ActiveRecord::Base
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
   def check_translation(user_translation)
-    if prepare_text(original_text) == prepare_text(user_translation)
+    typos = distanse_of_words(original_text, user_translation)
+    if typos <= 1
       process_correct_answer
       true
     else
       count_incorrect_answer
       false
     end
+    { success: typos <= 1, typos: typos }
   end
 
   def process_correct_answer
@@ -87,5 +89,10 @@ class Card < ActiveRecord::Base
 
   def set_date_after_review
     DateTime.now
+  end
+
+  def distanse_of_words(word1, word2)
+    dl = DamerauLevenshtein
+    dl.distance(prepare_text(word1), prepare_text(word2))
   end
 end

@@ -37,6 +37,8 @@ gem 'paperclip', '~> 4.3'
 gem 'aws-sdk', '~> 1.6'
 # direct upload form helper and assets
 gem 's3_direct_upload'
+# Levenshtein distance between two byte strings
+gem "damerau-levenshtein"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

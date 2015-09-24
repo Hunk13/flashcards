@@ -32,7 +32,7 @@ describe "Cards to review" do
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Catze"
       click_button "Проверить"
-      expect(page).to have_content "Неправильно, попробуй еще"
+      expect(page).to have_content "Неправильно, попробуй еще."
     end
 
     it "input right translation" do
@@ -48,7 +48,7 @@ describe "Cards to review" do
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Ja"
       click_button "Проверить"
-      expect(page).to have_content "Правильный перевод"
+      expect(page).to have_content "Правильно. Оригинальный текст:"
     end
   end
 
