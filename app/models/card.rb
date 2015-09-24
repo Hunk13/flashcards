@@ -1,6 +1,5 @@
 class Card < ActiveRecord::Base
   belongs_to :deck
-  belongs_to :user
 
   validate :original_not_equal_translated
   validates :review_date, :deck, presence: true
@@ -23,8 +22,55 @@ class Card < ActiveRecord::Base
 
   def check_translation(user_translation)
     if prepare_text(original_text) == prepare_text(user_translation)
-      update_attributes(review_date: set_date_after_review)
+      process_correct_answer
+      true
+    else
+      count_incorrect_answer
+      false
     end
+  end
+
+  def process_correct_answer
+    increment(:correct_answers) if correct_answers < 5
+    update_review_date_if_correct
+  end
+
+  def count_incorrect_answer
+    decrement(:correct_answers) if correct_answers > 0
+    increment(:incorrect_answers) if incorrect_answers < 3
+    update_review_date_if_incorrect
+  end
+
+  def update_review_date_if_correct
+    offset = case correct_answers
+             when 0
+               0
+             when 1
+               12.hour
+             when 2
+               3.day
+             when 3
+               1.week
+             when 4
+               2.week
+             else
+               1.month
+             end
+    update_attributes(review_date: review_date + offset, incorrect_answers: 0)
+  end
+
+  def update_review_date_if_incorrect
+    offset = case incorrect_answers
+             when 0
+               0
+             when 1
+               12.hour
+             when 2
+               3.day
+             else
+               1.week
+             end
+    update_attributes(review_date: review_date - offset)
   end
 
   private
@@ -40,6 +86,6 @@ class Card < ActiveRecord::Base
   end
 
   def set_date_after_review
-    DateTime.now + 3.days
+    DateTime.now
   end
 end

@@ -15,7 +15,7 @@
 
 <p>
   <strong>Дата пересмотра:</strong>
-  <%= @card.review_date.strftime('%d/%m/%Y') %>
+  <%= @card.review_date.strftime("%d/%m/%Y %H:%M") %>
 </p>
 
 <p>
@@ -25,5 +25,5 @@
 
 <br>
 <p>
-  <%= link_to 'Назад', cards_path %>
+  <%= link_to "Назад", cards_path %>
  </p>

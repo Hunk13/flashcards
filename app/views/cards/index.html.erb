@@ -6,7 +6,9 @@
       <th>Перевод</th>
       <th>Колода</th>
       <th>Дата</th>
-      <th colspan="4"></th>
+      <th>Правильные ответы</th>
+      <th>Неправильные ответы</th>
+      <th colspan="3"></th>
     </tr>
 
   <% @cards.each do |card| %>
@@ -14,11 +16,12 @@
       <td><%= card.original_text %></td>
       <td><%= card.translated_text %></td>
       <td><%= link_to card.deck.title, deck_path(card.deck) %></td>
-      <td><%= card.review_date.strftime('%d/%m/%Y') %></td>
+      <td><%= card.review_date.strftime("%d/%m/%Y %H:%M") %></td>
+      <td><%= card.correct_answers %></td>
+      <td><%= card.incorrect_answers %></td>
       <td><%= link_to "Показать", card_path(card) %></td>
       <td><%= link_to "Редактировать", edit_card_path(card) %></td>
-      <td><%= link_to "На проверку", reviews_path(card) %></td>
-      <td><%= link_to "Удалить", card_path(card), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+      <td><%= link_to "Удалить", card_path(card), method: :delete, data: { confirm: "Вы уверены?" } %></td>
   <% end %>
   </table>
 </div>

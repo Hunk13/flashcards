@@ -3,6 +3,8 @@ require "support/login_helper"
 require "context/login_user"
 
 describe "Cards to review" do
+  let!(:deck) { create(:deck) }
+
   context "no cards to review" do
     include_context "logged user"
 
@@ -22,11 +24,13 @@ describe "Cards to review" do
       fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
       select "August", from: "card_review_date_2i"
+      select "08", from: "card_review_date_4i"
+      select "21", from: "card_review_date_5i"
       select "Animals", from: "card_deck_id"
       click_on "Создать карточку"
       expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
-      fill_in "review_user_translation", with: "Hello"
+      fill_in "review_user_translation", with: "Catze"
       click_button "Проверить"
       expect(page).to have_content "Неправильно, попробуй еще"
     end

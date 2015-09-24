@@ -48,7 +48,6 @@ gem 's3_direct_upload'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'pg'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -67,7 +66,8 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
+
+gem "codeclimate-test-reporter", group: :test, require: nil
 

@@ -1,13 +1,22 @@
 language: ruby
 rvm:
-  - "2.0.0"
-
+- 2.0.0
 env:
-  - DB=postgresql
-
+- DB=postgresql
 script:
-  - bundle exec rspec spec
-
+- bundle exec rspec spec
 before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database test_pgsql;' -U postgres
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database test_pgsql;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: uBXM1H4LgPemVSGR/dpMv9Tx8C370tCnancALycN+cL1b0pPovhSXLnH9esJwufMMwdUBzwwHqMNGh0OsPyL18BoIGGIUL2L24Of0og3eS2idO5MXtUceR7WqE/wL3nQoIE6bZJxQ8qoTpNgu1v0p8XR/iT6qxTMyNVF14fNhVfJ8ijHjh1DNb/mHsBCUeBiMYfBHJqHVMwzVHsQyqGqHgIIyK9UKqJNMpAcMgbhFsTwP8ozSmujeR12dmUJzFj0pDmLuwsGEpuW2qrFKnLo4T9Ppod4bpP0pt1+m31sOmY4FRNESvyHiyTVjLNVQ5xvYZBAPRZEG24++MSKgW+Pfp+D8h7EZy4T4gY5t4vQ3v3CJG3XZufauwN9dKgcVVLUjQzbC4Z4t6R6avXHBmmLr5yKwKvNfFCxlv8c680MAH4v39PdSJb4Vmg/SUOemAETn9N7W2vaEFU/OAvXnutGUoI3rSe7/aIajJJdPdMmHqOW087phbEuyxoU1DK2ht/Q3gu1dJrA4vKOxh27dU9Uell/PI2mRfiRcEJqrfTg7k8+rChk0W/2as26OyztUWa43oPwDRBjI05zHgtaSc0Fz6QiI9NVgdOcQvQA9fHhgcDRGUcz1hgGbi0P0IsM6YTaebM9RjHZmXVygr8ueTYxUNLm6pn+zy8Jy44y+CW3dSc=
+  app: sleepy-reaches-7041
+  on:
+    repo: Hunk13/flashcards
+    branch: fourteenth-lesson
+addons:
+  code_climate:
+    repo_token:
+      secure: "XEGS/GbUOZtKrSBdfZ37kVNN12p4Sjka+7bnkiWRWh+pNWqC83EV6g+pDLZD5hPIZcXRT4WfseRXzQFsi0dJScO3zCEkeanp/jCGRYdVieGI4kCwLVeR5AUg6rYvL/mFUm56lkOa8HJO3zVkSE9eN2ihi4IWWaA+qOlSmDk0TCbDtwL3Gh8ChC/cTX5IePyc85zOB+YDCCWn05ypWPtw8WenP09kHz2TmELHj7kr/T3MU8Lx+8V6Z77jq3r+lNybcO30GVdEyQ9EdUJpZ36PSo6Ob9aec+3jiYZAfbhebSuzZ9Obmc4JGXDYuuFvPQ9lrdWsljssxu3vxf6Qf44o81ux5w6jpKZLGOnV7X8yvEhyj9wZ1iWTkB3o6PRosRFVX0Nf8F33uxOkUUFKP9+keyrFM++hm3bLqxtHCw7ozK1O5v9C2DFXhPJq18aOQPTaJlfHlzLyJgk7pPGo+MGMxUpV75nMGI7D2Sts2kppxEfnlMvRB9Vo3sUFexfEZht4BH9dU5ZJNJreiUY736ZEVSkPunpqmY0oP/+jHB60Svpqmjg9ycHaP3/3VWIIBPK1bDoVO5Vx+0x4x0Kl8E4NabSJyEmBomsQtlpXULaYkMCOH1vqcWX/+eUa2EYhO9iV5qAcNXW4CL75e0ZthqjcGo014+kjDYsdCtDy5Y/iIEQ="
