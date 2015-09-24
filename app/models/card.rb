@@ -29,7 +29,7 @@ class Card < ActiveRecord::Base
       count_incorrect_answer
       false
     end
-    { success: typos <= 1, typos: typos }
+    { typos: typos, answer: typos <= 1 }
   end
 
   def process_correct_answer
