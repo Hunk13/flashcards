@@ -65,12 +65,8 @@ group :development, :test do
   gem "table_print"
 end
 
-<<<<<<< HEAD
 group :production do
   gem 'rails_12factor'
 end
 
 gem "codeclimate-test-reporter", group: :test, require: nil
-
-=======
->>>>>>> origin/master
