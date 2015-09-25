@@ -24,10 +24,8 @@ class Card < ActiveRecord::Base
     typos = distanse_of_words(original_text, user_translation)
     if typos <= 1
       process_correct_answer
-      true
     else
       count_incorrect_answer
-      false
     end
     { typos: typos, answer: typos <= 1 }
   end
@@ -92,7 +90,6 @@ class Card < ActiveRecord::Base
   end
 
   def distanse_of_words(word1, word2)
-    dl = DamerauLevenshtein
-    dl.distance(prepare_text(word1), prepare_text(word2))
+    DamerauLevenshtein.distance(prepare_text(word1), prepare_text(word2))
   end
 end
