@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe Deck do
   before(:each) do
-    @deck = FactoryGirl.create(:deck)
+    @deck = create(:deck)
   end
   it "create valid deck" do
     expect(@deck).to be_valid

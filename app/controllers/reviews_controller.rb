@@ -5,12 +5,18 @@ class ReviewsController < ApplicationController
 
   def create
     @card = current_user.cards.find(review_params[:card_id])
-    if @card.check_translation(review_params[:user_translation])
-      flash[:notice] = "Правильный перевод"
+    review = @card.check_translation(review_params[:user_translation])
+    if review[:answer]
+      flash[:notice] = "Правильно. Оригинальный текст: #{@card.original_text}, " \
+                       "перевод: #{@card.translated_text}. " \
+                       "Твой ответ: #{review_params[:user_translation]}. " \
+                       "Опечатка: #{review[:typos]} буква. " \
+                       "Дата следующей проверки: #{@card.review_date.strftime('%d/%m/%Y %H:%M')}"
     else
-      flash[:alert] = "Неправильно, попробуй еще"
+      flash[:alert] = "Неправильно, попробуй еще. " \
+                      "Дата следующей проверки: #{@card.review_date.strftime('%d/%m/%Y %H:%M')}"
     end
-    redirect_to :back
+    redirect_to reviews_path
   end
 
   private

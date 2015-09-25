@@ -71,13 +71,13 @@ describe Card do
   end
 
   context "review date" do
-    it "12 hours from now" do
+    it "if correct answer" do
       old_level = review_card.correct_answers
       review_card.check_translation("Katze")
       expect(old_level < review_card.correct_answers).to be true
     end
 
-    it "12 hours from now" do
+    it "if incorrect answer" do
       old_level = review_card.correct_answers
       review_card.check_translation("Cat")
       expect(old_level < review_card.correct_answers).to be false
@@ -95,13 +95,13 @@ describe Card do
       expect(card.incorrect_answers).to be 3
     end
 
-    it "must down level card after 3 bad attempts" do
+    it "must down level card after 2 bad attempts" do
       card = create(:card, correct_answers: 0, incorrect_answers: 1)
       card.check_translation("Dog")
       expect(card.incorrect_answers).to be 2
     end
 
-    it "must down level card after 3 bad attempts" do
+    it "must down level card after 1 bad attempts" do
       card = create(:card, correct_answers: 0, incorrect_answers: 0)
       card.check_translation("Dog")
       expect(card.incorrect_answers).to be 1
