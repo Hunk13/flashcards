@@ -4,6 +4,7 @@ describe Deck do
   before(:each) do
     @deck = create(:deck)
   end
+
   it "create valid deck" do
     expect(@deck).to be_valid
   end
