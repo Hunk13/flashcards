@@ -9,7 +9,7 @@ describe "Testing Notification Mailer" do
       expect(mail.subject).to eql("Проверь карточки!!!")
     end
 
-    it "send mail" do
+    it "send mail to" do
       expect(mail.to).to eql([user.email])
     end
 
