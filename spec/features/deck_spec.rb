@@ -30,6 +30,14 @@ describe "Deck features" do
       first(:link, "Установить как текущую").click
       expect(page).to have_content("Колода установлена")
     end
+
+    it "delete deck" do
+      visit new_deck_path
+      fill_in("deck_title", with: "Animals")
+      click_on "Создать колоду"
+      first(:link, "Удалить").click
+      expect(page).to have_content("Список всех колод")
+    end
   end
 
   context "invalid deck" do
