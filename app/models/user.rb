@@ -26,4 +26,10 @@ class User < ActiveRecord::Base
       cards.expired.for_review.first
     end
   end
+
+  def self.notify_card_review
+    User.includes(decks: :cards).each do |user|
+      NotificationsMailer.pending_cards(user).deliver_later
+    end
+  end
 end

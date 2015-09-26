@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, at: "11am" do
+every 1.day, at: "12pm" do
   runner "User.notify_card_review"
 end

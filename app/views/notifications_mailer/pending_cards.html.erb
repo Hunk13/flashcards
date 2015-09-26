@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Привет, <%= @user.name %> </h1>
+    <p>У тебя есть карты, которые нужно потренировать</p>
+    <p>
+      Если ты забыл, где это нужно сделать, напоминаем: <%= ENV["APP_HOST"] %>.
+    </p>
+  </body>
+</html>
