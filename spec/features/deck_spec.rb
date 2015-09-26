@@ -12,6 +12,24 @@ describe "Deck features" do
       click_on "Создать колоду"
       expect(page).to have_content("Список всех колод")
     end
+
+    it "edit deck" do
+      visit new_deck_path
+      fill_in("deck_title", with: "Animals")
+      click_on "Создать колоду"
+      first(:link, "Редактировать колоду").click
+      fill_in("deck_title", with: "Birds")
+      click_on "Создать колоду"
+      expect(page).to have_content("Колода изменена")
+    end
+
+    it "set default deck" do
+      visit new_deck_path
+      fill_in("deck_title", with: "Animals")
+      click_on "Создать колоду"
+      first(:link, "Установить как текущую").click
+      expect(page).to have_content("Колода установлена")
+    end
   end
 
   context "invalid deck" do
