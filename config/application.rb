@@ -10,14 +10,18 @@ module Flashcards
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       address: "smtp.mail.ru",
-      port: 465,
+      port: "465",
       authentication: :plain,
       user_name: ENV["MAIL_USER"],
       password: ENV["MAIL_PASSWORD"],
-      enable_starttls_auto: true
+      enable_starttls_auto: true,
+      ssl: true,
+      tls: true
     }
     config.action_mailer.default_url_options = {
       host: ENV["APP_HOST"]
     }
+    config.i18n.default_locale = :ru
+    config.i18n.available_locales = [:en, :ru]
   end
 end

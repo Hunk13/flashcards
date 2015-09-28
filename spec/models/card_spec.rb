@@ -25,19 +25,19 @@ describe Card do
     it "is invalid card without an original text" do
       invalid_card = Card.new(original_text: nil)
       invalid_card.valid?
-      expect(invalid_card.errors[:original_text]).to include("can't be blank")
+      expect(invalid_card.errors[:original_text]).to include("не может быть пустым")
     end
 
     it "is invalid card without a translated text" do
       invalid_card = Card.new(translated_text: nil)
       invalid_card.valid?
-      expect(invalid_card.errors[:translated_text]).to include("can't be blank")
+      expect(invalid_card.errors[:translated_text]).to include("не может быть пустым")
     end
 
     it "is invalid card without a date review" do
       invalid_card = Card.new(review_date: nil)
       invalid_card.valid?
-      expect(invalid_card.errors[:review_date]).to include("can't be blank")
+      expect(invalid_card.errors[:review_date]).to include("не может быть пустым")
     end
 
     it "is invalid card with original text and translated text equal" do

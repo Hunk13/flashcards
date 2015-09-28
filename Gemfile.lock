@@ -45,6 +45,8 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -90,6 +92,7 @@ GEM
       thor (~> 0.14)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    http_accept_language (2.0.5)
     i18n (0.7.0)
     jbuilder (2.3.0)
       activesupport (>= 3.0.0, < 5)
@@ -153,6 +156,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails-i18n (4.0.5)
+      i18n (~> 0.6)
+      railties (~> 4.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -247,6 +253,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk (~> 1.6)
+  bootstrap-sass
   byebug
   capybara
   codeclimate-test-reporter
@@ -254,11 +261,13 @@ DEPENDENCIES
   damerau-levenshtein
   factory_girl_rails
   figaro
+  http_accept_language
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (~> 4.3)
   pg
   rails (= 4.2.3)
+  rails-i18n (~> 4.0.0)
   rails_12factor
   rspec-rails (~> 3.0)
   s3_direct_upload

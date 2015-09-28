@@ -20,7 +20,7 @@ describe "Deck features" do
       first(:link, "Редактировать колоду").click
       fill_in("deck_title", with: "Birds")
       click_on "Создать колоду"
-      expect(page).to have_content("Колода изменена")
+      expect(page).to have_content("Колода обновлена")
     end
 
     it "set default deck" do
@@ -47,7 +47,7 @@ describe "Deck features" do
       visit new_deck_path
       fill_in("deck_title", with: nil)
       click_on "Создать колоду"
-      expect(page).to have_content("can't be blank")
+      expect(page).to have_content("не может быть пустым")
     end
   end
 end

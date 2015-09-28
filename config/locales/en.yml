@@ -1,23 +1,62 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  views:
+    app_name: "Flashcards"
+    auth:
+      profile: "Profile:"
+      show_profile: "Show my profile"
+      edit_profile: "Edit my profile"
+      exit: "Exit"
+    noauth:
+      signup: "Create user"
+      login: "LogIn"
+    auth_twitter: "LogIn with Twitter"
+    auth_github: "Login with Github"
+    app_description: "The world's first user-friendly manager flash cards. Exactly."
+    menu:
+      languages:
+        lang: "Language"
+        ru: "Russian"
+        en: "English"
+    cards:
+      add: "Add card"
+      all: "All cards"
+    decks:
+      add: "Add deck"
+      all: "All decks"
+    review: "Review words"
+
+  controller:
+    cards:
+      create: "Card create"
+      update: "Card update"
+      destroy: "Card delete"
+    application:
+      not_logged_message: "You must register or enter with your data"
+    decks:
+      update: "Deck update"
+      set: "Deck set"
+    oauth:
+      logged: "Logged in from %{provider}!"
+      failed: "Failed to login from %{provider}!"
+    profiles:
+      update: "Data successfully updated!"
+      destroy: "Data successfully destroy!"
+    registrations:
+      signup: "Signed up! Welcome!"
+    reviews:
+      success: >
+        Correctly. Original text: %{original},
+        Translation: %{translated}.
+        Your answer: %{user_answer}.
+        Typo: %{typos} letter.
+        Date of next inspection: %{next_review}
+      fail: >
+        Wrong, try again.
+        Date of next inspection: %{next_review}
+    user_sessions:
+      welcome: "Welcome!!!"
+      fail: "Login failed!!!"
+      logged: "Logged!!"
+
+  mailer:
+    subject: "Check decks!!!"

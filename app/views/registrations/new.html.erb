@@ -1,19 +1,24 @@
 <h1>Новый пользователь</h1>
 <%= simple_form_for @user, as: :registration, url: registrations_path do |f| %>
   <div class="field form-group">
-    <%= f.input :name, as: :string, label: "Name:", html: { class: "form-control" } %>
+    <%= f.input :name, as: :string, label: "Имя:", html: { class: "form-control" } %>
   </div>
   <div class="field form-group">
     <%= f.input :email, as: :string, label: "E-mail:", html: { class: "form-control" } %>
   </div>
   <div class="field form-group">
-    <%= f.input :password, label: "Password:", html: { class: "form-control" } %>
+    <%= f.input :password, label: "Пароль:", html: { class: "form-control" } %>
   </div>
   <div class="field form-group">
-    <%= f.input :password_confirmation, label: "Password confirmation:", html: { class: "form-control" } %>
+    <%= f.input :password_confirmation, label: "Подтверждение пароля:", html: { class: "form-control" } %>
+  </div>
+  <div class="field form-group">
+    <%= f.input :locale, collection: I18n.available_locales,
+                         label: "Язык интерфейса",
+                         html: { class: "form-control" } %>
   </div>
   <p class="form-group">
     <br>
-    <%= f.button :submit, "Save" %>
+    <%= f.button :submit, "Сохранить" %>
   </p>
 <% end %>

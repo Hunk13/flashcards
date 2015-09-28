@@ -6,7 +6,7 @@ describe "Testing Notification Mailer" do
     let!(:mail) { NotificationsMailer.pending_cards(user) }
 
     it "render subject mail" do
-      expect(mail.subject).to eql("Проверь карточки!!!")
+      expect(mail.subject).to eql("Проверь карточки")
     end
 
     it "send mail to" do

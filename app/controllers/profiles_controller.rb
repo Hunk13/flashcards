@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
 
   def update
     if current_user.update_attributes(user_params)
-      redirect_to profile_path, notice: "Data successfully updated!"
+      redirect_to profile_path, notice: t("controller.profiles.update")
     else
       render "edit"
     end
@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_back_or_to root_url, notice: "User delete"
+    redirect_back_or_to root_url, notice: t("controller.profiles.destroy")
   end
 
   private
@@ -30,6 +30,7 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:name,
                                     :email,
                                     :password,
-                                    :password_confirmation)
+                                    :password_confirmation,
+                                    :locale)
   end
 end

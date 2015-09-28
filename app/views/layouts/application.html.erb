@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Флэшкарточкер</title>
+    <title><%= t("views.app_name") %></title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -13,36 +13,37 @@
     <div class="container">
     <% if current_user %>
       <ul class="nav nav-tabs">
-        <li><span><h4>Профиль: <b><%= current_user.name %></b></h4></span></li>
-        <li><%= link_to "Показать мой профиль", profile_path(current_user) %></li>
-        <li><%= link_to "Редактировать мой профиль", edit_profile_path(current_user) %></li>
-        <li><%= link_to "Выход", logout_path, method: :delete %></li>
+        <li><span><h4><%= t("views.auth.profile") %><b><%= current_user.name %></b></h4></span></li>
+        <li><%= link_to t("views.auth.show_profile"), profile_path(current_user) %></li>
+        <li><%= link_to t("views.auth.edit_profile"), edit_profile_path(current_user) %></li>
+        <li><%= link_to t("views.auth.exit"), logout_path, method: :delete %></li>
       </ul>
     <% else %>
       <ul class="nav nav-tabs">
-        <li><%= link_to "Регистрация", signup_path %></li>
-        <li><%= link_to "Вход", login_path %></li>
-        <li><%= link_to "Вход с помощью Twitter", auth_at_provider_path(provider: :twitter) %></li>
-        <li><%= link_to "Вход с помощью Github", auth_at_provider_path(provider: :github) %></li>
-       </ul>
+        <li><%= link_to t("views.noauth.signup"), signup_path %></li>
+        <li><%= link_to t("views.noauth.login"), login_path %></li>
+        <li><%= link_to t("views.noauth.auth_twitter"), auth_at_provider_path(provider: :twitter) %></li>
+        <li><%= link_to t("views.noauth.auth_github"), auth_at_provider_path(provider: :github) %></li>
+        <%= render "layouts/language" %>
+      </ul>
      <% end %>
     </div>
   </nav>
 <footer>
   <div class="hero-unit">
-    <h1><%= link_to "Флэшкарточкер", root_path %></h1>
+    <h1><%= link_to t("views.app_name"), root_path %></h1>
     <p>
-      <h3>Первый в мире удобный менеджер флеш-карточек. Именно так.</h3>
+      <h3><%= t("views.app_description") %></h3>
     </p>
   </div>
 
   <div class="col-md-12 navigation-links">
     <ul class="nav nav-tabs nav-justified">
-      <li><%= link_to 'Добавить карточку', new_card_path %>
-      <li><%= link_to 'Все карточки', cards_path %>
-      <li><%= link_to 'Добавить колоду', new_deck_path %>
-      <li><%= link_to 'Все колоды', decks_path %>
-      <li><%= link_to 'Тренировка слов', reviews_path %>
+      <li><%= link_to t("views.cards.add"), new_card_path %>
+      <li><%= link_to t("views.cards.all"), cards_path %>
+      <li><%= link_to t("views.decks.add"), new_deck_path %>
+      <li><%= link_to t("views.decks.all"), decks_path %>
+      <li><%= link_to t("views.review"), reviews_path %>
     </ul>
   </div><br/>
 </footer>

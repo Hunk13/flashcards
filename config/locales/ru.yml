@@ -1,0 +1,62 @@
+ru:
+  views:
+    app_name: "Флешкарточкер"
+    auth:
+      profile: "Профиль:"
+      show_profile: "Показать мой профиль"
+      edit_profile: "Редактировать мой профиль"
+      exit: "Выход"
+    noauth:
+      signup: "Регистрация"
+      login: "Вход"
+      auth_twitter: "Войти с помощью Twitter"
+      auth_github: "Войти с помощью Github"
+    app_description: "Первый в мире удобный менеджер флеш-карточек. Именно так."
+    menu:
+      languages:
+        lang: "Язык"
+        ru: "Русский"
+        en: "Английский"
+    cards:
+      add: "Добавить карту"
+      all: "Все карты"
+    decks:
+      add: "Добавить колоду"
+      all: "Все колоды"
+    review: "Тренировка слов"
+
+  controller:
+    cards:
+      create: "Карта создана"
+      update: "Карта обновлена"
+      destroy: "Карта удалена"
+    application:
+      not_logged_message: "Вам нужно зарегистрироваться или войти со своими данными"
+    decks:
+      update: "Колода обновлена"
+      set: "Колода установлена"
+    oauth:
+      logged: "Вход с помощью #{provider.titleize}!"
+      failed: "Ошибка входа с помощью #{provider.titleize}!"
+    profiles:
+      update: "Данные успешно обновлены!"
+      destroy: "Данные успешно уничножены!"
+    registrations:
+      signup: "Вход произведен! Добро пожаловать!"
+    reviews:
+      success: >
+        Правильно. Оригинальный текст: %{original},
+        перевод: %{translated}.
+        Твой ответ: %{user_answer}.
+        Опечатка: %{typos} буква.
+        Дата следующей проверки: %{next_review}
+      fail: >
+        Неправильно, попробуй еще.
+        Дата следующей проверки: %{next_review}
+    user_sessions:
+      welcome: "Добро пожаловать"
+      fail: "Неудачный вход"
+      logged: "Сессия окончена"
+
+  mailer:
+    subject: "Проверь карточки"

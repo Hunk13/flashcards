@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
   belongs_to :default_deck, class_name: "Deck"
 
+  before_save :set_locale, if: :new_record?
   validates :name, presence: true
+  validates :locale, presence: true
   validates :email, uniqueness: true,
                     presence: true,
                     email_format: { message: "Неверный формат электронной почты" }
@@ -31,5 +33,11 @@ class User < ActiveRecord::Base
     User.includes(decks: :cards).each do |user|
       NotificationsMailer.pending_cards(user).deliver_later
     end
+  end
+
+  private
+
+  def set_locale
+    self.locale = I18n.default_locale
   end
 end

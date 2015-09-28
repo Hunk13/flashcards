@@ -12,6 +12,6 @@ describe Deck do
   it "create empty deck" do
     invalid_deck = Deck.new(title: nil)
     invalid_deck.valid?
-    expect(invalid_deck.errors[:title]).to include("can't be blank")
+    expect(invalid_deck.errors[:title]).to include("не может быть пустым")
   end
 end

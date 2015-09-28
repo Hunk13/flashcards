@@ -27,7 +27,7 @@ class DecksController < ApplicationController
 
   def update
     if @deck.update(deck_params)
-      redirect_to @deck, notice: "Колода изменена"
+      redirect_to @deck, notice: t("controller.decks.update")
     else
       render edit_deck_path
     end
@@ -40,7 +40,7 @@ class DecksController < ApplicationController
 
   def set_current
     current_user.update_attributes(default_deck_id: params[:id])
-    redirect_to deck_path, notice: "Колода установлена"
+    redirect_to deck_path, notice: t("controller.decks.set")
   end
 
   private
