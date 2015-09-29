@@ -1,6 +1,7 @@
 ru:
   views:
     app_name: "Флешкарточкер"
+    locale: "Язык"
     auth:
       profile: "Профиль:"
       show_profile: "Показать мой профиль"

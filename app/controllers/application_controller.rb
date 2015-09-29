@@ -7,29 +7,28 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
+    Rails.logger.warn "detect locale"
     locale = detect_locale
     if locale && I18n.available_locales.include?(locale.to_sym)
+      Rails.logger.warn "out locale"
       session[:locale] = I18n.locale = locale.to_sym
     end
-  end
-
-  def change_locale
-    l = params[:locale].to_s.strip.to_sym
-    l = I18n.default_locale unless I18n.available_locales.include?(l)
-    cookies.permanent[:flashcard_locale] = l
-    redirect_to request.referer || root_url
   end
 
   private
 
   def detect_locale
-    if current_user
+    if current_user.try(:locale)
+      Rails.logger.warn "current locale"
       current_user.locale
     elsif params[:locale]
-      session[:locale] = params[:locale]
+      Rails.logger.warn "params locale"
+      params[:locale]
     elsif session[:locale]
+      Rails.logger.warn "sessions locale"
       session[:locale]
     else
+      Rails.logger.warn "http locale1"
       http_accept_language.compatible_language_from(I18n.available_locales)
     end
   end

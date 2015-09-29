@@ -23,6 +23,4 @@ Rails.application.routes.draw do
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
-
-  get "/change_locale/:locale" => "application#change_locale", :as => "change_locale"
 end

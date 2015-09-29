@@ -1,6 +1,7 @@
 en:
   views:
     app_name: "Flashcards"
+    locale: "Locale"
     auth:
       profile: "Profile:"
       show_profile: "Show my profile"
