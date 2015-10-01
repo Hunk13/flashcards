@@ -27,7 +27,7 @@ describe "Cards to review" do
       select "08", from: "card_review_date_4i"
       select "21", from: "card_review_date_5i"
       select "Animals", from: "card_deck_id"
-      click_on "Создать карточку"
+      click_on "Создать карту"
       expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Catze"
@@ -43,7 +43,7 @@ describe "Cards to review" do
       select "29", from: "card_review_date_3i"
       select "Августа", from: "card_review_date_2i"
       select "Animals", from: "card_deck_id"
-      click_on "Создать карточку"
+      click_on "Создать карту"
       expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Ja"

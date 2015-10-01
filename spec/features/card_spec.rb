@@ -12,7 +12,7 @@ describe "Testing card create and edit," do
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")
       select "Animals", from: "card_deck_id"
-      click_on "Создать карточку"
+      click_on "Создать карту"
       expect(page).to have_content("Карта создана")
     end
 
@@ -22,7 +22,7 @@ describe "Testing card create and edit," do
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")
       fill_in("deck_title", with: "Animals")
-      click_on "Создать карточку"
+      click_on "Создать карту"
       expect(page).to have_content("Карта создана")
     end
 
@@ -32,13 +32,13 @@ describe "Testing card create and edit," do
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")
       select("Animals", from: "card_deck_id")
-      click_on "Создать карточку"
+      click_on "Создать карту"
       expect(page).to have_content("Карта создана")
       click_on "Все карты"
       click_on "Редактировать"
       fill_in("card_original_text", with: "Nein")
       fill_in("card_translated_text", with: "No")
-      click_on "Создать карточку"
+      click_on "Создать карту"
       expect(page).to have_content("Карта обновлена")
     end
   end
@@ -51,7 +51,7 @@ describe "Testing card create and edit," do
       click_on "Добавить карту"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Ja")
-      click_on "Создать карточку"
+      click_on "Создать карту"
       expect(page).to have_content("Оригинальный и переведённый тексты равны")
     end
 
@@ -60,7 +60,7 @@ describe "Testing card create and edit," do
       click_on "Добавить карту"
       fill_in("card_original_text", with: nil)
       fill_in("card_translated_text", with: "Yes")
-      click_on "Создать карточку"
+      click_on "Создать карту"
       expect(page).to have_content("не может быть пустым")
     end
 
@@ -69,7 +69,7 @@ describe "Testing card create and edit," do
       click_on "Добавить карту"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: nil)
-      click_on "Создать карточку"
+      click_on "Создать карту"
       expect(page).to have_content("не может быть пустым")
     end
   end

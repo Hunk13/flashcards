@@ -1,16 +1,16 @@
-<h1>Вход</h1>
+<h1><%= t("views.user_sessions.enter") %></h1>
 <%= simple_form_for :user, url: user_sessions_path do |f| %>
   <div class="filed">
-    <%= f.input :email, as: :string, label: "E-mail:" %><br />
+    <%= f.input :email, as: :string, label: t("views.user_sessions.email") %><br />
   </div>
   <div class="filed">
-    <%= f.input :password, label: "Пароль:" %><br />
+    <%= f.input :password, label: t("views.user_sessions.password") %><br />
   </div>
   <div class="form-group">
-    <%= check_box_tag :remember, params[:remember], true %>
-    <%= label_tag :remember %>
+    <%= check_box_tag :remember, params[:remember], false %>
+    <%= label_tag t("views.user_sessions.remember") %>
   </div>
   <div class="actions">
-    <%=  f.button :submit, "Login" %>
+    <%=  f.button :submit, t("views.user_sessions.login") %>
   </div>
 <% end %>

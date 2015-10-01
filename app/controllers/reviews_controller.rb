@@ -12,10 +12,10 @@ class ReviewsController < ApplicationController
                          translated: @card.translated_text,
                          user_answer: review_params[:user_translation],
                          typos: review[:typos],
-                         next_review: @card.review_date.strftime('%d/%m/%Y %H:%M'))
+                         next_review: @card.review_date.strftime("%d/%m/%Y %H:%M"))
     else
       flash[:alert] = t("controller.reviews.fail",
-                        next_review: @card.review_date.strftime('%d/%m/%Y %H:%M'))
+                        next_review: @card.review_date.strftime("%d/%m/%Y %H:%M"))
     end
     redirect_to reviews_path
   end

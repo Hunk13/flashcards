@@ -15,10 +15,10 @@
 
   <div class="form-group">
     <p>
-      <%= f.input :title, html: { class: "form-control" }, as: :string, label: "Название колоды:" %>
+      <%= f.input :title, html: { class: "form-control" }, as: :string, label: t("views.decks.name") %>
     </p>
   </div>
   <p class="form-group">
-    <%= f.button :submit, "Создать колоду" %>
+    <%= f.button :submit, t("views.decks.create") %>
   </p>
 <% end %>

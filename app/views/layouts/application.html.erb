@@ -22,8 +22,8 @@
       <ul class="nav nav-tabs">
         <li><%= link_to t("views.noauth.signup"), signup_path %></li>
         <li><%= link_to t("views.noauth.login"), login_path %></li>
-        <li><%= link_to t("views.noauth.auth_twitter"), auth_at_provider_path(provider: :twitter) %></li>
-        <li><%= link_to t("views.noauth.auth_github"), auth_at_provider_path(provider: :github) %></li>
+        <li><%= link_to t("views.auth_twitter"), auth_at_provider_path(provider: :twitter) %></li>
+        <li><%= link_to t("views.auth_github"), auth_at_provider_path(provider: :github) %></li>
         <ul class="nav navbar-nav navbar-right">
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">

@@ -21,7 +21,7 @@ describe "User registration" do
       fill_in "profile_name", with: "Bill Gates"
       fill_in "profile_password", with: "P@ssw0rd"
       fill_in "profile_password_confirmation", with: "P@ssw0rd"
-      click_button "Save"
+      click_button "Сохранить"
       expect(page).to have_content "Данные успешно обновлены!"
     end
 

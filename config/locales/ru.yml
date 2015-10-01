@@ -10,8 +10,8 @@ ru:
     noauth:
       signup: "Регистрация"
       login: "Вход"
-      auth_twitter: "Войти с помощью Twitter"
-      auth_github: "Войти с помощью Github"
+    auth_twitter: "Войти с помощью Twitter"
+    auth_github: "Войти с помощью Github"
     app_description: "Первый в мире удобный менеджер флеш-карточек. Именно так."
     menu:
       languages:
@@ -21,10 +21,66 @@ ru:
     cards:
       add: "Добавить карту"
       all: "Все карты"
+      original_text: "Оригинальный текст:"
+      translated_text: "Перевод:"
+      select_deck: "Выбрать колоду:"
+      create_deck: "или создать новую"
+      date_review: "Дата следующего просмотра"
+      picture: "Картинка для слова"
+      create: "Создать карту"
+      list: "Список всех карточек"
+      deck: "Колода"
+      true_answers: "Правильные ответы"
+      false_answers: "Неправильные ответы"
+      sure: "Вы уверены?"
+      show: "Показать"
+      edit: "Редактировать"
+      delete: "Удалить"
+      new: "Новая карта"
+      back: "Назад"
     decks:
       add: "Добавить колоду"
       all: "Все колоды"
+      name: "Название колоды"
+      create: "Создать колоду"
+      list: "Список всех колод"
+      show: "Показать"
+      edit: "Редактировать"
+      delete: "Удалить"
+      sure: "Вы уверены?"
+      default: "Установить как текущую"
+      new: "Новая колода"
+      back: "Назад"
     review: "Тренировка слов"
+    profiles:
+      title: "Редактировать профиль"
+      name: "Имя:"
+      email: "Элктронная почта:"
+      locale: "Язык интерфейса:"
+      password: "Пароль (если нужно изменить):"
+      password_confirmation: "Подтверждение пароля:"
+      save: "Сохранить"
+      show: "Просмотр профиля"
+    registrations:
+      new: "Новый пользователь"
+      name: "Имя:"
+      email: "Элктронная почта:"
+      locale: "Язык интерфейса:"
+      password: "Пароль:"
+      password_confirmation: "Подтверждение пароля:"
+      save: "Сохранить"
+    reviews:
+      name: "Тренировка перевода"
+      no_cards: "Нет карточек для тренировки"
+      original_text: "Оригинальный текст:"
+      answer_text: "Введите перевод слова:"
+      check: "Проверить слово"
+    user_sessions:
+      enter: "Вход"
+      email: "Элктронная почта:"
+      password: "Пароль:"
+      login: "Войти"
+      remember: "Запомнить меня на этом компьютере"
 
   controller:
     cards:
@@ -37,8 +93,8 @@ ru:
       update: "Колода обновлена"
       set: "Колода установлена"
     oauth:
-      logged: "Вход с помощью #{provider.titleize}!"
-      failed: "Ошибка входа с помощью #{provider.titleize}!"
+      logged: "Вход с помощью %{provider.titleize}!"
+      failed: "Ошибка входа с помощью %{provider.titleize}!"
     profiles:
       update: "Данные успешно обновлены!"
       destroy: "Данные успешно уничножены!"
@@ -61,3 +117,9 @@ ru:
 
   mailer:
     subject: "Проверь карточки"
+
+  model:
+    big_words: "Слова должны быть с большой буквы"
+    big_name: "Имя должно быть с большой буквы"
+    equal: "Оригинальный и переведённый тексты равны"
+    invalid_mail: "Неверный формат адреса электронной почты"

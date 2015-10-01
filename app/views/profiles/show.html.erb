@@ -1,15 +1,15 @@
-<h1>Просмотр профиля</h1>
+<h1><%= t("views.profiles.show") %></h1>
 <p>
-  <strong>Имя:</strong>
+  <strong><%= t("views.profiles.name") %></strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>E-mail:</strong>
+  <strong><%= t("views.profiles.email") %></strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Язык интерфейса:</strong>
+  <strong><%= t("views.profiles.locale") %></strong>
   <%= @user.locale %>
 </p>

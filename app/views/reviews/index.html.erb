@@ -1,9 +1,9 @@
-<h2 align="center">Тренировка перевода</h2>
+<h2 align="center"><%= t("views.reviews.name") %></h2>
 <% if @card.nil? %>
-  <h2>Нет карточек для тренировки</h2>
+  <h2><%= t("views.reviews.no_cards") %></h2>
 <% else %>
   <%= simple_form_for :review, url: reviews_path, method: :post, class: "form-horizontal" do |f| %>
-  <strong>Оригинальный текст:</strong><br/>
+  <strong><%= t("views.reviews.original_text") %></strong><br/>
   <%= @card.translated_text %>
   <%= f.hidden_field :card_id, value: @card.id %>
     <div class="form-group">
@@ -13,12 +13,12 @@
       <p>
         <%= f.input :user_translation, html: { class: "form-control" },
                                        as: :string,
-                                       label: "Введите перевод слова:" %>
+                                       label: t("views.reviews.answer_text") %>
       </p>
     </div>
     <div>
       <p class="form-group">
-        <%= f.submit 'Проверить' %>
+        <%= f.submit t("views.reviews.check") %>
       </p>
     </div>
   <% end %>

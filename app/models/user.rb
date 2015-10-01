@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :locale, presence: true
   validates :email, uniqueness: true,
                     presence: true,
-                    email_format: { message: "Неверный формат электронной почты" }
+                    email_format: { message: I18n.t("model.invalid_mail") }
   validates :password, length: { minimum: 3 },
                        presence: true,
                        confirmation: true,
