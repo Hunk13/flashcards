@@ -22,6 +22,6 @@ module Flashcards
       host: ENV["APP_HOST"]
     }
     config.i18n.default_locale = :ru
-    config.i18n.available_locales = [:en, :ru]
+    config.i18n.available_locales = [:ru, :en]
   end
 end

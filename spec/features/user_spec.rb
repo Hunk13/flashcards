@@ -31,6 +31,14 @@ describe "User registration" do
       click_on "Выход"
       expect(page).to have_content "Сессия окончена"
     end
+
+    it "user delete" do
+      create(:user, email: "vasya@pupkin.ru", password: "12345")
+      login("vasya@pupkin.ru", "12345")
+      click_on "Показать мой профиль"
+      click_on "Удалить мой профиль"
+      expect(page).to have_content "Вам нужно зарегистрироваться или войти со своими данными"
+    end
   end
 
   context "invalid data" do

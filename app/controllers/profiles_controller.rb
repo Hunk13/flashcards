@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_back_or_to root_url, notice: t("controller.profiles.destroy")
+    redirect_back_or_to root_url
   end
 
   private

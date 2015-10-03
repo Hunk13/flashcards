@@ -61,6 +61,8 @@ ru:
       password_confirmation: "Подтверждение пароля:"
       save: "Сохранить"
       show: "Просмотр профиля"
+      delete: "Удалить мой профиль"
+      sure: "Вы уверены?"
     registrations:
       new: "Новый пользователь"
       name: "Имя:"
@@ -113,7 +115,7 @@ ru:
     user_sessions:
       welcome: "Добро пожаловать"
       fail: "Неудачный вход"
-      logged: "Сессия окончена"
+      logout: "Сессия окончена"
 
   mailer:
     subject: "Проверь карточки"

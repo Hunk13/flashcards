@@ -61,6 +61,8 @@ en:
       password_confirmation: "Password confirmation:"
       save: "Save"
       show: "Show profile"
+      delete: "Delete my profile"
+      sure: "Are you sure?"
     registrations:
       new: "New user"
       name: "Name:"
@@ -113,7 +115,7 @@ en:
     user_sessions:
       welcome: "Welcome!!!"
       fail: "Login failed!!!"
-      logged: "Logged!!"
+      logout: "Logout!!"
 
   mailer:
     subject: "Check decks!!!"
