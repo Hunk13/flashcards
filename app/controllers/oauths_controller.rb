@@ -9,7 +9,7 @@ class OauthsController < ApplicationController
     provider = auth_params[:provider]
     if @user = login_from(provider)
       redirect_back_or_to root_path, notice: t("controller.oauth.logged",
-                                               provider: provider.titleize )
+                                               provider: provider.titleize)
     else
       begin
         @user = create_from(provider)
