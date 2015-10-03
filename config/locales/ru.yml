@@ -95,8 +95,8 @@ ru:
       update: "Колода обновлена"
       set: "Колода установлена"
     oauth:
-      logged: "Вход с помощью %{provider.titleize}!"
-      failed: "Ошибка входа с помощью %{provider.titleize}!"
+      logged: "Вход с помощью %{provider}!"
+      failed: "Ошибка входа с помощью %{provider}!"
     profiles:
       update: "Данные успешно обновлены!"
       destroy: "Данные успешно уничножены!"
