@@ -15,42 +15,48 @@
 
   <div class="form-group">
     <p>
-      <%= f.input :original_text, html: { class: "form-control" }, as: :string, label: "Оригинальный текст:" %>
+      <%= f.input :original_text, html: { class: "form-control" },
+                                  as: :string,
+                                  label: t("views.cards.original_text") %>
     </p>
   </div>
   <div class="form-group">
     <p>
-      <%= f.input :translated_text, html: { class: "form-control" }, as: :string, label: "Перевод:" %>
+      <%= f.input :translated_text, html: { class: "form-control" },
+                                    as: :string,
+                                    label: t("views.cards.translated_text") %>
     </p>
   </div>
   <div class="form-group">
     <p>
       <%= f.input :deck_id, collection: current_user.decks,
-                               label: "Выбрать существующую колоду:" %>
+                               label: t("views.cards.select_deck") %>
     </p>
   </div>
 
   <div class="form-group">
     <p>
       <%= simple_fields_for :deck, html: { class: "form-horizontal" } do |f_deck| %>
-        <%= f_deck.input :title, html: { class: "form-control" }, as: :string, label: "или создать новую:" %>
+        <%= f_deck.input :title, html: { class: "form-control" },
+                                 as: :string,
+                                 label: t("views.cards.create_deck") %>
       <% end %>
     </p>
   </div>
 
   <div class="form-group">
     <p>
-      <%= f.input :review_date, html: { class: "form-control" }, as: :datetime, order: [:day, :month, :year], discard_year: true, label: "Дата пересмотра карточки", default: 3.days.from_now %>
+      <%= f.input :review_date, html: { class: "form-control" }, as: :datetime, order: [:day, :month, :year], discard_year: true, label: t("views.cards.date_review"), default: 3.days.from_now %>
     </p>
   </div>
   <div class="form-group">
     <p>
       <%= f.input :picture, html: { class: "btn btn-default" },
                             as: :file,
-                            label: "Pictures for word" %>
+                            label: t("views.cards.picture") %>
     </p>
   </div>
   <p class="form-group">
-    <%= f.button :submit, "Создать карточку" %>
+    <%= f.button :submit, t("views.cards.create") %>
   </p>
 <% end %>

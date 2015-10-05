@@ -9,9 +9,9 @@ class UserSessionsController < ApplicationController
     if login(session_params[:email],
              session_params[:password],
              session_params[:remember])
-      redirect_back_or_to(root_path, notice: "Welcome!!!")
+      redirect_back_or_to(root_path, notice: t("controller.user_sessions.welcome"))
     else
-      flash[:error] = "Login failed!!!"
+      flash[:error] = t("controller.user_sessions.faill")
       render action: "new"
     end
   end
@@ -19,7 +19,7 @@ class UserSessionsController < ApplicationController
   def destroy
     if current_user
       logout
-      redirect_to(:login, notice: "Logged")
+      redirect_to(:login, notice: t("controller.user_sessions.logout"))
     else
       redirect_to root_path
     end
@@ -28,6 +28,6 @@ class UserSessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:user).permit(:email, :password, :remember)
+    params.require(:user).permit(:email, :password, :remember, :locale)
   end
 end

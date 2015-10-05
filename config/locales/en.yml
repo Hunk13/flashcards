@@ -1,23 +1,127 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  views:
+    app_name: "Flashcards"
+    locale: "Locale"
+    auth:
+      profile: "Profile:"
+      show_profile: "Show my profile"
+      edit_profile: "Edit my profile"
+      exit: "Exit"
+    noauth:
+      signup: "Create user"
+      login: "LogIn"
+    auth_twitter: "LogIn with Twitter"
+    auth_github: "Login with Github"
+    app_description: "The world's first user-friendly manager flash cards. Exactly."
+    menu:
+      languages:
+        lang: "Language"
+        ru: "Russian"
+        en: "English"
+    cards:
+      add: "Add card"
+      all: "All cards"
+      original_text: "Original text:"
+      translated_text: "Translated text:"
+      select_deck: "Select deck:"
+      create_deck: "or create new"
+      date_review: "Date nex review"
+      picture: "Picture for word"
+      create: "Create card"
+      list: "List all cards"
+      deck: "Deck"
+      true_answers: "True answers"
+      false_answers: "False answers"
+      sure: "Are you sure?"
+      show: "Show"
+      edit: "Edit"
+      delete: "Delete"
+      new: "New card"
+      back: "Back"
+    decks:
+      add: "Add deck"
+      all: "All decks"
+      name: "Name deck"
+      create: "Create deck"
+      list: "List all decks"
+      show: "Show"
+      edit: "Edit"
+      delete: "Delete"
+      sure: "Are you sure?"
+      default: "Set as default"
+      new: "New deck"
+      back: "Back"
+    review: "Review words"
+    profiles:
+      title: "Edit profile"
+      name: "Name:"
+      email: "E-mail:"
+      locale: "Interface language:"
+      password: "Password (if need):"
+      password_confirmation: "Password confirmation:"
+      save: "Save"
+      show: "Show profile"
+      delete: "Delete my profile"
+      sure: "Are you sure?"
+    registrations:
+      new: "New user"
+      name: "Name:"
+      email: "E-mail:"
+      locale: "Interface language:"
+      password: "Password:"
+      password_confirmation: "Password confirmation:"
+      save: "Save"
+    reviews:
+      name: "Review translate"
+      no_cards: "No cards for review"
+      original_text: "Originsal text:"
+      answer_text: "Enter translate text:"
+      check: "Check word"
+    user_sessions:
+      enter: "LogIn"
+      email: "E-mail:"
+      password: "Password:"
+      login: "Login"
+      remember: "Remember me on this computer"
+
+  controller:
+    cards:
+      create: "Card create"
+      update: "Card update"
+      destroy: "Card delete"
+    application:
+      not_logged_message: "You must register or enter with your data"
+    decks:
+      update: "Deck update"
+      set: "Deck set"
+    oauth:
+      logged: "Logged in from %{provider}!"
+      failed: "Failed to login from %{provider}!"
+    profiles:
+      update: "Data successfully updated!"
+      destroy: "Data successfully destroy!"
+    registrations:
+      signup: "Signed up! Welcome!"
+    reviews:
+      success: >
+        Correctly. Original text: %{original},
+        Translation: %{translated}.
+        Your answer: %{user_answer}.
+        Typo: %{typos} letter.
+        Date of next inspection: %{next_review}
+      fail: >
+        Wrong, try again.
+        Date of next inspection: %{next_review}
+    user_sessions:
+      welcome: "Welcome!!!"
+      fail: "Login failed!!!"
+      logout: "Logout!!"
+
+  mailer:
+    subject: "Check decks!!!"
+
+  model:
+    big_words: "Words only from big letter"
+    big_name: "Name only from big letter"
+    equal: "The original and the translated texts are equal"
+    invalid_mail: "Invalid format an e-mail"

@@ -8,27 +8,33 @@ describe "Deck features" do
 
     it "add deck" do
       visit new_deck_path
-      fill_in("deck_title", with: "Animals")
+      fill_in "deck_title", with: "Animals"
       click_on "Создать колоду"
       expect(page).to have_content("Список всех колод")
     end
 
     it "edit deck" do
-      visit new_deck_path
-      fill_in("deck_title", with: "Animals")
+      visit decks_path
+      click_on "Редактировать"
+      fill_in "deck_title", with: "Birds"
       click_on "Создать колоду"
-      first(:link, "Редактировать колоду").click
-      fill_in("deck_title", with: "Birds")
-      click_on "Создать колоду"
-      expect(page).to have_content("Колода изменена")
+      expect(page).to have_content("Колода обновлена")
     end
 
     it "set default deck" do
       visit new_deck_path
-      fill_in("deck_title", with: "Animals")
+      fill_in "deck_title", with: "Animals"
       click_on "Создать колоду"
       first(:link, "Установить как текущую").click
       expect(page).to have_content("Колода установлена")
+    end
+
+    it "delete deck" do
+      visit new_deck_path
+      fill_in "deck_title", with: "Animals"
+      click_on "Создать колоду"
+      first(:link, "Удалить").click
+      expect(page).to have_content("Список всех колод")
     end
   end
 
@@ -37,9 +43,9 @@ describe "Deck features" do
 
     it "add deck" do
       visit new_deck_path
-      fill_in("deck_title", with: nil)
+      fill_in "deck_title", with: nil
       click_on "Создать колоду"
-      expect(page).to have_content("can't be blank")
+      expect(page).to have_content("не может быть пустым")
     end
   end
 end

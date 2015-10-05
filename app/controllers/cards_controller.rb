@@ -19,7 +19,7 @@ class CardsController < ApplicationController
   def create
     @card = current_user.cards.new(card_params)
     if @card.save
-      redirect_to cards_path, notice: "Карта создана"
+      redirect_to cards_path, notice: t("controller.cards.create")
     else
       render "new"
     end
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to @card, notice: "Данные карты обновлены"
+      redirect_to @card, notice: t("controller.cards.update")
     else
       render "edit"
     end
@@ -35,7 +35,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to root_path, notice: "Карта удалена"
+    redirect_to root_path, notice: t("controller.cards.destroy")
   end
 
   private

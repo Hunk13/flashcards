@@ -6,7 +6,7 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, presence: true,
                                               length: { minimum: 2 },
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/,
-                                                        message: "Слова только с большой буквы" }
+                                                        message: I18n.t("model.big_words") }
 
   has_attached_file :picture, { styles: { medium: "360x360>", thumb: "100x100>" },
                                 default_url: "/images/:style/missing.png" }.merge(PAPERCLIP_STORAGE_OPTIONS)
@@ -77,7 +77,7 @@ class Card < ActiveRecord::Base
 
   def original_not_equal_translated
     if prepare_text(original_text) == prepare_text(translated_text)
-      errors.add(:original_text, "Оригинальный и переведённый тексты равны")
+      errors.add(:original_text, I18n.t("model.equal"))
     end
   end
 

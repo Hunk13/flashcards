@@ -12,6 +12,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+# Bootstrap
+gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -41,6 +43,10 @@ gem 's3_direct_upload'
 gem "damerau-levenshtein"
 # Writing and deploying cron jobs
 gem 'whenever', require: false
+# Detect the users preferred language
+gem "http_accept_language"
+# Internationalization
+gem 'rails-i18n', '~> 4.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
