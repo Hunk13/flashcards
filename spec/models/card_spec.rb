@@ -55,38 +55,38 @@ describe Card do
       expect(valid_card.incorrect_answers).to be >= 0
     end
   end
-end
 
-describe "#rewiew" do
-  let(:time_now) { Time.parse("Oct 08 2015") }
+  describe "#rewiew" do
+    let(:time_now) { Time.parse("Oct 08 2015") }
 
-  before(:each) do
-    DateTime.stub(:now).and_return(time_now)
-    card.check_translation(card.original_text, 4)
-  end
+    before(:each) do
+      DateTime.stub(:now).and_return(time_now)
+      card.check_translation(card.original_text, 4)
+    end
 
-  context "first right review" do
-    let(:card) { create(:card) }
-    it { expect(card.review_date).to eq time_now + 1.day }
-  end
+    context "first right review" do
+      let(:card) { create(:card) }
+      it { expect(card.review_date).to eq time_now + 1.day }
+    end
 
-  context "second right review" do
-    let(:card) { create(:card, interval: 1, repetitions: 1) }
-    it { expect(card.review_date).to eq time_now + 6.day }
-  end
+    context "second right review" do
+      let(:card) { create(:card, interval: 1, repetitions: 1) }
+      it { expect(card.review_date).to eq time_now + 6.day }
+    end
 
-  context "third right review" do
-    let(:card) { create(:card, interval: 6, repetitions: 2) }
-    it { expect(card.review_date).to eq time_now + (2.5 * 6).day }
-  end
+    context "third right review" do
+      let(:card) { create(:card, interval: 6, repetitions: 2) }
+      it { expect(card.review_date).to eq time_now + (2.5 * 6).day }
+    end
 
-  context "fourth right review" do
-    let(:card) { create(:card, interval: 15, repetitions: 3) }
-    it { expect(card.review_date).to eq time_now + (2.5 * 15).ceil.day }
-  end
+    context "fourth right review" do
+      let(:card) { create(:card, interval: 15, repetitions: 3) }
+      it { expect(card.review_date).to eq time_now + (2.5 * 15).ceil.day }
+    end
 
-  context "fifth right review" do
-    let(:card) { create(:card, interval: 37, repetitions: 4) }
-    it { expect(card.review_date).to eq time_now + (2.5 * 37).ceil.day }
+    context "fifth right review" do
+      let(:card) { create(:card, interval: 37, repetitions: 4) }
+      it { expect(card.review_date).to eq time_now + (2.5 * 37).ceil.day }
+    end
   end
 end
