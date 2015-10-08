@@ -1,5 +1,4 @@
 class SuperMemo2
-
 # Split the knowledge into smallest possible items.
 # With all items associate an E-Factor equal to 2.5.
 
@@ -10,7 +9,7 @@ class SuperMemo2
 # that scored below four in the quality assessment. Continue the repetitions
 # until all of these items score at least four.
   def self.repetition(e_factor, interval, quality, repetitions)
-    repetitions = count_repetition(repetitions, quality)
+    repetitions = count_repetitions(repetitions, quality)
     {
       e_factor: find_efactor(e_factor, quality),
       interval: repetition_interval(e_factor, interval, repetitions).days,
@@ -27,15 +26,16 @@ class SuperMemo2
 # I(n) - inter-repetition interval after the n-th repetition (in days),
 # EF - E-Factor of a given item
 # If interval is a fraction, round it up to the nearest integer.
-  def self.repetition_interval(repetition, interval, e_factor)
-    case repetition
+  def self.repetition_interval(e_factor, interval, repetitions)
+    case repetitions
     when 0 then 1
     when 1 then 6
     else
       (interval * e_factor).round
     end
   end
-# After each repetition modify the E-Factor of the recently repeated item according to the formula:
+# After each repetition modify the E-Factor of the recently repeated
+# item according to the formula:
 # EF':=EF+(0.1-(5-q)*(0.08+(5-q)*0.02))
 # where:
 # EF' - new value of the E-Factor,
@@ -48,7 +48,7 @@ class SuperMemo2
   end
 
 # Return count repetitions
-  def self.count_repetition(repetitions, quality)
+  def self.count_repetitions(repetitions, quality)
     quality < 3 ? 0 : repetitions
   end
 end

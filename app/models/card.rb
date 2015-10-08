@@ -31,7 +31,9 @@ class Card < ActiveRecord::Base
   def update_review_date(quality)
     repetition = SuperMemo2.repetition(e_factor, interval, quality, repetitions)
     repetition[:review_date] = DateTime.now + repetition[:interval]
+    Rails.logger.warn "repetition start is logging"
     update_attributes(repetition)
+    Rails.logger.warn "repetition stop is logging"
   end
 
   private
