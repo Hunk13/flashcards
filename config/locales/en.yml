@@ -30,8 +30,7 @@ en:
       create: "Create card"
       list: "List all cards"
       deck: "Deck"
-      true_answers: "True answers"
-      false_answers: "False answers"
+      repetitions: "Repetitions"
       sure: "Are you sure?"
       show: "Show"
       edit: "Edit"
@@ -77,6 +76,7 @@ en:
       original_text: "Originsal text:"
       answer_text: "Enter translate text:"
       check: "Check word"
+      quality: "Answer quality"
     user_sessions:
       enter: "LogIn"
       email: "E-mail:"

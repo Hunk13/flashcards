@@ -15,7 +15,7 @@
 
 <p>
   <strong><%= t("views.cards.date_review") %></strong>
-  <%= @card.review_date.strftime("%d/%m/%Y %H:%M") %>
+  <%= @card.review_date.localtime.strftime("%d/%m/%Y %H:%M") %>
 </p>
 
 <p>

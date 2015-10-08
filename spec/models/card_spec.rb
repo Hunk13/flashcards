@@ -9,14 +9,6 @@ describe Card do
                   deck: Deck.new(title: "Animals"))
   end
 
-  let!(:review_card) do
-    create(:card, original_text: "Katze",
-                  translated_text: "Cat",
-                  review_date: 3.days.from_now,
-                  picture: File.new(Rails.root + "spec/fixtures/files/Cat.jpg"),
-                  deck: Deck.new(title: "Animals"))
-  end
-
   context "correctnes" do
     it "is valid card with original text, translated test and date review" do
       expect(valid_card).to be_valid
@@ -60,51 +52,51 @@ describe Card do
 
   context "counters" do
     it "should have correct successed_reviews_count" do
-      valid_card.check_translation("Katze")
+      valid_card.check_translation("Katze", 0)
       expect(valid_card.correct_answers).to be >= 0
     end
 
     it "should have correct failed_reviews_count" do
-      valid_card.check_translation("Katze")
+      valid_card.check_translation("Katze", 0)
       expect(valid_card.incorrect_answers).to be >= 0
     end
   end
 
   context "review date" do
     it "if correct answer" do
-      old_level = review_card.correct_answers
-      review_card.check_translation("Katze")
-      expect(old_level < review_card.correct_answers).to be true
+      old_level = valid_card.correct_answers
+      valid_card.check_translation("Katze", 1)
+      expect(old_level < valid_card.correct_answers).to be true
     end
 
     it "if incorrect answer" do
-      old_level = review_card.correct_answers
-      review_card.check_translation("Cat")
-      expect(old_level < review_card.correct_answers).to be false
+      old_level = valid_card.correct_answers
+      valid_card.check_translation("Cat", 0)
+      expect(old_level < valid_card.correct_answers).to be false
     end
 
     it "must down level card after 3 bad attempts" do
       card = create(:card, correct_answers: 0, incorrect_answers: 3)
-      card.check_translation("Katze")
+      card.check_translation("Katze", 0)
       expect(card.incorrect_answers).to be 3
     end
 
     it "must down level card after 3 bad attempts" do
       card = create(:card, correct_answers: 0, incorrect_answers: 2)
-      card.check_translation("Dog")
-      expect(card.incorrect_answers).to be 3
+      card.check_translation("Dog", 0)
+      expect(card.incorrect_answers).to be 2
     end
 
     it "must down level card after 2 bad attempts" do
       card = create(:card, correct_answers: 0, incorrect_answers: 1)
-      card.check_translation("Dog")
-      expect(card.incorrect_answers).to be 2
+      card.check_translation("Dog", 0)
+      expect(card.incorrect_answers).to be 1
     end
 
     it "must down level card after 1 bad attempts" do
       card = create(:card, correct_answers: 0, incorrect_answers: 0)
-      card.check_translation("Dog")
-      expect(card.incorrect_answers).to be 1
+      card.check_translation("Dog", 0)
+      expect(card.incorrect_answers).to be 0
     end
   end
 end
