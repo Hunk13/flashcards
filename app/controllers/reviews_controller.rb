@@ -5,7 +5,8 @@ class ReviewsController < ApplicationController
 
   def create
     @card = current_user.cards.find(review_params[:card_id])
-    review = @card.check_translation(review_params[:user_translation], review_params[:quality].to_i)
+    review = @card.check_translation(review_params[:user_translation],
+                   review_params[:quality].to_i)
     if review[:answer]
       flash[:notice] = t("controller.reviews.success",
                          original: @card.original_text,

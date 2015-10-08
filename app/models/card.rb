@@ -15,7 +15,7 @@ class Card < ActiveRecord::Base
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
-  before_save :set_date_after_review, on: :create
+  after_initialize :set_date_after_review, if: :new_record?
 
   scope :expired, -> { where("review_date <= ?", DateTime.now) }
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
@@ -31,9 +31,9 @@ class Card < ActiveRecord::Base
   def update_review_date(quality)
     repetition = SuperMemo2.repetition(e_factor, interval, quality, repetitions)
     repetition[:review_date] = DateTime.now + repetition[:interval]
-    Rails.logger.warn "repetition start is logging"
+    Rails.logger.debug repetition[:interval]
+    Rails.logger.debug repetition[:review_date]
     update_attributes(repetition)
-    Rails.logger.warn "repetition stop is logging"
   end
 
   private

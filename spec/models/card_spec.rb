@@ -26,12 +26,6 @@ describe Card do
       expect(invalid_card.errors[:translated_text]).to include("не может быть пустым")
     end
 
-    it "is invalid card without a date review" do
-      invalid_card = Card.new(review_date: nil)
-      invalid_card.valid?
-      expect(invalid_card.errors[:review_date]).to include("не может быть пустым")
-    end
-
     it "is invalid card with original text and translated text equal" do
       invalid_card = Card.new(
         original_text: "ja",
@@ -61,42 +55,38 @@ describe Card do
       expect(valid_card.incorrect_answers).to be >= 0
     end
   end
+end
 
-  context "review date" do
-    it "if correct answer" do
-      old_level = valid_card.correct_answers
-      valid_card.check_translation("Katze", 1)
-      expect(old_level < valid_card.correct_answers).to be true
+  describe "#rewiew" do
+    let(:time_now) { Time.parse("Oct 08 2015") }
+
+    before(:each) do
+      DateTime.stub(:now).and_return(time_now)
+      card.check_translation(card.original_text, 4)
     end
 
-    it "if incorrect answer" do
-      old_level = valid_card.correct_answers
-      valid_card.check_translation("Cat", 0)
-      expect(old_level < valid_card.correct_answers).to be false
-    end
+  context "first right review" do
+    let(:card) { create(:card) }
+    it { expect(card.review_date).to eq time_now + 1.day }
+  end
 
-    it "must down level card after 3 bad attempts" do
-      card = create(:card, correct_answers: 0, incorrect_answers: 3)
-      card.check_translation("Katze", 0)
-      expect(card.incorrect_answers).to be 3
-    end
+  context "second right review" do
+    let(:card) { create(:card, interval: 1, repetitions: 1) }
+    it { expect(card.review_date).to eq time_now + 6.day }
+  end
 
-    it "must down level card after 3 bad attempts" do
-      card = create(:card, correct_answers: 0, incorrect_answers: 2)
-      card.check_translation("Dog", 0)
-      expect(card.incorrect_answers).to be 2
-    end
+  context "third right review" do
+    let(:card) { create(:card, interval: 6, repetitions: 2) }
+    it { expect(card.review_date).to eq time_now + (2.5 * 6).day }
+  end
 
-    it "must down level card after 2 bad attempts" do
-      card = create(:card, correct_answers: 0, incorrect_answers: 1)
-      card.check_translation("Dog", 0)
-      expect(card.incorrect_answers).to be 1
-    end
+  context "fourth right review" do
+    let(:card) { create(:card, interval: 15, repetitions: 3) }
+    it { expect(card.review_date).to eq time_now + (2.5 * 15).ceil.day }
+  end
 
-    it "must down level card after 1 bad attempts" do
-      card = create(:card, correct_answers: 0, incorrect_answers: 0)
-      card.check_translation("Dog", 0)
-      expect(card.incorrect_answers).to be 0
-    end
+  context "fifth right review" do
+    let(:card) { create(:card, interval: 37, repetitions: 4) }
+    it { expect(card.review_date).to eq time_now + (2.5 * 37).ceil.day }
   end
 end

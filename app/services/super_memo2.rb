@@ -12,7 +12,7 @@ class SuperMemo2
     repetitions = count_repetitions(repetitions, quality)
     {
       e_factor: find_efactor(e_factor, quality),
-      interval: repetition_interval(e_factor, interval, repetitions).days,
+      interval: repetition_interval(repetitions, interval, e_factor).days,
       quality: quality,
       repetitions: repetitions + 1
     }
@@ -26,7 +26,7 @@ class SuperMemo2
 # I(n) - inter-repetition interval after the n-th repetition (in days),
 # EF - E-Factor of a given item
 # If interval is a fraction, round it up to the nearest integer.
-  def self.repetition_interval(e_factor, interval, repetitions)
+  def self.repetition_interval(repetitions, interval, e_factor)
     case repetitions
     when 0 then 1
     when 1 then 6
