@@ -30,7 +30,7 @@ class Card < ActiveRecord::Base
 
   def update_review_date(quality)
     repetition = SuperMemo2.repetition(e_factor, interval, quality, repetitions)
-    repetition[:review_date] = DateTime.current + repetition[:interval]
+    repetition[:review_date] = DateTime.now + repetition[:interval]
     update_attributes(repetition)
   end
 
@@ -47,7 +47,7 @@ class Card < ActiveRecord::Base
   end
 
   def set_date_after_review
-    self.review_date = DateTime.current
+    self.review_date = DateTime.now
   end
 
   def distanse_of_words(word1, word2)

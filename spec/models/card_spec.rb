@@ -57,7 +57,7 @@ describe Card do
   end
 
   describe "#rewiew" do
-    let(:time_now) { DateTime.current }
+    let(:time_now) { Time.parse("Oct 08 2015") }
 
     before(:each) do
       DateTime.stub(:now).and_return(time_now)
