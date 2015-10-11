@@ -34,6 +34,7 @@ class SuperMemo2
       (interval * e_factor).round
     end
   end
+
 # After each repetition modify the E-Factor of the recently repeated
 # item according to the formula:
 # EF':=EF+(0.1-(5-q)*(0.08+(5-q)*0.02))
