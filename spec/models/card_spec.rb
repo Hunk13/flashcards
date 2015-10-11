@@ -57,10 +57,10 @@ describe Card do
   end
 
   describe "#rewiew" do
-    let(:time_now) { Time.parse("Oct 08 2015") }
+    let(:time_now) { Time.zone.now }
 
     before(:each) do
-      DateTime.stub(:now).and_return(time_now)
+      allow(DateTime).to receive(:now).and_return(time_now)
       card.check_translation(card.original_text, 4)
     end
 
