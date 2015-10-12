@@ -57,7 +57,7 @@ describe Card do
   end
 
   describe "#rewiew" do
-    let(:time_now) { Time.zone.now }
+    let(:time_now) { Timecop.freeze(Time.zone.now) }
 
     before(:each) do
       allow(DateTime).to receive(:now).and_return(time_now)
@@ -66,27 +66,27 @@ describe Card do
 
     context "first right review" do
       let(:card) { create(:card) }
-      it { expect(card.review_date).to eq time_now + 1.day }
+      it { expect(card.review_date).to eq (time_now + 1.day) }
     end
 
     context "second right review" do
       let(:card) { create(:card, interval: 1, repetitions: 1) }
-      it { expect(card.review_date).to eq time_now + 6.day }
+      it { expect(card.review_date).to eq (time_now + 6.day) }
     end
 
     context "third right review" do
       let(:card) { create(:card, interval: 6, repetitions: 2) }
-      it { expect(card.review_date).to eq time_now + (2.5 * 6).day }
+      it { expect(card.review_date).to eq (time_now + (2.5 * 6).day) }
     end
 
     context "fourth right review" do
       let(:card) { create(:card, interval: 15, repetitions: 3) }
-      it { expect(card.review_date).to eq time_now + (2.5 * 15).ceil.day }
+      it { expect(card.review_date).to eq (time_now + (2.5 * 15).ceil.day) }
     end
 
     context "fifth right review" do
       let(:card) { create(:card, interval: 37, repetitions: 4) }
-      it { expect(card.review_date).to eq time_now + (2.5 * 37).ceil.day }
+      it { expect(card.review_date).to eq (time_now + (2.5 * 37).ceil.day) }
     end
   end
 end

@@ -73,6 +73,7 @@ group :development, :test do
   gem 'capybara'
   # output formatting table
   gem "table_print"
+  gem "timecop"
 end
 
 group :production do
