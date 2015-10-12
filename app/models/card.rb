@@ -22,10 +22,10 @@ class Card < ActiveRecord::Base
 
   def check_translation(user_translation, quality)
     typos = distanse_of_words(original_text, user_translation)
-    answer = typos <= 1
+    result = typos <= 1
     # 1 - maximum Levenshtein distance
-    update_review_date(answer ? quality : 0)
-    { typos: typos, answer: answer }
+    update_review_date(result ? quality : 0)
+    { typos: typos, result: result }
   end
 
   def update_review_date(quality)
