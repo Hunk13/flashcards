@@ -29,8 +29,11 @@ class Card < ActiveRecord::Base
   end
 
   def update_review_date(quality)
-    repetition = SuperMemo2.repetition(e_factor, interval, quality, repetitions)
-    repetition[:review_date] = Time.zone.now + repetition[:interval]
+    repetition = SuperMemo2.repetition(e_factor,
+                                       interval,
+                                       quality,
+                                       repetitions,
+                                       review_date)
     update_attributes(repetition)
   end
 

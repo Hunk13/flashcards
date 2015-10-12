@@ -8,13 +8,14 @@ class SuperMemo2
   # After each repetition session of a given day repeat again all items
   # that scored below four in the quality assessment. Continue the repetitions
   # until all of these items score at least four.
-  def self.repetition(e_factor, interval, quality, repetitions)
+  def self.repetition(e_factor, interval, quality, repetitions, review_date)
     repetitions = number_of_repetitions(repetitions, quality)
     {
       e_factor: calculate_efactor(e_factor, quality),
       interval: repetition_interval(repetitions, interval, e_factor).days,
       quality: quality,
-      repetitions: repetitions + 1
+      repetitions: repetitions + 1,
+      review_date: Time.zone.now + interval
     }
   end
 

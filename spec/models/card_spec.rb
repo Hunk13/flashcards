@@ -56,37 +56,38 @@ describe Card do
     end
   end
 
-  describe "#rewiew" do
-    let(:time_now) { Timecop.freeze(Time.zone.now) }
+  context "#rewiew" do
+    let!(:card) { create(:card) }
+    before(:each) { @answer_time = "10.0" }
 
-    before(:each) do
-      allow(DateTime).to receive(:now).and_return(time_now)
-      card.check_translation(card.original_text, 4)
+    it "first right review" do
+      repetition_backup = card.repetitions
+      answer = "Katze"
+      card.check_translation(answer, @answer_time)
+      expect(card.repetitions).to eq (repetition_backup + 1)
     end
 
-    context "first right review" do
-      let(:card) { create(:card) }
-      it { expect(card.review_date).to eq (time_now + 1.day) }
+    it "second right review" do
+      card.update_attributes(repetitions: 2)
+      answer = "Katze"
+      card.check_translation(answer, @answer_time)
+      expect(card.repetitions).to eq 1
     end
 
-    context "second right review" do
-      let(:card) { create(:card, interval: 1, repetitions: 1) }
-      it { expect(card.review_date).to eq (time_now + 6.day) }
+    it "third right review" do
+      card.update_attributes(interval: 4, repetitions: 3)
+      answer = "Katze"
+      card.check_translation(answer, @answer_time)
+      expect(card.repetitions).to eq 1
     end
 
-    context "third right review" do
-      let(:card) { create(:card, interval: 6, repetitions: 2) }
-      it { expect(card.review_date).to eq (time_now + (2.5 * 6).day) }
+    it "fourth right review" do
+      card.update_attributes(interval: 5, repetitions: 4)
+      answer = "Katze"
+      card.check_translation(answer, @answer_time)
+      expect(card.repetitions).to eq 1
     end
 
-    context "fourth right review" do
-      let(:card) { create(:card, interval: 15, repetitions: 3) }
-      it { expect(card.review_date).to eq (time_now + (2.5 * 15).ceil.day) }
-    end
 
-    context "fifth right review" do
-      let(:card) { create(:card, interval: 37, repetitions: 4) }
-      it { expect(card.review_date).to eq (time_now + (2.5 * 37).ceil.day) }
-    end
   end
 end
