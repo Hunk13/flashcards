@@ -11,7 +11,7 @@ class SuperMemo2
   def self.repetition(e_factor, interval, quality, repetitions)
     repetitions = count_repetitions(repetitions, quality)
     {
-      e_factor: calculate_efactor(e_factor, quality),
+      e_factor: find_efactor(e_factor, quality),
       interval: repetition_interval(repetitions, interval, e_factor).days,
       quality: quality,
       repetitions: repetitions + 1
@@ -43,7 +43,7 @@ class SuperMemo2
   # EF - old value of the E-Factor,
   # q - quality of the response in the 0-5 grade scale.
   # If EF is less than 1.3 then let EF be 1.3.
-  def self.calculate_efactor(e_factor, quality)
+  def self.find_efactor(e_factor, quality)
     ef = e_factor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
     [ef, 1.3].max
   end
