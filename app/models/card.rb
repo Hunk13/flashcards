@@ -15,62 +15,26 @@ class Card < ActiveRecord::Base
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
-  before_save :set_date_after_review, on: :create
+  after_initialize :set_date_after_review, if: :new_record?
 
   scope :expired, -> { where("review_date <= ?", DateTime.now) }
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
-  def check_translation(user_translation)
+  def check_translation(user_translation, quality)
     typos = distanse_of_words(original_text, user_translation)
-    if typos <= 1
-      process_correct_answer
-    else
-      count_incorrect_answer
-    end
-    { typos: typos, answer: typos <= 1 }
+    result = typos <= 1
+    # 1 - maximum Levenshtein distance
+    update_review_date(result ? quality : 0)
+    { typos: typos, result: result }
   end
 
-  def process_correct_answer
-    increment(:correct_answers) if correct_answers < 5
-    update_review_date_if_correct
-  end
-
-  def count_incorrect_answer
-    decrement(:correct_answers) if correct_answers > 0
-    increment(:incorrect_answers) if incorrect_answers < 3
-    update_review_date_if_incorrect
-  end
-
-  def update_review_date_if_correct
-    offset = case correct_answers
-             when 0
-               0
-             when 1
-               12.hour
-             when 2
-               3.day
-             when 3
-               1.week
-             when 4
-               2.week
-             else
-               1.month
-             end
-    update_attributes(review_date: review_date + offset, incorrect_answers: 0)
-  end
-
-  def update_review_date_if_incorrect
-    offset = case incorrect_answers
-             when 0
-               0
-             when 1
-               12.hour
-             when 2
-               3.day
-             else
-               1.week
-             end
-    update_attributes(review_date: review_date - offset)
+  def update_review_date(quality)
+    repetition = SuperMemo2.repetition(e_factor,
+                                       interval,
+                                       quality,
+                                       repetitions,
+                                       review_date)
+    update_attributes(repetition)
   end
 
   private
@@ -86,7 +50,7 @@ class Card < ActiveRecord::Base
   end
 
   def set_date_after_review
-    DateTime.now
+    self.review_date = Time.zone.now
   end
 
   def distanse_of_words(word1, word2)
