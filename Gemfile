@@ -47,6 +47,13 @@ gem 'whenever', require: false
 gem "http_accept_language"
 # Internationalization
 gem 'rails-i18n', '~> 4.0.0'
+# Rollbar notifier for Ruby
+gem 'rollbar', '~> 2.2.1'
+# Relic Ruby Agent
+gem 'newrelic_rpm'
+# send e-mail
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -81,3 +88,7 @@ group :production do
 end
 
 gem "codeclimate-test-reporter", group: :test, require: nil
+
+group :test do
+  gem 'email_spec'
+end

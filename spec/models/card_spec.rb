@@ -87,7 +87,5 @@ describe Card do
       card.check_translation(answer, @answer_time)
       expect(card.repetitions).to eq 1
     end
-
-
   end
 end
