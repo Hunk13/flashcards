@@ -53,6 +53,7 @@ gem 'rollbar', '~> 2.2.1'
 gem 'newrelic_rpm'
 # send e-mail
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
+gem 'mail'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
