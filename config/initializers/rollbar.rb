@@ -1,4 +1,4 @@
-require 'rollbar/rails'
+require "rollbar/rails"
 Rollbar.configure do |config|
   # Without configuration, Rollbar is enabled in all environments.
   # To disable in specific environments, set config.enabled=false.
@@ -30,7 +30,8 @@ Rollbar.configure do |config|
   # 'ignore' will cause the exception to not be reported at all.
   # config.exception_level_filters.merge!('MyCriticalException' => 'critical')
   #
-  # You can also specify a callable, which will be called with the exception instance.
+  # You can also specify a callable, which will be called with the
+  # exception instance.
   # config.exception_level_filters.merge!('MyCriticalException' => lambda { |e| 'critical' })
 
   # Enable asynchronous reporting (uses girl_friday or Threading if girl_friday
