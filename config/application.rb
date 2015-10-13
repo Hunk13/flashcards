@@ -9,8 +9,8 @@ module Flashcards
     config.active_record.raise_in_transactional_callbacks = true
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      address: "smtp.mail.ru",
-      port: "465",
+      address: "smtp.mandrillapp.com",
+      port: "587",
       authentication: :plain,
       user_name: ENV["MAIL_USER"],
       password: ENV["MAIL_PASSWORD"],
