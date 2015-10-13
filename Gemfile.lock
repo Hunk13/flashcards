@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arel (6.0.3)
     autoprefixer-rails (6.0.3)
       execjs
@@ -83,6 +84,9 @@ GEM
     docile (1.1.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
+    email_spec (1.6.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
     erubis (2.7.0)
     execjs (2.6.0)
     factory_girl (4.5.0)
@@ -113,6 +117,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -279,6 +285,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   damerau-levenshtein
+  email_spec
   factory_girl_rails
   figaro
   http_accept_language

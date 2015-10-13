@@ -14,7 +14,7 @@ describe "Testing Notification Mailer" do
     end
 
     it "send mail from" do
-      expect(mail.from).to eql(["adorarana2584417@mail.ru"])
+      expect(mail.from).to eql(["admin@flashcard.com"])
     end
   end
 end

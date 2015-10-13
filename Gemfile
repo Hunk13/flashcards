@@ -87,3 +87,7 @@ group :production do
 end
 
 gem "codeclimate-test-reporter", group: :test, require: nil
+
+group :test do
+  gem 'email_spec'
+end
