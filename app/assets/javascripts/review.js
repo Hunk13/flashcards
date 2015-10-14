@@ -1,4 +1,4 @@
-$(document).on("page:change", function () {
+$(document).ready(function () {
   var interval = setInterval(function() { setQuality() }, 1000);
   var quality = 0;
   $("#timer").text(quality);
