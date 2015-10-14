@@ -3,14 +3,14 @@ function initTimer() {
     clearInterval(interval);
   }
   interval = setInterval(function() { updateCounter() }, 1000);
-  seconds = 0;
-  $("#timer").text(seconds);
+  quality = 0;
+  $("#timer").text(quality);
 }
 
 function updateCounter() {
-  seconds++;
-  $("#timer").text(seconds);
-  $("#review_quality").val(seconds);
+  quality++;
+  $("#timer").text(quality);
+  $("#review_quality").val(quality);
 }
 
 $(document).ready(function () {
