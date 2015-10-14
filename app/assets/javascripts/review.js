@@ -1,15 +1,18 @@
-$(document).ready(function () {
-  var interval = setInterval(function() { setQuality() }, 1000);
-  var quality = 0;
-  $("#timer").text(quality);
-
-  function setQuality() {
-    quality++;
-    $("#timer").text(quality);
-    $("#review_quality").val(quality);
-  }
-
-  $(document).on("page:change", function() {
+function initTimer() {
+  if (typeof interval !== "undefined") {
     clearInterval(interval);
-  });
+  }
+  interval = setInterval(function() { updateCounter() }, 1000);
+  seconds = 0;
+  $("#timer").text(seconds);
+}
+
+function updateCounter() {
+  seconds++;
+  $("#timer").text(seconds);
+  $("#review_quality").val(seconds);
+}
+
+$(document).ready(function () {
+  initTimer();
 });
