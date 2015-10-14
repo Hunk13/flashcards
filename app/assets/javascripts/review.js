@@ -2,12 +2,12 @@ function initTimer() {
   if (typeof interval !== "undefined") {
     clearInterval(interval);
   }
-  interval = setInterval(function() { updateCounter() }, 1000);
+  interval = setInterval(function() { setQuality() }, 1000);
   quality = 0;
   $("#timer").text(quality);
 }
 
-function updateCounter() {
+function setQuality() {
   quality++;
   $("#timer").text(quality);
   $("#review_quality").val(quality);
