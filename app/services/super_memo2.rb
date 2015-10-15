@@ -8,7 +8,7 @@ class SuperMemo2
   # After each repetition session of a given day repeat again all items
   # that scored below four in the quality assessment. Continue the repetitions
   # until all of these items score at least four.
-  def self.repetition(e_factor, interval, quality, repetitions, review_date)
+  def self.repetition(e_factor, interval, quality, repetitions, review_date, seconds)
     repetitions = number_of_repetitions(repetitions, quality)
     {
       e_factor: calculate_efactor(e_factor, quality),
@@ -28,8 +28,12 @@ class SuperMemo2
   # EF - E-Factor of a given item
   # If interval is a fraction, round it up to the nearest integer.
   def self.repetition_interval(repetitions, interval, e_factor)
-    return 6 if repetitions == 1
-    (repetitions * e_factor).round
+    case repetitions
+    when 0 then 1
+    when 1 then 6
+    else
+      (interval * e_factor).ceil
+    end
   end
 
   # After each repetition modify the E-Factor of the recently repeated

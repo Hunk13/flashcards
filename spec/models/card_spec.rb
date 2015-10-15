@@ -44,18 +44,6 @@ describe Card do
     end
   end
 
-  context "counters" do
-    it "should have correct successed_reviews_count" do
-      valid_card.check_translation("Katze", 0)
-      expect(valid_card.correct_answers).to be >= 0
-    end
-
-    it "should have correct failed_reviews_count" do
-      valid_card.check_translation("Katze", 0)
-      expect(valid_card.incorrect_answers).to be >= 0
-    end
-  end
-
   context "#rewiew" do
     let!(:card) { create(:card) }
     before(:each) { @answer_time = 0 }

@@ -20,21 +20,23 @@ class Card < ActiveRecord::Base
   scope :expired, -> { where("review_date <= ?", DateTime.now) }
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
-  def check_translation(user_translation, quality)
+  def check_translation(user_translation, seconds)
     typos = distanse_of_words(original_text, user_translation)
-    result = typos <= 1
-    # 1 - maximum Levenshtein distance
-    update_review_date(result ? quality : 0)
-    { typos: typos, result: result }
-  end
-
-  def update_review_date(quality)
-    repetition = SuperMemo2.repetition(e_factor,
-                                       interval,
-                                       quality,
-                                       repetitions,
-                                       review_date)
-    update_attributes(repetition)
+    update_params = SuperMemo2.repetition(e_factor,
+                                          interval,
+                                          quality,
+                                          repetitions,
+                                          review_date,
+                                          seconds.to_i)
+    if typos < 3
+      update_params.merge!({ review_date: review_date + interval.days, attempt: 1 })
+      update_attributes(update_params)
+      { result: true, typos: typos }
+    else
+      update_params.merge!({ attempt: attempt + 1 })
+      update_attributes(update_params)
+      { result: false, typos: typos }
+    end
   end
 
   private
