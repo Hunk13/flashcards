@@ -28,7 +28,7 @@ class SuperMemo2
   # EF - E-Factor of a given item
   # If interval is a fraction, round it up to the nearest integer.
   def self.repetition_interval(repetitions, interval, e_factor)
-    return 6 if repetitions = 1
+    return 6 if repetitions == 1
     (repetitions * e_factor).round
   end
 

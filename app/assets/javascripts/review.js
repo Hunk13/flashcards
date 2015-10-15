@@ -1,4 +1,4 @@
-var interval = 0, quality = 1;
+var interval, quality;
 
 function initTimer() {
   if (typeof interval !== "undefined") {
