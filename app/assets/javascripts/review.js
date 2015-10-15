@@ -5,7 +5,7 @@ function initTimer() {
   if (typeof interval !== "undefined") {
     clearInterval(interval);
   }
-  interval = setInterval(function() { setQuality() }, 1000);
+  interval = setInterval(function() { setQuality(); }, 1000);
   quality = 0;
   $("#timer").text(quality);
 }
