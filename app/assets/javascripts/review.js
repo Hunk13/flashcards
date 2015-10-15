@@ -1,7 +1,6 @@
-var interval;
-var quality;
-
 function initTimer() {
+  var interval;
+  var quality;
   if (typeof interval !== "undefined") {
     clearInterval(interval);
   }
@@ -11,6 +10,7 @@ function initTimer() {
 }
 
 function setQuality() {
+  var quality;
   quality++;
   $("#timer").text(quality);
   $("#review_quality").val(quality);
