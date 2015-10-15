@@ -1,3 +1,5 @@
+var interval = 0;
+
 function initTimer() {
   if (typeof interval !== "undefined") {
     clearInterval(interval);
