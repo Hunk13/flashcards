@@ -28,12 +28,8 @@ class SuperMemo2
   # EF - E-Factor of a given item
   # If interval is a fraction, round it up to the nearest integer.
   def self.repetition_interval(repetitions, interval, e_factor)
-    case repetitions
-    when 0 then 1
-    when 1 then 6
-    else
-      (interval * e_factor).round
-    end
+    return 6 if repetitions = 1
+    (repetitions * e_factor).round
   end
 
   # After each repetition modify the E-Factor of the recently repeated
@@ -45,12 +41,12 @@ class SuperMemo2
   # q - quality of the response in the 0-5 grade scale.
   # If EF is less than 1.3 then let EF be 1.3.
   def self.calculate_efactor(e_factor, quality)
-    ef = e_factor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
-    [ef, 1.3].max
+    e_factor = e_factor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
+    [e_factor, 1.3].max
   end
 
   # Return count repetitions
   def self.number_of_repetitions(repetitions, quality)
-    quality < 3 ? 0 : repetitions
+    quality < 3 ? 1 : repetitions
   end
 end
