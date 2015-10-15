@@ -1,5 +1,5 @@
-var interval = 0;
-var quality = 1;
+var interval;
+var quality;
 
 function initTimer() {
   if (typeof interval !== "undefined") {
