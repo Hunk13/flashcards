@@ -52,28 +52,28 @@ describe Card do
       repetition_backup = card.repetitions
       answer = "Katze"
       card.check_translation(answer, @answer_time)
-      expect(card.repetitions).to eq (repetition_backup + 2)
+      expect(card.repetitions).to eq (repetition_backup + 1)
     end
 
     it "second right review" do
       card.update_attributes(repetitions: 2)
       answer = "Katze"
       card.check_translation(answer, @answer_time)
-      expect(card.repetitions).to eq 2
+      expect(card.repetitions).to eq 1
     end
 
     it "third right review" do
       card.update_attributes(interval: 4, repetitions: 3)
       answer = "Katze"
       card.check_translation(answer, @answer_time)
-      expect(card.repetitions).to eq 2
+      expect(card.repetitions).to eq 1
     end
 
     it "fourth right review" do
       card.update_attributes(interval: 5, repetitions: 4)
       answer = "Katze"
       card.check_translation(answer, @answer_time)
-      expect(card.repetitions).to eq 2
+      expect(card.repetitions).to eq 1
     end
   end
 end

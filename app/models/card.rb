@@ -21,19 +21,20 @@ class Card < ActiveRecord::Base
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
   def check_translation(user_translation, seconds)
-    typos = distanse_of_words(original_text, user_translation)
+    typos = DamerauLevenshtein.distance(prepare_text(original_text),
+                                        prepare_text(user_translation))
     update_params = SuperMemo2.repetition(e_factor,
                                           interval,
-                                          quality,
+                                          typos,
                                           repetitions,
-                                          review_date,
+                                          attempt,
                                           seconds.to_i)
     if typos < 3
-      update_params.merge!({ review_date: review_date + interval.days, attempt: 1 })
+      update_params.merge!(review_date: review_date + interval.days, attempt: 1)
       update_attributes(update_params)
       { result: true, typos: typos }
     else
-      update_params.merge!({ attempt: attempt + 1 })
+      update_params.merge!(attempt: attempt + 1)
       update_attributes(update_params)
       { result: false, typos: typos }
     end
@@ -53,9 +54,5 @@ class Card < ActiveRecord::Base
 
   def set_date_after_review
     self.review_date = Time.zone.now
-  end
-
-  def distanse_of_words(word1, word2)
-    DamerauLevenshtein.distance(prepare_text(word1), prepare_text(word2))
   end
 end
