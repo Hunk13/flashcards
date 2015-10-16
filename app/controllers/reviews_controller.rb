@@ -1,12 +1,16 @@
 class ReviewsController < ApplicationController
   def index
     @card = current_user.cards_for_review
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @card = current_user.cards.find(review_params[:card_id])
     review = @card.check_translation(review_params[:user_translation],
-                                     review_params[:quality].to_i)
+                                     review_params[:seconds])
     if review[:result]
       flash[:notice] = t("controller.reviews.success",
                          original: @card.original_text,
@@ -24,6 +28,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:card_id, :user_translation, :quality)
+    params.require(:review).permit(:card_id, :user_translation, :seconds)
   end
 end
