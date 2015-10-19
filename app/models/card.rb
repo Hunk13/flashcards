@@ -23,21 +23,20 @@ class Card < ActiveRecord::Base
   def check_translation(user_translation, seconds)
     typos = DamerauLevenshtein.distance(prepare_text(original_text),
                                         prepare_text(user_translation))
-    update_params = SuperMemo2.repetition(e_factor,
-                                          interval,
+    update_params = SuperMemo2.repetition(original_text,
                                           typos,
-                                          repetitions,
                                           attempt,
-                                          seconds.to_i)
-    if typos < 3
-      update_params.merge!(review_date: review_date + interval.days, attempt: 1)
-      update_attributes(update_params)
-      { result: true, typos: typos }
-    else
-      update_params.merge!(attempt: attempt + 1)
-      update_attributes(update_params)
-      { result: false, typos: typos }
+                                          seconds,
+                                          repetitions,
+                                          e_factor)
+    success = update_params.delete(:success)
+    update_params[:attempt] = 0
+    if success || attempt >= 2
+      update(update_params)
+    else attempt < 2
+      self.increment!(:attempt)
     end
+    { success: success, typos: typos }
   end
 
   private

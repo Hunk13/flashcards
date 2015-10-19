@@ -1,44 +1,38 @@
 class SuperMemo2
   class << self
-    def repetition(e_factor, interval, typos, repetitions, attempt, seconds)
-      quality = set_quality(attempt, typos, seconds)
-      e_factor = calculate_efactor(e_factor, quality)
-      repetitions = quality < 3 ? 1 : repetitions
-      interval = repetition_interval(repetitions, interval, e_factor)
-      {
-        e_factor: e_factor,
-        interval: interval,
-        quality: quality,
-        repetitions: repetitions
-      }
-    end
-
-    def quality_helper(attempt, seconds, subtrahend)
-      total = 8 * attempt + seconds
-      if total < 16
-        5 - subtrahend
-      elsif total < 24
-        4 - subtrahend
+    def repetition(text, typos, attempt, seconds, repetitions, e_factor)
+      quality = find_quality_of_answer(text, attempt, typos, seconds)
+      if quality > 2
+        new_e_factor = calculate_efactor(e_factor, quality)
+        interval = repetition_interval(repetitions, interval, e_factor)
+        {
+          success: true,
+          repetitions: interval,
+          review_date: repetitions.days.from_now,
+          e_factor: new_e_factor
+        }
       else
-        3 - subtrahend
+        {
+          success: false,
+          repetitions: 1,
+          review_date: 1.day.from_now
+        }
       end
     end
 
-    def set_quality(attempt, typos, seconds)
-      if typos < 3
-        quality_helper(attempt, seconds, 0)
+    def find_quality_of_answer(text, attempt, typos, seconds)
+      if typos < text.size / 3.0
+        quality = 5 - attempt
+        quality = [quality - 1, 3].max if seconds.to_f > 30.0
       else
-        quality_helper(attempt, seconds, 3)
+        quality = [(text.size / typos).floor, 2].min
       end
+      quality
     end
 
     def repetition_interval(repetitions, interval, e_factor)
-      case repetitions
-      when 0 then 1
-      when 1 then 6
-      else
-        (interval * e_factor).ceil
-      end
+      return 6 if repetitions == 1
+      (interval * e_factor).round
     end
 
     def calculate_efactor(e_factor, quality)
