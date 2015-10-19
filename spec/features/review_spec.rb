@@ -31,7 +31,7 @@ describe "Cards to review" do
       expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Catze"
-      click_button "Проверить"
+      click_button "Проверить слово"
       expect(page).to have_content "Неправильно, попробуй еще."
     end
 
@@ -47,7 +47,7 @@ describe "Cards to review" do
       expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Ja"
-      click_button "Проверить"
+      click_button "Проверить слово"
       expect(page).to have_content "Правильно. Оригинальный текст:"
     end
   end

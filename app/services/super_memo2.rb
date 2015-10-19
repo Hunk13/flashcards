@@ -4,7 +4,7 @@ class SuperMemo2
       quality = find_quality_of_answer(text, attempt, typos, seconds)
       if quality > 2
         new_e_factor = calculate_efactor(e_factor, quality)
-        interval = repetition_interval(repetitions, interval, e_factor)
+        interval = repetition_interval(repetitions, new_e_factor)
         {
           success: true,
           repetitions: interval,
@@ -20,6 +20,8 @@ class SuperMemo2
       end
     end
 
+    private
+
     def find_quality_of_answer(text, attempt, typos, seconds)
       if typos < text.size / 3.0
         quality = 5 - attempt
@@ -30,9 +32,9 @@ class SuperMemo2
       quality
     end
 
-    def repetition_interval(repetitions, interval, e_factor)
+    def repetition_interval(repetitions, new_e_factor)
       return 6 if repetitions == 1
-      (interval * e_factor).round
+      (repetitions * new_e_factor).round
     end
 
     def calculate_efactor(e_factor, quality)

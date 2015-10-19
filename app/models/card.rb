@@ -33,7 +33,7 @@ class Card < ActiveRecord::Base
     update_params[:attempt] = 0
     if success || attempt >= 2
       update(update_params)
-    else attempt < 2
+    elsif attempt < 2
       self.increment!(:attempt)
     end
     { success: success, typos: typos }
