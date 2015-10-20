@@ -1,4 +1,4 @@
-class DecksController < ApplicationController
+class Dashboard::DecksController < Dashboard::BaseController
   before_action :find_deck, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -16,7 +16,7 @@ class DecksController < ApplicationController
   def create
     @deck = current_user.decks.new(deck_params)
     if @deck.save
-      redirect_to decks_path
+      redirect_to dashboard_decks_path
     else
       render "new"
     end
@@ -27,20 +27,20 @@ class DecksController < ApplicationController
 
   def update
     if @deck.update(deck_params)
-      redirect_to @deck, notice: t("controller.decks.update")
+      redirect_to dashboard_deck_path, notice: t("controller.decks.update")
     else
-      render edit_deck_path
+      render edit_dashboard_deck_path
     end
   end
 
   def destroy
     @deck.destroy
-    redirect_to decks_path
+    redirect_to dashboard_decks_path
   end
 
   def set_current
     current_user.update_attributes(default_deck_id: params[:id])
-    redirect_to deck_path, notice: t("controller.decks.set")
+    redirect_to dashboard_deck_path, notice: t("controller.decks.set")
   end
 
   private

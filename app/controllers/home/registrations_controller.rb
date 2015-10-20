@@ -1,4 +1,4 @@
-class RegistrationsController < ApplicationController
+class Home::RegistrationsController < Home::BaseController
   skip_before_action :require_login, only: [:new, :create]
 
   def new

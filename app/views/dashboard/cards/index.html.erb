@@ -14,12 +14,12 @@
     <tr>
       <td><%= card.original_text %></td>
       <td><%= card.translated_text %></td>
-      <td><%= link_to card.deck.title, deck_path(card.deck) %></td>
+      <td><%= link_to card.deck.title, dashboard_deck_path(card.deck) %></td>
       <td><%= card.review_date.localtime.strftime("%d/%m/%Y %H:%M") %></td>
       <td><%= card.repetitions %></td>
-      <td><%= link_to t("views.cards.show"), card_path(card) %></td>
-      <td><%= link_to t("views.cards.edit"), edit_card_path(card) %></td>
-      <td><%= link_to t("views.cards.delete"), card_path(card), method: :delete,
+      <td><%= link_to t("views.cards.show"), dashboard_card_path(card) %></td>
+      <td><%= link_to t("views.cards.edit"), edit_dashboard_card_path(card) %></td>
+      <td><%= link_to t("views.cards.delete"), dashboard_card_path(card), method: :delete,
                                                                 data: { confirm: I18n.t("views.cards.sure") } %></td>
   <% end %>
   </table>

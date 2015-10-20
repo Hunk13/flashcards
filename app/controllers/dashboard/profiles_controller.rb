@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class Dashboard::ProfilesController < Dashboard::BaseController
   before_action :find_profile, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
 
   def update
     if current_user.update_attributes(user_params)
-      redirect_to profile_path, notice: t("controller.profiles.update")
+      redirect_to dashboard_profile_path, notice: t("controller.profiles.update")
     else
       render "edit"
     end

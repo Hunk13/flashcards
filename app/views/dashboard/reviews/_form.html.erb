@@ -2,7 +2,7 @@
 <% if card.nil? %>
   <h2><%= t("views.reviews.no_cards") %></h2>
 <% else %>
-  <%= simple_form_for :review, url: reviews_path, method: :post, class: "form-horizontal" do |f| %>
+  <%= simple_form_for :review, url: dashboard_reviews_path, method: :post, class: "form-horizontal" do |f| %>
   <table class="table table-striped">
     <tr>
       <th>

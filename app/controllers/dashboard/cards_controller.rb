@@ -1,4 +1,4 @@
-class CardsController < ApplicationController
+class Dashboard::CardsController < Dashboard::BaseController
   before_action :find_card, only: [:show, :edit, :update, :destroy]
   before_action :create_deck, only: [:create, :update]
 
@@ -19,7 +19,7 @@ class CardsController < ApplicationController
   def create
     @card = current_user.cards.new(card_params)
     if @card.save
-      redirect_to cards_path, notice: t("controller.cards.create")
+      redirect_to dashboard_cards_path, notice: t("controller.cards.create")
     else
       render "new"
     end
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to @card, notice: t("controller.cards.update")
+      redirect_to dashboard_cards_path, notice: t("controller.cards.update")
     else
       render "edit"
     end
@@ -35,7 +35,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to cards_path, notice: t("controller.cards.destroy")
+    redirect_to dashboard_cards_path, notice: t("controller.cards.destroy")
   end
 
   private

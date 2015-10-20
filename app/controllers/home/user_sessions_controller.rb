@@ -1,4 +1,4 @@
-class UserSessionsController < ApplicationController
+class Home::UserSessionsController < Home::BaseController
   skip_before_action :require_login, except: [:destroy]
 
   def new
@@ -13,15 +13,6 @@ class UserSessionsController < ApplicationController
     else
       flash[:error] = t("controller.user_sessions.faill")
       render action: "new"
-    end
-  end
-
-  def destroy
-    if current_user
-      logout
-      redirect_to(:login, notice: t("controller.user_sessions.logout"))
-    else
-      redirect_to root_path
     end
   end
 

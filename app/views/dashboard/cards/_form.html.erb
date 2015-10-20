@@ -1,4 +1,4 @@
-<%= simple_form_for card, html: { class: "form-horizontal" } do |f| %>
+<%= simple_form_for [:dashboard, card], html: { class: "form-horizontal" } do |f| %>
   <% if card.errors.any? %>
     <div id="error_explanation">
       <h2>

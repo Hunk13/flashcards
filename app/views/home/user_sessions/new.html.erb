@@ -1,5 +1,5 @@
 <h1><%= t("views.user_sessions.enter") %></h1>
-<%= simple_form_for :user, url: user_sessions_path do |f| %>
+<%= simple_form_for :user, url: home_user_sessions_path do |f| %>
   <div class="filed">
     <%= f.input :email, as: :string, label: t("views.user_sessions.email") %><br />
   </div>

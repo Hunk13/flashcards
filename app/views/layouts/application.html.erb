@@ -13,35 +13,9 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
     <% if current_user %>
-      <ul class="nav nav-tabs">
-        <li><span><h4><%= t("views.auth.profile") %><b><%= current_user.name %></b></h4></span></li>
-        <li><%= link_to t("views.auth.show_profile"), profile_path(current_user) %></li>
-        <li><%= link_to t("views.auth.edit_profile"), edit_profile_path(current_user) %></li>
-        <li><%= link_to t("views.auth.exit"), logout_path, method: :delete %></li>
-      </ul>
+      <%= render "shared/user" %>
     <% else %>
-      <ul class="nav nav-tabs">
-        <li><%= link_to t("views.noauth.signup"), signup_path %></li>
-        <li><%= link_to t("views.noauth.login"), login_path %></li>
-        <li><%= link_to t("views.auth_twitter"), auth_at_provider_path(provider: :twitter) %></li>
-        <li><%= link_to t("views.auth_github"), auth_at_provider_path(provider: :github) %></li>
-        <ul class="nav navbar-nav navbar-right">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-              <%= t("views.menu.languages.lang") %>
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <%= link_to t("views.menu.languages.en"), root_path(locale: :en) %>
-              </li>
-              <li>
-                <%= link_to t("views.menu.languages.ru"), root_path(locale: :ru)%>
-              </li>
-            </ul>
-         </div>
-        </ul>
-      </ul>
+      <%= render "shared/guest" %>
      <% end %>
     </div>
   </nav>
@@ -55,11 +29,11 @@
 
   <div class="col-md-12 navigation-links">
     <ul class="nav nav-tabs nav-justified">
-      <li><%= link_to t("views.cards.add"), new_card_path %>
-      <li><%= link_to t("views.cards.all"), cards_path %>
-      <li><%= link_to t("views.decks.add"), new_deck_path %>
-      <li><%= link_to t("views.decks.all"), decks_path %>
-      <li><%= link_to t("views.review"), reviews_path %>
+      <li><%= link_to t("views.cards.add"), new_dashboard_card_path %>
+      <li><%= link_to t("views.cards.all"), dashboard_cards_path %>
+      <li><%= link_to t("views.decks.add"), new_dashboard_deck_path %>
+      <li><%= link_to t("views.decks.all"), dashboard_decks_path %>
+      <li><%= link_to t("views.review"), dashboard_reviews_path %>
     </ul>
   </div><br/>
 </footer>

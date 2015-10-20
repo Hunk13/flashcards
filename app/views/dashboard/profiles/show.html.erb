@@ -15,6 +15,6 @@
 </p>
 
 <p>
-  <%= link_to t("views.profiles.delete"), profile_path(current_user), method: :delete,
+  <%= link_to t("views.profiles.delete"), dashboard_profile_path(current_user), method: :delete,
                                                                       data: { confirm: I18n.t("views.profiles.sure") } %>
 </p>

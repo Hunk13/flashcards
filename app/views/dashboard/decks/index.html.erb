@@ -9,11 +9,11 @@
   <% @decks.each do |deck| %>
     <tr>
       <td><%= deck.title %></td>
-      <td><%= link_to t("views.decks.show"), deck_path(deck) %></td>
-      <td><%= link_to t("views.decks.edit"), edit_deck_path(deck) %></td>
-      <td><%= link_to t("views.decks.delete"), deck_path(deck), method: :delete,
+      <td><%= link_to t("views.decks.show"), dashboard_deck_path(deck) %></td>
+      <td><%= link_to t("views.decks.edit"), edit_dashboard_deck_path(deck) %></td>
+      <td><%= link_to t("views.decks.delete"), dashboard_deck_path(deck), method: :delete,
                                                                 data: { confirm: t("views.decks.sure") } %></td>
-      <td><%= link_to t("views.decks.default"), set_current_deck_path(deck), method: :put %></td>
+      <td><%= link_to t("views.decks.default"), set_current_dashboard_deck_path(deck), method: :put %></td>
     </tr>
   <% end %>
   </table>
