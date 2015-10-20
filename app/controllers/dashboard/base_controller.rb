@@ -1,3 +1,5 @@
-class Dashboard::BaseController < ApplicationController
-  before_action :require_login
+module Dashboard
+  class BaseController < ApplicationController
+    before_action :require_login
+  end
 end
