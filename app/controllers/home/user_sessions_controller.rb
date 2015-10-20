@@ -1,4 +1,5 @@
-class Home::UserSessionsController < Home::BaseController
+module Home
+class HUserSessionsController < BaseController
   skip_before_action :require_login, except: [:destroy]
 
   def new
@@ -21,4 +22,5 @@ class Home::UserSessionsController < Home::BaseController
   def session_params
     params.require(:user).permit(:email, :password, :remember, :locale)
   end
+end
 end
