@@ -19,10 +19,10 @@ module Dashboard
                            translated: @card.translated_text,
                            user_answer: review_params[:user_translation],
                            typos: @review[:typos],
-                           next_review: @card.review_date.localtime.strftime("%d/%m/%Y %H:%M"))
+                           next_review: card_time_loc)
       else
         flash[:alert] = t("controller.reviews.fail",
-                          next_review: @card.review_date.localtime.strftime("%d/%m/%Y %H:%M"))
+                          next_review: card_time_loc)
       end
       redirect_to root_path
     end
@@ -31,6 +31,10 @@ module Dashboard
 
     def review_params
       params.require(:review).permit(:card_id, :user_translation, :seconds)
+    end
+
+    def card_time_loc
+      @card.review_date.localtime.strftime("%d/%m/%Y %H:%M")
     end
   end
 end

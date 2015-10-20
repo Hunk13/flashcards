@@ -10,9 +10,9 @@ module Home
       if login(session_params[:email],
                session_params[:password],
                session_params[:remember])
-        redirect_back_or_to(root_path, notice: t("controller.user_sessions.welcome"))
+        redirect_back_or_to(root_path, notice: t("controller.user_sess.welcome"))
       else
-        flash[:error] = t("controller.user_sessions.faill")
+        flash[:error] = t("controller.user_sess.faill")
         render action: "new"
       end
     end

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale, :require_login
 
   def not_authenticated
-    redirect_to(home_login_path, alert: t("controller.application.not_logged_message"))
+    redirect_to(home_login_path, alert: t("controller.not_logged_message"))
   end
 
   def set_locale
