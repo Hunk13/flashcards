@@ -12,6 +12,7 @@ set :log_level, :info
 set :use_sudo, false
 
 set :linked_files, fetch(:linked_files, []).push("config/database.yml")
+set :linked_files, fetch(:linked_files, []).push("config/application.yml")
 set :linked_dirs, fetch(:linked_dirs, []).push("log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system")
 set :keep_releases, 5
 
