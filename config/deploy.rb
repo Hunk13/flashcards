@@ -38,7 +38,7 @@ task :symlink_config_files do
     "#{shared_path}/config/database.yml" => "#{release_path}/config/database.yml",
     "#{shared_path}/config/local_env.yml" => "#{release_path}/config/local_env.yml"
   }
-  execute "symlinks.map{ |from, to| 'ln -nfs #{from} #{to}' }.join(' && ')"
+  execute symlinks.map{ |from, to| "ln -nfs #{from} #{to}" }.join(" && ")
 end
 
 namespace :puma do
