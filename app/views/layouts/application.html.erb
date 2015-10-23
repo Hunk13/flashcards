@@ -16,7 +16,7 @@
       <%= render "shared/user" %>
     <% else %>
       <%= render "shared/guest" %>
-     <% end %>
+    <% end %>
     </div>
   </nav>
 <footer>
@@ -26,16 +26,9 @@
       <h3><%= t("views.app_description") %></h3>
     </p>
   </div>
-
-  <div class="col-md-12 navigation-links">
-    <ul class="nav nav-tabs nav-justified">
-      <li><%= link_to t("views.cards.add"), new_dashboard_card_path %>
-      <li><%= link_to t("views.cards.all"), dashboard_cards_path %>
-      <li><%= link_to t("views.decks.add"), new_dashboard_deck_path %>
-      <li><%= link_to t("views.decks.all"), dashboard_decks_path %>
-      <li><%= link_to t("views.review"), dashboard_reviews_path %>
-    </ul>
-  </div><br/>
+  <% if current_user %>
+    <%= render "shared/navi" %>
+  <% end %>
 </footer>
 
   <%= yield %>
