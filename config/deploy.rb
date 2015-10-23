@@ -11,7 +11,7 @@ set :pty, true
 set :log_level, :info
 set :use_sudo, false
 
-set :linked_files, fetch(:linked_files, []).push("config/database.yml")
+set :linked_files, fetch(:linked_files, []).push("config/database.yml config/application.yml")
 set :linked_dirs, fetch(:linked_dirs, []).push("log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system")
 set :keep_releases, 5
 
@@ -31,17 +31,6 @@ set :puma_init_active_record, true
 set :puma_preload_app, true
 
 before "deploy:assets:precompile", :symlink_config_files
-
-desc "Link shared files"
-task :symlink_config_files do
-  on roles(:web) do
-    symlinks = {
-      "#{shared_path}/config/database.yml" => "#{release_path}/config/database.yml",
-      "#{shared_path}/config/local_env.yml" => "#{release_path}/config/local_env.yml"
-    }
-    execute symlinks.map{ |from, to| "ln -nfs #{from} #{to}" }.join(" && ")
-  end
-end
 
 namespace :puma do
   desc "Create Directories for Puma Pids and Socket"
