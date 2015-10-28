@@ -1,0 +1,6 @@
+<ul class="nav nav-tabs">
+  <li><span><h4><%= t("views.auth.profile") %><b><%= current_user.name %></b></h4></span></li>
+  <li><%= link_to t("views.auth.show_profile"), dashboard_profile_path(current_user) %></li>
+  <li><%= link_to t("views.auth.edit_profile"), edit_dashboard_profile_path(current_user) %></li>
+  <li><%= link_to t("views.auth.exit"), dashboard_logout_path, method: :delete %></li>
+</ul>

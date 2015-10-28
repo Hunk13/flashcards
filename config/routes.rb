@@ -1,26 +1,33 @@
 Rails.application.routes.draw do
 
-  root "reviews#index"
-  resources :reviews, :cards
-  resources :decks do
-    put "set_current", on: :member
+  root "dashboard/reviews#index"
+
+  namespace :dashboard do
+    root "reviews#index"
+    resources :reviews, :cards
+    resources :decks do
+      put "set_current", on: :member
+    end
+    resources :user_sessions, only: [:destroy]
+    resources :profiles, only: [:edit, :update, :show, :destroy]
+    delete "/logout" => "user_sessions#destroy", :as => "logout"
+    # profiles
+    get "/users" => "profiles#index", :as => "users"
   end
-  resources :user_sessions, only: [:new, :create, :destroy]
-  resources :registrations, only: [:new, :create]
-  resources :profiles, only: [:edit, :update, :show, :destroy]
 
-  # sessions
-  get "/login" => "user_sessions#new", :as => "login"
-  delete "/logout" => "user_sessions#destroy", :as => "logout"
+  namespace :home do
+    root "user_sessions#new"
+    resources :user_sessions, only: [:new, :create]
+    resources :registrations, only: [:new, :create]
+    # registrations
+    get "/signup" => "registrations#new", :as => "signup"
 
-  # registrations
-  get "/signup" => "registrations#new", :as => "signup"
+    # sessions
+    get "/login" => "user_sessions#new", :as => "login"
 
-  # profiles
-  get "/users" => "profiles#index", :as => "users"
-
-  # oauth
-  post "oauth/callback" => "oauths#callback"
-  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+    # oauth
+    post "oauth/callback" => "oauths#callback"
+    get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+    get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  end
 end

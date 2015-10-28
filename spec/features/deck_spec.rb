@@ -7,14 +7,14 @@ describe "Deck features" do
     include_context "logged user"
 
     it "add deck" do
-      visit new_deck_path
+      visit new_dashboard_deck_path
       fill_in "deck_title", with: "Animals"
       click_on "Создать колоду"
       expect(page).to have_content("Список всех колод")
     end
 
     it "edit deck" do
-      visit decks_path
+      visit dashboard_decks_path
       click_on "Редактировать"
       fill_in "deck_title", with: "Birds"
       click_on "Создать колоду"
@@ -22,7 +22,7 @@ describe "Deck features" do
     end
 
     it "set default deck" do
-      visit new_deck_path
+      visit new_dashboard_deck_path
       fill_in "deck_title", with: "Animals"
       click_on "Создать колоду"
       first(:link, "Установить как текущую").click
@@ -30,7 +30,7 @@ describe "Deck features" do
     end
 
     it "delete deck" do
-      visit new_deck_path
+      visit new_dashboard_deck_path
       fill_in "deck_title", with: "Animals"
       click_on "Создать колоду"
       first(:link, "Удалить").click
@@ -42,7 +42,7 @@ describe "Deck features" do
     include_context "logged user"
 
     it "add deck" do
-      visit new_deck_path
+      visit new_dashboard_deck_path
       fill_in "deck_title", with: nil
       click_on "Создать колоду"
       expect(page).to have_content("не может быть пустым")

@@ -1,6 +1,4 @@
 class NotificationsMailer < ApplicationMailer
-  default from: ENV["GMAIL_USERNAME"]
-
   def pending_cards(user)
     @user = user
     @cards = user.cards_for_review

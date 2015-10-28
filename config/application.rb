@@ -15,9 +15,7 @@ module Flashcards
       domain: ENV["MAILGUN_DOMAIN"],
       user_name: ENV["MAIL_USER"],
       password: ENV["MAIL_PASSWORD"],
-      enable_starttls_auto: true,
-      ssl: true,
-      tls: true
+      enable_starttls_auto: true
     }
     config.action_mailer.default_url_options = {
       host: ENV["APP_HOST"]

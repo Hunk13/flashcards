@@ -51,16 +51,17 @@ gem 'rollbar', '~> 2.2.1'
 gem 'newrelic_rpm'
 # send e-mail
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
-
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
+# Puma is the application server
+gem 'puma'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

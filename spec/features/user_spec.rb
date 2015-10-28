@@ -5,7 +5,7 @@ require "context/login_user"
 describe "User registration" do
   context "valid data" do
     it "new user" do
-      visit signup_path
+      visit home_signup_path
       fill_in "registration_name", with: "Bill Gates"
       fill_in "registration_email", with: "bill@microsoft.com"
       fill_in "registration_password", with: "WindowsMustDie"
@@ -43,7 +43,7 @@ describe "User registration" do
 
   context "invalid data" do
     it "password confirmation not eval password" do
-      visit signup_path
+      visit home_signup_path
       fill_in "registration_name", with: "Bill Gates"
       fill_in "registration_email", with: "bill@microsoft.com"
       fill_in "registration_password", with: "WindowsMustDie"
@@ -53,7 +53,7 @@ describe "User registration" do
     end
 
     it "user name nil" do
-      visit signup_path
+      visit home_signup_path
       fill_in "registration_name", with: nil
       fill_in "registration_email", with: "bill@microsoft.com"
       fill_in "registration_password", with: "WindowsMustDie"
@@ -63,7 +63,7 @@ describe "User registration" do
     end
 
     it "password nil" do
-      visit signup_path
+      visit home_signup_path
       fill_in "registration_name", with: "Bill Gates"
       fill_in "registration_email", with: nil
       fill_in "registration_password", with: "WindowsMustDie"
@@ -73,7 +73,7 @@ describe "User registration" do
     end
 
     it "password to short" do
-      visit signup_path
+      visit home_signup_path
       fill_in "registration_name", with: "Bill Gates"
       fill_in "registration_email", with: "bill@microsoft.com"
       fill_in "registration_password", with: "1"

@@ -31,7 +31,7 @@ describe "Cards to review" do
       expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Catze"
-      click_button "Проверить"
+      click_button "Проверить слово"
       expect(page).to have_content "Неправильно, попробуй еще."
     end
 
@@ -47,28 +47,8 @@ describe "Cards to review" do
       expect(page).to have_content("Карта создана")
       click_on "Тренировка слов"
       fill_in "review_user_translation", with: "Ja"
-      click_button "Проверить"
+      click_button "Проверить слово"
       expect(page).to have_content "Правильно. Оригинальный текст:"
-    end
-  end
-
-  context "not logged review" do
-    it "not logged user review" do
-      visit root_path
-      click_on "Тренировка слов"
-      expect(page).to have_content "Вам нужно зарегистрироваться или войти со своими данными"
-    end
-
-    it "not logged user add" do
-      visit root_path
-      click_on "Добавить карту"
-      expect(page).to have_content "Вам нужно зарегистрироваться или войти со своими данными"
-    end
-
-    it "not logged user all card" do
-      visit root_path
-      click_on "Все карты"
-      expect(page).to have_content "Вам нужно зарегистрироваться или войти со своими данными"
     end
   end
 end

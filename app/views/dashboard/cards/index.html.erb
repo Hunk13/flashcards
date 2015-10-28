@@ -1,0 +1,26 @@
+<h1><%= t("views.cards.list") %></h1>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <tr>
+      <th><%= t("views.cards.original_text") %></th>
+      <th><%= t("views.cards.translated_text") %></th>
+      <th><%= t("views.cards.deck") %></th>
+      <th><%= t("views.cards.date_review") %></th>
+      <th><%= t("views.cards.repetitions") %></th>
+      <th colspan="3"></th>
+    </tr>
+
+  <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.original_text %></td>
+      <td><%= card.translated_text %></td>
+      <td><%= link_to card.deck.title, dashboard_deck_path(card.deck) %></td>
+      <td><%= card.review_date.localtime.strftime("%d/%m/%Y %H:%M") %></td>
+      <td><%= card.repetitions %></td>
+      <td><%= link_to t("views.cards.show"), dashboard_card_path(card) %></td>
+      <td><%= link_to t("views.cards.edit"), edit_dashboard_card_path(card) %></td>
+      <td><%= link_to t("views.cards.delete"), dashboard_card_path(card), method: :delete,
+                                                                data: { confirm: I18n.t("views.cards.sure") } %></td>
+  <% end %>
+  </table>
+</div>

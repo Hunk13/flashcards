@@ -85,12 +85,11 @@ en:
       remember: "Remember me on this computer"
 
   controller:
+    not_logged_message: "You must register or enter with your data"
     cards:
       create: "Card create"
       update: "Card update"
       destroy: "Card delete"
-    application:
-      not_logged_message: "You must register or enter with your data"
     decks:
       update: "Deck update"
       set: "Deck set"
@@ -112,7 +111,7 @@ en:
       fail: >
         Wrong, try again.
         Date of next inspection: %{next_review}
-    user_sessions:
+    user_sess:
       welcome: "Welcome!!!"
       fail: "Login failed!!!"
       logout: "Logout!!"
