@@ -53,6 +53,8 @@ gem 'newrelic_rpm'
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 # Puma is the application server
 gem 'puma'
+# Rails Bootstrap Forms is a  it super easy to integrate bootstrap-style
+gem 'bootstrap_form'
 
 # Use Capistrano for deployment
 group :development do

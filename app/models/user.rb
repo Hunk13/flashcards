@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def self.notify_card_review
-    User.includes(decks: :cards).each do |user|
+    joins(:cards).merge(Card.expired).distinct.find_each do |user|
       NotificationsMailer.pending_cards(user).deliver_later
     end
   end

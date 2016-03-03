@@ -52,6 +52,7 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     byebug (6.0.2)
     capistrano (3.4.0)
@@ -303,6 +304,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 1.6)
   bootstrap-sass
+  bootstrap_form
   byebug
   capistrano
   capistrano-bundler
@@ -343,4 +345,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.10.4
+   1.10.6
