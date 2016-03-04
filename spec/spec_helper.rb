@@ -1,9 +1,9 @@
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
-require "capybara/rspec"
-require "factory_girl_rails"
-require "email_spec"
+require 'capybara/rspec'
+require 'factory_girl_rails'
+require 'email_spec'
 
 RSpec.configure do |config|
   config.include(EmailSpec::Helpers)
