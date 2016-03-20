@@ -6,7 +6,7 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, presence: true,
                                               length: { minimum: 2 },
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/,
-                                                        message: "Слова только с большой буквы" }
+                                                        message: I18n.t("model.big_words") }
 
   has_attached_file :picture, { styles: { medium: "360x360>", thumb: "100x100>" },
                                 default_url: "/images/:style/missing.png" }.merge(PAPERCLIP_STORAGE_OPTIONS)
@@ -15,69 +15,35 @@ class Card < ActiveRecord::Base
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
-  before_save :set_date_after_review, on: :create
+  after_initialize :set_date_after_review, if: :new_record?
 
   scope :expired, -> { where("review_date <= ?", DateTime.now) }
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
-  def check_translation(user_translation)
-    if prepare_text(original_text) == prepare_text(user_translation)
-      process_correct_answer
-      true
-    else
-      count_incorrect_answer
-      false
+  def check_translation(user_translation, seconds)
+    typos = DamerauLevenshtein.distance(prepare_text(original_text),
+                                        prepare_text(user_translation))
+    update_params = SuperMemo2.repetition(original_text,
+                                          typos,
+                                          attempt,
+                                          seconds,
+                                          repetitions,
+                                          e_factor)
+    success = update_params.delete(:success)
+    update_params[:attempt] = 0
+    if success || attempt >= 2
+      update(update_params)
+    elsif attempt < 2
+      self.increment!(:attempt)
     end
-  end
-
-  def process_correct_answer
-    increment(:correct_answers) if correct_answers < 5
-    update_review_date_if_correct
-  end
-
-  def count_incorrect_answer
-    decrement(:correct_answers) if correct_answers > 0
-    increment(:incorrect_answers) if incorrect_answers < 3
-    update_review_date_if_incorrect
-  end
-
-  def update_review_date_if_correct
-    offset = case correct_answers
-             when 0
-               0
-             when 1
-               12.hour
-             when 2
-               3.day
-             when 3
-               1.week
-             when 4
-               2.week
-             else
-               1.month
-             end
-    update_attributes(review_date: review_date + offset, incorrect_answers: 0)
-  end
-
-  def update_review_date_if_incorrect
-    offset = case incorrect_answers
-             when 0
-               0
-             when 1
-               12.hour
-             when 2
-               3.day
-             else
-               1.week
-             end
-    update_attributes(review_date: review_date - offset)
+    { success: success, typos: typos }
   end
 
   private
 
   def original_not_equal_translated
     if prepare_text(original_text) == prepare_text(translated_text)
-      errors.add(:original_text, "Оригинальный и переведённый тексты равны")
+      errors.add(:original_text, I18n.t("model.equal"))
     end
   end
 
@@ -86,6 +52,6 @@ class Card < ActiveRecord::Base
   end
 
   def set_date_after_review
-    DateTime.now
+    self.review_date = Time.zone.now
   end
 end

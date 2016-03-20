@@ -9,10 +9,12 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
   belongs_to :default_deck, class_name: "Deck"
 
+  before_save :set_locale, if: :new_record?
   validates :name, presence: true
+  validates :locale, presence: true
   validates :email, uniqueness: true,
                     presence: true,
-                    email_format: { message: "Неверный формат электронной почты" }
+                    email_format: { message: I18n.t("model.invalid_mail") }
   validates :password, length: { minimum: 3 },
                        presence: true,
                        confirmation: true,
@@ -25,5 +27,17 @@ class User < ActiveRecord::Base
     else
       cards.expired.for_review.first
     end
+  end
+
+  def self.notify_card_review
+    joins(:cards).merge(Card.expired).distinct.find_each do |user|
+      NotificationsMailer.pending_cards(user).deliver_later
+    end
+  end
+
+  private
+
+  def set_locale
+    self.locale = I18n.default_locale
   end
 end

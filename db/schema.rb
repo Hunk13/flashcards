@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921203507) do
+ActiveRecord::Schema.define(version: 20151023065506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,15 +30,18 @@ ActiveRecord::Schema.define(version: 20150921203507) do
     t.text     "original_text"
     t.text     "translated_text"
     t.datetime "review_date"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "deck_id"
-    t.integer  "correct_answers",      default: 0
-    t.integer  "incorrect_answers",    default: 0
+    t.integer  "attempt",              default: 1
+    t.float    "e_factor",             default: 2.5
+    t.integer  "interval",             default: 0
+    t.integer  "quality",              default: 0
+    t.integer  "repetitions",          default: 1
   end
 
   add_index "cards", ["deck_id"], name: "index_cards_on_deck_id", using: :btree
@@ -53,9 +56,9 @@ ActiveRecord::Schema.define(version: 20150921203507) do
   add_index "decks", ["user_id"], name: "index_decks_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.text     "email",                        null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.text     "email",                                       null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.string   "name"
@@ -64,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150921203507) do
     t.integer  "default_deck_id"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.string   "locale",                       default: "en", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

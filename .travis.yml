@@ -15,7 +15,7 @@ deploy:
   app: sleepy-reaches-7041
   on:
     repo: Hunk13/flashcards
-    branch: fourteenth-lesson
+    branch: twentieth-lesson
 addons:
   code_climate:
     repo_token:

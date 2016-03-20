@@ -1,0 +1,38 @@
+<h2 align="center"><%= t("views.reviews.name") %></h2>
+<% if card.nil? %>
+  <h2><%= t("views.reviews.no_cards") %></h2>
+<% else %>
+  <%= simple_form_for :review, url: dashboard_reviews_path, method: :post, class: "form-horizontal" do |f| %>
+  <table class="table table-striped">
+    <tr>
+      <th>
+        <strong><%= t("views.reviews.original_text") %></strong><br/>
+          <%= card.translated_text %><br />
+        <strong><%= t("views.reviews.timer") %></strong>
+          <p id="timer"></p>
+          <%= f.hidden_field :card_id, value: card.id %>
+        <div class="form-group">
+        <p>
+          <%= f.input :user_translation, html: { class: "form-control" },
+                                         as: :string,
+                                         label: t("views.reviews.answer_text") %>
+        </p>
+      </div>
+      <div>
+        <%= f.hidden_field :seconds, { value: nil, id: "review_seconds" } %>
+      </div>
+      <div>
+        <p class="form-group">
+          <%= f.submit t("views.reviews.check") %>
+        </p>
+      </div>
+      </th>
+      <th>
+        <div class="form-group">
+          <p><%= image_tag card.picture.url(:medium) %></p>
+        </div>
+      </th>
+    </tr>
+  </table>
+  <% end %>
+<% end %>

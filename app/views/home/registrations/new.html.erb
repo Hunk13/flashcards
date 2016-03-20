@@ -1,0 +1,25 @@
+<h1><%= t("views.registrations.new") %></h1>
+<%= simple_form_for @user, as: :registration, url: home_registrations_path do |f| %>
+  <div class="field form-group">
+    <%= f.input :name, as: :string, label: t("views.registrations.name"), html: { class: "form-control" } %>
+  </div>
+  <div class="field form-group">
+    <%= f.input :email, as: :string, label: t("views.registrations.email"), html: { class: "form-control" } %>
+  </div>
+  <div class="field form-group">
+    <%= f.input :password, label: t("views.registrations.password"), html: { class: "form-control" } %>
+  </div>
+  <div class="field form-group">
+    <%= f.input :password_confirmation, label: t("views.registrations.password_confirmation"),
+                                        html: { class: "form-control" } %>
+  </div>
+  <div class="field form-group">
+    <%= f.input :locale, collection: I18n.available_locales,
+                         label: t("views.registrations.locale"),
+                         html: { class: "form-control" } %>
+  </div>
+  <p class="form-group">
+    <br>
+    <%= f.button :submit, t("views.registrations.save") %>
+  </p>
+<% end %>

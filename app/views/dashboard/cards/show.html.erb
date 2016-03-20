@@ -1,0 +1,29 @@
+<p>
+  <strong><%= t("views.cards.original_text") %></strong>
+  <%= @card.original_text %>
+</p>
+
+<p>
+  <strong><%= t("views.cards.translated_text") %></strong>
+  <%= @card.translated_text %>
+</p>
+
+<p>
+  <strong><%= t("views.cards.deck") %></strong>
+  <%= @card.deck.title %>
+</p>
+
+<p>
+  <strong><%= t("views.cards.date_review") %></strong>
+  <%= @card.review_date.localtime.strftime("%d/%m/%Y %H:%M") %>
+</p>
+
+<p>
+  <strong><%= t("views.cards.picture") %></strong>
+  <%= image_tag @card.picture.url(:thumb) %>
+</p>
+
+<br>
+<p>
+  <%= link_to t("views.cards.back"), dashboard_cards_path %>
+ </p>
