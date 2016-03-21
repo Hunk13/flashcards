@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_linked_github?
+    authentications.where(provider: 'github').present?
+  end
+
   private
 
   def set_locale

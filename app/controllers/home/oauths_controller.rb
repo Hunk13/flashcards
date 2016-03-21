@@ -1,26 +1,25 @@
 module Home
   class OauthsController < BaseController
-    skip_before_action :require_login
+    skip_before_filter :require_login
 
     def oauth
-      login_at(auth_params[:provider])
+      login_at(params[:provider])
     end
 
     def callback
       provider = auth_params[:provider]
       if @user = login_from(provider)
-        redirect_back_or_to root_path, notice: t("controller.oauth.logged",
-                                                 provider: provider.titleize)
+        redirect_back_or_to root_path, :notice => "Logged in from #{provider.titleize}!"
       else
         begin
           @user = create_from(provider)
+
+          redirect_back_or_to root_path, :notice => "Logged in from #{provider.titleize}!"
+
           reset_session
           auto_login(@user)
-          redirect_back_or_to root_path, notice: t("controller.oauth.logged",
-                                                   provider: provider.titleize)
         rescue
-          redirect_back_or_to root_path, alert: t("controller.oauth.failed",
-                                                  provider: provider.titleize)
+          redirect_back_or_to root_path, :alert => "Failed to login from #{provider.titleize}!"
         end
       end
     end
