@@ -23,7 +23,7 @@ describe "Cards to review" do
       fill_in "card_original_text", with: "Ja"
       fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
-      select "Августа", from: "card_review_date_2i"
+      select "августа", from: "card_review_date_2i"
       select "08", from: "card_review_date_4i"
       select "21", from: "card_review_date_5i"
       select "Animals", from: "card_deck_id"
@@ -41,7 +41,7 @@ describe "Cards to review" do
       fill_in "card_original_text", with: "Ja"
       fill_in "card_translated_text", with: "Yes"
       select "29", from: "card_review_date_3i"
-      select "Августа", from: "card_review_date_2i"
+      select "августа", from: "card_review_date_2i"
       select "Animals", from: "card_deck_id"
       click_on "Создать карту"
       expect(page).to have_content("Карта создана")
