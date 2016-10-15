@@ -26,6 +26,7 @@ gem 'newrelic_rpm'
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem 'puma'
 gem 'bootstrap_form'
+gem 'net-ssh', '2.7.0'
 
 group :development do
   gem 'capistrano'
