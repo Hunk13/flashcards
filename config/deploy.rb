@@ -3,7 +3,7 @@ lock "3.4.0"
 
 set :application, "flashcards"
 set :repo_url, "git@github.com:Hunk13/flashcards.git"
-set :branch, "twentieth-lesson"
+set :branch, "master"
 set :user, "deploy"
 set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}"
 

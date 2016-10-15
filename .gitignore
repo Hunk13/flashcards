@@ -33,3 +33,5 @@ doc/
 /config/local_env.yml
 /public/system/
 /coverage/
+/config/database.production.yml
+/config/secrets.production.yml
