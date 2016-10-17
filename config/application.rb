@@ -22,5 +22,7 @@ module Flashcards
     }
     config.i18n.default_locale = :ru
     config.i18n.available_locales = [:ru, :en]
+    require Rails.root.join("lib/custom_public_exceptions")
+    config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
   end
 end
