@@ -1,4 +1,31 @@
 # config valid only for current version of Capistrano
+lock '3.4.1'
+
+set :repo_url, 'git@github.com:Hunk13/flashcards.git'
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+
+set :user, 'deployer'
+set :application, 'flashcards'
+set :rails_env, 'production'
+server '95.213.200.20', user: "#{fetch(:user)}", roles: %w{app db web}, primary: true
+set :deploy_to,       "/home/#{fetch(:user)}/#{fetch(:application)}"
+set :pty, true
+
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/puma.rb')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+
+set :config_example_suffix, '.example'
+set :config_files, %w{config/database.yml config/secrets.yml}
+set :puma_conf, "#{shared_path}/config/puma.rb"
+
+namespace :deploy do
+  before 'check:linked_files', 'config:push'
+  before 'check:linked_files', 'puma:config'
+  before 'check:linked_files', 'puma:nginx_config'
+  before 'deploy:migrate', 'deploy:db:create'
+  after 'puma:smart_restart', 'nginx:restart'
+end
+# config valid only for current version of Capistrano
 lock "3.4.1"
 
 set :application, "flashcards"
@@ -44,22 +71,9 @@ namespace :puma do
 end
 
 namespace :deploy do
-  desc "Initial Deploy"
-  task :initial do
-    on roles(:app) do
-      before "deploy:restart", "puma:start"
-      invoke "deploy"
-    end
-  end
-
-  desc "Restart application"
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke "puma:restart"
-    end
-  end
-
-  after :finishing, :compile_assets
-  after :finishing, :cleanup
-  after :finishing, :restart
+  before 'check:linked_files', 'config:push'
+  before 'check:linked_files', 'puma:config'
+  before 'check:linked_files', 'puma:nginx_config'
+  before 'deploy:migrate', 'deploy:db:create'
+  after 'puma:smart_restart', 'nginx:restart'
 end
