@@ -15,7 +15,7 @@ gem 'sorcery'
 gem 'validates_email_format_of'
 gem 'figaro'
 gem 'paperclip', '~> 4.3'
-gem 'aws-sdk', '~> 1.6'
+gem 'aws-sdk', '~> 2'
 gem 's3_direct_upload'
 gem 'damerau-levenshtein'
 gem 'whenever', require: false
