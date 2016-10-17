@@ -26,7 +26,7 @@ gem 'newrelic_rpm'
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem 'puma'
 gem 'bootstrap_form'
-gem 'net-ssh', '2.7.0'
+gem 'sshkit', github: 'capistrano/sshkit'
 
 group :development do
   gem 'capistrano'
@@ -37,7 +37,6 @@ group :development do
   gem 'capistrano-rails-db'
   gem 'capistrano-rails-console'
   gem 'capistrano-upload-config'
-  gem 'sshkit-sudo'
   gem 'web-console'
 end
 
