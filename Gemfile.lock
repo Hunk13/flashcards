@@ -221,7 +221,8 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rollbar (2.2.1)
+    rollbar (2.13.3)
+      multi_json
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -343,7 +344,7 @@ DEPENDENCIES
   rails (= 4.2.3)
   rails-i18n (~> 4.0.0)
   rails_12factor
-  rollbar (~> 2.2.1)
+  rollbar
   rspec-rails (~> 3.0)
   s3_direct_upload
   sass-rails (~> 5.0)
@@ -360,4 +361,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.13.2
+   1.13.5

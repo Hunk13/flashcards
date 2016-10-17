@@ -21,7 +21,7 @@ gem 'damerau-levenshtein'
 gem 'whenever', require: false
 gem 'http_accept_language'
 gem 'rails-i18n', '~> 4.0.0'
-gem 'rollbar', '~> 2.2.1'
+gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem 'puma'
