@@ -12,6 +12,7 @@ en:
       login: "LogIn"
     auth_twitter: "LogIn with Twitter"
     auth_github: "Login with Github"
+    auth_vk: "Login with vk.com"
     app_description: "The world's first user-friendly manager flash cards. Exactly."
     menu:
       languages:

@@ -1,7 +1,7 @@
 Rails.application.config.sorcery.submodules = [:remember_me, :external]
 
 Rails.application.config.sorcery.configure do |config|
-  config.external_providers = [:github, :twitter, :facebook]
+  config.external_providers = [:github, :twitter, :vk]
 
   config.github.key = ENV["OUATH_GITHUB_KEY"]
   config.github.secret = ENV["OUATH_GITHUB_SECRET"]
@@ -13,6 +13,11 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.secret = ENV["OUATH_TWITTER_SECRET"]
   config.twitter.callback_url = ENV["OAUTH_TWITTER_CALLBACK_URL"]
   config.twitter.user_info_mapping = { name: "screen_name", email: "screen_name" }
+
+  config.vk.key = ENV["OUATH_VK_KEY"]
+  config.vk.secret = ENV["OUATH_VK_SECRET"]
+  config.vk.callback_url = ENV["OAUTH_VK_CALLBACK_URL"]
+  config.vk.user_info_mapping = { name: "screen_name", email: "email" }
 
   config.user_config do |user|
     user.authentications_class = Authentication
