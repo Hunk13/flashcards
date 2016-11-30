@@ -12,6 +12,7 @@ ru:
       login: "Вход"
     auth_twitter: "Войти с помощью Twitter"
     auth_github: "Войти с помощью Github"
+    auth_vk: "Войти с помощью Vk.com"
     app_description: "Первый в мире удобный менеджер флеш-карточек. Именно так."
     menu:
       languages:
