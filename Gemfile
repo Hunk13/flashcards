@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-
 gem 'rails', '4.2.3'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -14,8 +13,8 @@ gem 'simple_form'
 gem 'sorcery'
 gem 'validates_email_format_of'
 gem 'figaro'
-gem 'paperclip', '~> 4.3'
-gem 'aws-sdk', '~> 2'
+gem 'paperclip', '~> 5.0.0'
+gem 'aws-sdk', '~> 2.3.0'
 gem 's3_direct_upload'
 gem 'damerau-levenshtein'
 gem 'whenever', require: false
