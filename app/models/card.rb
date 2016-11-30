@@ -6,18 +6,27 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, presence: true,
                                               length: { minimum: 2 },
                                               format: { with: /\A[A-ZА-Я]+[a-zа-я]+\z/,
-                                                        message: I18n.t("model.big_words") }
+                                                        message: I18n.t('model.big_words') }
 
-  has_attached_file :picture, { styles: { medium: "360x360>", thumb: "100x100>" },
-                                default_url: "/images/:style/missing.png" }.merge(PAPERCLIP_STORAGE_OPTIONS)
-  validates_attachment :picture, content_type: { content_type: "image/jpeg" },
+  has_attached_file :picture, storage: :dropbox,
+                              dropbox_credentials: {app_key: ENV['DROPBOX_APP_KEY'],
+                                                    app_secret: ENV['DROPBOX_APP_SECRET'],
+                                                    access_token: ENV['DROPBOX_ACCESS_TOKEN'],
+                                                    access_token_secret: ENV['DROPBOX_ACCESS_TOKEN_SECRET'],
+                                                    user_id: ENV['DROPBOX_USER_ID'],
+                                                    access_type: 'app_folder'},
+                              styles: { medium: '300x300>', thumb: '100x100>' },
+                              default_url: '/images/:style/missing.png',
+                              path: "/:class/:attachment/:id_partition/:style/:filename"
+
+  validates_attachment :picture, content_type: { content_type: 'image/jpeg' },
                                  size: { in: 0..1.megabytes }
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
   after_initialize :set_date_after_review, if: :new_record?
 
-  scope :expired, -> { where("review_date <= ?", DateTime.now) }
+  scope :expired, -> { where('review_date <= ?', DateTime.now) }
   scope :for_review, -> { expired.offset(rand(Card.expired.count)) }
 
   def check_translation(user_translation, seconds)

@@ -1,11 +1,5 @@
 Rails.application.configure do
-  PAPERCLIP_STORAGE_OPTIONS = { storage: :s3,
-                                bucket: ENV["S3_BUCKET"],
-                                s3_credentials: {
-                                  access_key_id: ENV["S3_ACCESS_KEY_ID"],
-                                  secret_access_key: ENV["S3_SECRET_ACCESS_KEY"] },
-                                path: "/:class/:attachment/:id_partition/:style/:filename",
-                                url: ":s3_domain_url" }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
