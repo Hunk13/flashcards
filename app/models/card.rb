@@ -9,12 +9,12 @@ class Card < ActiveRecord::Base
                                                         message: I18n.t('model.big_words') }
 
   has_attached_file :picture, storage: :dropbox,
-                              dropbox_credentials: {app_key: ENV['DROPBOX_APP_KEY'],
-                                                    app_secret: ENV['DROPBOX_APP_SECRET'],
-                                                    access_token: ENV['DROPBOX_ACCESS_TOKEN'],
-                                                    access_token_secret: ENV['DROPBOX_ACCESS_TOKEN_SECRET'],
-                                                    user_id: ENV['DROPBOX_USER_ID'],
-                                                    access_type: 'app_folder'},
+                              dropbox_credentials: { app_key: ENV['DROPBOX_APP_KEY'],
+                                                     app_secret: ENV['DROPBOX_APP_SECRET'],
+                                                     access_token: ENV['DROPBOX_ACCESS_TOKEN'],
+                                                     access_token_secret: ENV['DROPBOX_ACCESS_TOKEN_SECRET'],
+                                                     user_id: ENV['DROPBOX_USER_ID'],
+                                                     access_type: 'app_folder' },
                               styles: { medium: '300x300>', thumb: '100x100>' },
                               default_url: '/images/:style/missing.png',
                               path: "/:class/:attachment/:id_partition/:style/:filename"
