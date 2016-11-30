@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-
 gem 'rails', '4.2.3'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -14,8 +13,8 @@ gem 'simple_form'
 gem 'sorcery'
 gem 'validates_email_format_of'
 gem 'figaro'
-gem 'paperclip', '~> 4.3'
-gem 'aws-sdk', '~> 2'
+gem 'paperclip', '~> 4.2'
+gem 'aws-sdk', '~> 2.3.0'
 gem 's3_direct_upload'
 gem 'damerau-levenshtein'
 gem 'whenever', require: false
@@ -27,6 +26,7 @@ gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem 'puma'
 gem 'bootstrap_form'
 gem 'sshkit', github: 'capistrano/sshkit'
+gem 'paperclip-dropbox'
 
 group :development do
   gem 'capistrano'
