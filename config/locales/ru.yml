@@ -10,9 +10,9 @@ ru:
     noauth:
       signup: "Регистрация"
       login: "Вход"
-    auth_twitter: "Войти с помощью Twitter"
-    auth_github: "Войти с помощью Github"
-    auth_vk: "Войти с помощью Vk.com"
+    auth_twitter: "Twitter"
+    auth_github: "Github"
+    auth_vk: "Vk.com"
     app_description: "Первый в мире удобный менеджер флеш-карточек. Именно так."
     menu:
       languages:
