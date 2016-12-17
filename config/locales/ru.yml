@@ -12,7 +12,7 @@ ru:
       login: "Вход"
     auth_twitter: "Twitter"
     auth_github: "Github"
-    auth_vk: "Vk.com"
+    auth_vk: "vk.com"
     app_description: "Первый в мире удобный менеджер флеш-карточек. Именно так."
     menu:
       languages:
@@ -79,11 +79,14 @@ ru:
       check: "Проверить слово"
       quality: "Оценка ответа"
     user_sessions:
+      title: "Имеете учетную запись?"
+      login_via: "Войти используя:"
+      or: "или"
       enter: "Вход"
       email: "Элктронная почта:"
       password: "Пароль:"
       login: "Войти"
-      remember: "Запомнить меня на этом компьютере"
+      remember: "Запомнить меня"
 
   controller:
     not_logged_message: "Вам нужно зарегистрироваться или войти со своими данными"

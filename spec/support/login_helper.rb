@@ -1,8 +1,8 @@
 def login(email, password)
   visit home_login_path
-  fill_in :user_email, with: email
-  fill_in :user_password, with: password
-  click_button I18n.t('views.user_sessions.login')
+  fill_in 'login_email', with: email
+  fill_in 'login_password', with: password
+  click_button 'login_button'
 end
 
 def default_login

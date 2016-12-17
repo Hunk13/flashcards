@@ -8,6 +8,7 @@ describe "Testing card create and edit," do
 
     it "add card select deck" do
       visit root_path
+      save_and_open_page
       click_on "Добавить карту"
       fill_in("card_original_text", with: "Ja")
       fill_in("card_translated_text", with: "Yes")

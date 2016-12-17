@@ -133,3 +133,7 @@ body {
   display: block;
   font-style: italic;
 }
+
+.actions {
+  vertical-align: center;
+}
