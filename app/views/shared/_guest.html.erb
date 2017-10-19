@@ -1,4 +1,45 @@
-<ul class="nav nav-tabs">
+  <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><%= t("views.user_sessions.enter") %></b> <span class="caret"></span></a>
+  <ul id="login-dp" class="dropdown-menu">
+    <li>
+       <div class="row">
+          <div class="col-md-12">
+            <%= t("views.user_sessions.login_via") %>
+            <div class="social-buttons">
+              <a href="<%= home_auth_at_provider_path(provider: :twitter) %>" class="btn btn-tw"><i class="fa fa-twitter"></i> <%= t("views.auth_twitter") %></a>
+              <a href="<%= home_auth_at_provider_path(provider: :vk) %>" class="btn btn-fb"><i class="fa fa-vk"></i> <%= t("views.auth_vk") %></a>
+            </div>
+
+            <%= t("views.user_sessions.or") %>
+
+            <%= simple_form_for :user, url: home_user_sessions_path do |f| %>
+              <div class="filed">
+                <%= f.input :email, as: :string,
+                                    label: t("views.user_sessions.email"),
+                                    input_html: { id: "login_email" } %><br />
+              </div>
+              <div class="filed">
+                <%= f.input :password, label: t("views.user_sessions.password"),
+                                       input_html: { id: "login_password" } %><br />
+              </div>
+              <div class="form-group">
+                <%= check_box_tag :remember, params[:remember], false %>
+                <%= label_tag t("views.user_sessions.remember") %>
+              </div>
+              <div class="actions">
+                <%=  f.button :submit, t("views.user_sessions.login"), id: "login_button" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="bottom text-center">
+            New here ? <%= link_to t("views.noauth.signup"), home_signup_path %>
+          </div>
+       </div>
+    </li>
+  </ul>
+</li>
+
+<!-- <ul class="nav nav-tabs">
   <li><%= link_to t("views.noauth.signup"), home_signup_path %></li>
   <li><%= link_to t("views.noauth.login"), home_login_path %></li>
   <li><%= link_to t("views.auth_github"), home_auth_at_provider_path(provider: :github) %></li>
@@ -20,4 +61,4 @@
       </ul>
    </div>
   </ul>
-</ul>
+</ul> -->

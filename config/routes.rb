@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "dashboard/reviews#index"
+  root "dashboard#index"
 
   match "/404" => "errors#error404", via: [:get, :post, :patch, :delete]
 

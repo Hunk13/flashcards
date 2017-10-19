@@ -79,11 +79,14 @@ en:
       check: "Check word"
       quality: "Answer quality"
     user_sessions:
+      title: "Already have an account?"
+      login_via: "Login via:"
+      or: "or"
       enter: "LogIn"
       email: "E-mail:"
       password: "Password:"
       login: "Login"
-      remember: "Remember me on this computer"
+      remember: "Remember me"
 
   controller:
     not_logged_message: "You must register or enter with your data"
