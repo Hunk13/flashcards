@@ -2,9 +2,14 @@ language: ruby
 rvm:
 - 2.5.0
 env:
+- RAILS_ENV=test 
 - DB=postgresql
 script:
+- bundle exec rails db:environment:set RAILS_ENV=test
+- RAILS_ENV=test bundle exec rails db:drop db:create db:migrate
 - bundle exec rspec spec
+addons:
+  postgresql: "9.4"
 before_install:
 - gem update --system
 - gem install bundler
@@ -18,7 +23,7 @@ deploy:
   app: sleepy-reaches-7041
   on:
     repo: Hunk13/flashcards
-    branch: twentieth-lesson
+    branch: master
 addons:
   code_climate:
     repo_token:
