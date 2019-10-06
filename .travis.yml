@@ -1,21 +1,21 @@
 language: ruby
-rvm:
-- 2.5.0
+rvm: 2.5.0
 env:
-- RAILS_ENV=test 
-- DB=postgresql
+  - RAILS_ENV=test
+  - DB=postgresql
 script:
-- bundle exec rails db:environment:set RAILS_ENV=test
-- RAILS_ENV=test bundle exec rails db:drop db:create db:migrate
-- bundle exec rspec spec
+  - bundle exec rails db:environment:set RAILS_ENV=test
+  - RAILS_ENV=test bundle exec rails db:drop db:create db:migrate
+  - bundle exec rspec spec
 addons:
   postgresql: "9.4"
 before_install:
-- gem update --system
-- gem install bundler
+  - gem update --system
+  - gem install bundler 
 before_script:
-- cp config/database.yml.travis config/database.yml
-- psql -c 'create database test_pgsql;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database test_pgsql;' -U postgres
+install: bundle install --jobs=3 --retry=3 
 deploy:
   provider: heroku
   api_key:
