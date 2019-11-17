@@ -1,5 +1,6 @@
 language: ruby
-rvm: 2.5.0
+rvm:
+- 2.5.0
 env:
   - RAILS_ENV=test
   - DB=postgresql
@@ -8,16 +9,16 @@ script:
   - RAILS_ENV=test bundle exec rails db:drop db:create db:migrate
   - bundle exec rspec spec
  services:
-  - postgresql 
+  - postgresql
 addons:
   postgresql: "9.4"
 before_install:
   - gem update --system
-  - gem install bundler 
+  - gem install bundler
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database test_pgsql;' -U postgres
-install: bundle install --jobs=3 --retry=3 
+install: bundle install --jobs=3 --retry=3
 deploy:
   provider: heroku
   api_key:
@@ -25,7 +26,6 @@ deploy:
   app: sleepy-reaches-7041
   on:
     repo: Hunk13/flashcards
-    branch: master
 addons:
   code_climate:
     repo_token:
