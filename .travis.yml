@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.3.1
+- 2.5.0
 env:
 - DB=postgresql
 script:
@@ -15,7 +15,7 @@ deploy:
   app: sleepy-reaches-7041
   on:
     repo: Hunk13/flashcards
-    branch: twentieth-lesson
+    branch: master
 addons:
   code_climate:
     repo_token:
