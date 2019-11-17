@@ -26,7 +26,6 @@ deploy:
   app: sleepy-reaches-7041
   on:
     repo: Hunk13/flashcards
-    branch: master
 addons:
   code_climate:
     repo_token:
