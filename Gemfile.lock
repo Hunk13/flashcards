@@ -101,6 +101,7 @@ GEM
     climate_control (0.2.0)
     codeclimate-test-reporter (1.0.9)
       simplecov (<= 0.13)
+    coderay (1.1.3)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -124,11 +125,11 @@ GEM
       mail (~> 2.7)
     erubis (2.7.0)
     execjs (2.7.0)
-    factory_girl (4.9.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
-      railties (>= 3.0.0)
+    factory_bot (5.2.0)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.2.0)
+      factory_bot (~> 5.2.0)
+      railties (>= 4.2.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
@@ -165,6 +166,7 @@ GEM
     mailgun-ruby (1.0.3)
       json (~> 1.8)
       rest-client (~> 1.6)
+    method_source (1.0.0)
     mime-types (2.99.3)
     mimemagic (0.3.10)
       nokogiri (~> 1)
@@ -199,6 +201,9 @@ GEM
     paperclip-dropbox (0.0.2)
       dropbox-sdk (~> 1.3)
     pg (0.20.0)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     public_suffix (4.0.1)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -356,7 +361,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   damerau-levenshtein
   email_spec
-  factory_girl_rails
+  factory_bot_rails
   figaro
   http_accept_language
   jbuilder (~> 2.0)
@@ -366,6 +371,7 @@ DEPENDENCIES
   paperclip (~> 6.0.0)
   paperclip-dropbox
   pg (~> 0.20.0)
+  pry
   puma
   rails (~> 4.2.10)
   rails-i18n (~> 4.0.0)

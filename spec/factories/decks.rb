@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :deck do
-    title "Animals"
+    title { "Animals" }
   end
 end

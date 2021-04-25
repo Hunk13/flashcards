@@ -5,7 +5,6 @@ describe Card do
     create(:card, original_text: "Katze",
                   translated_text: "Cat",
                   review_date: 3.days.from_now,
-                  picture: File.new(Rails.root + "spec/fixtures/files/Cat.jpg"),
                   deck: Deck.new(title: "Animals"))
   end
 

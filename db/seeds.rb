@@ -17,7 +17,8 @@ end
 
 words.slice!(0)
 dat = Date.today + 3
+deck = Deck.find_or_create_by(title: 'Seed cards')
 
 words.each do |word|
-  Card.create!(original_text: word[:ger], translated_text: word[:eng], review_date: dat)
+  Card.create!(original_text: word[:ger], translated_text: word[:eng], review_date: dat, deck: deck)
 end

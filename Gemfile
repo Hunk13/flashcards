@@ -44,8 +44,9 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'spring'
+  gem 'pry'
   gem 'rspec-rails', '~> 3.0'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'capybara'
   gem 'table_print'
   gem 'timecop'
